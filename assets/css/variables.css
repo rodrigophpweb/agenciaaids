@@ -1,0 +1,39 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+    font-style: normal;
+    font-style: normal;
+}
+
+:root {
+    font-size: 62.5%;
+    --primay: #FD4C8C;
+    --secundary: #EB4D5D;
+    --text: #FFD7DA; 
+}
+
+body {
+    font-size: 1.6rem;
+    overflow-x: hidden;
+}
+
+.paddingContent{
+    padding: 0 8%;
+}
+
+p, li {
+    font-weight: 400;
+}
+
+mark {
+    background-color: var(--primay);
+    color: var(--text);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
