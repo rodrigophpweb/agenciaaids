@@ -4,10 +4,20 @@
             </nav>
             <section class="socialMediaAddress">
                 <ul class="socialMediaFooter">
-                    <li>Facebook</li>
-                    <li>X</li>
-                    <li>Instagram</li>
-                    <li>Youtube</li>
+                    <li>
+                        <a href="https://www.facebook.com/agenciaaids/" title="Agência AIDS no facebook" target="_blank" rel="noopener noreferrer nofollow">
+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://x.com/agenciaaids" title="Agência AIDS no X" target="_blank" rel="noopener noreferrer nofollow">
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/agenciaaids/" title="Agência AIDS no Instagram" target="_blank" rel="noopener noreferrer nofollow">
+                    </li>
+                    <li>
+                        <a href="https://www.youtube.com/channel/UCqBcEcgx8QaU--YfJHojVfg" title="Agência AIDS no Youtube" target="_blank" rel="noopener noreferrer nofollow">
+                    </li>
                 </ul>
                 <div class="addressPhoneMail">
                     <address>Av.Paulista 207,3 - Horsa 1 - 8º andar - Cj 822CEP - 01311-300 - Cerqueira César - São Paulo, SP</address>
