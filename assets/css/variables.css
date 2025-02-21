@@ -12,8 +12,11 @@
 
 :root {
     font-size: 62.5%;
-    --primay: #FD4C8C;
-    --secundary: #EB4D5D;
+    --buttonBlue: #20A8F5;
+    --mediumPersianBlue: #085EA9;
+    --water: #CDECFF;
+    --white: #FFFFFF;
+    --black: #000000;
     --text: #FFD7DA; 
 }
 

@@ -1,4 +1,4 @@
-<section class="highlight">
+<section class="highlight <?=$args['class']?>">
     <article>
         <span class="category">Destaque</span>
         <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h1>
