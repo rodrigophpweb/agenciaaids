@@ -1,5 +1,17 @@
 <?php
 
+// Habilitar suporte ao logotipo personalizado
+function theme_setup() {
+    add_theme_support('custom-logo', array(
+        'height'      => 122,
+        'width'       => 114,
+        'flex-height' => true,
+        'flex-width'  => true,
+    ));
+}
+add_action('after_setup_theme', 'theme_setup');
+
+
 
 function custom_breadcrumbs() {
     // Configurações
@@ -138,4 +150,23 @@ function display_custom_breadcrumbs() {
     if (!is_home() && !is_front_page()) {
         custom_breadcrumbs();
     }
+}
+
+function register_my_menus() {
+    register_nav_menus(
+        array(
+            'header-menu' => __( 'Menu do Cabeçalho' ),
+        )
+    );
+}
+add_action( 'init', 'register_my_menus' );
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page(array(
+        'page_title'    => 'Configurações do Tema',
+        'menu_title'    => 'Configurações do Tema',
+        'menu_slug'     => 'configuracoes-do-tema',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+    ));
 }
