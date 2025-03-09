@@ -161,6 +161,11 @@ function register_my_menus() {
 }
 add_action( 'init', 'register_my_menus' );
 
+
+// Incluir o arquivo ctp.php
+require_once get_template_directory() . '/inc/ctp.php';
+
+
 if( function_exists('acf_add_options_page') ) {
     acf_add_options_page(array(
         'page_title'    => 'Configurações do Tema',
