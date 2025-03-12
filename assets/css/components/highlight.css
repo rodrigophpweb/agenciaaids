@@ -1,0 +1,24 @@
+.highlight {
+    &.<?=$args['class']?> {
+        article {
+            .category {
+                /* Estilos para a categoria */
+            }
+            h1 {
+                /* Estilos para o título */
+            }
+            p {
+                /* Estilos para o parágrafo */
+            }
+            time {
+                /* Estilos para o tempo */
+            }
+        }
+        figure {
+            /* Estilos para a figura */
+            img {
+                /* Estilos para a imagem */
+            }
+        }
+    }
+}

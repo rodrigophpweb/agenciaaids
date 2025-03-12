@@ -1,0 +1,15 @@
+.doubt {
+    .info {
+        h2 {
+            /* Estilos para o título */
+        }
+        a {
+            /* Estilos para o link */
+        }
+    }
+    figure {
+        img {
+            /* Estilos para a imagem */
+        }
+    }
+}

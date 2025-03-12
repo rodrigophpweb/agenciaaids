@@ -9,7 +9,7 @@
 <body <?php body_class( 'class-name' ); ?>>
     <?php wp_body_open(); ?>
     <header itemscope itemtype="https://schema.org/WPHeader">
-        <nav class="socialMediaAcessibility" itemscope itemtype="https://schema.org/SiteNavigationElement">
+        <nav class="socialMediaAcessibility paddingContent" itemscope itemtype="https://schema.org/SiteNavigationElement">
             <ul class="mnuSocialMedia">
                 <?php if( have_rows('socialmedia', 'option') ): ?>
                     <?php while( have_rows('socialmedia', 'option') ): the_row(); 

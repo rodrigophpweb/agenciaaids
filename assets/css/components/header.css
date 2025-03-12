@@ -1,0 +1,107 @@
+header {
+    .socialMediaAcessibility {
+        background: var(--buttonBlue);
+        padding-top: .3125rem;
+        padding-bottom: .3125rem;
+        display: flex;
+        justify-content: space-between;
+
+        .mnuSocialMedia {
+            display: flex;
+
+            li {
+                /* Estilos para os itens da lista */
+
+                a {
+                    /* Estilos para os links */
+                    &:hover,
+                    &:focus {
+                        /* Estilos para hover e focus */
+                    }
+
+                    img {
+                        width: 2rem;
+                        height: 2rem;
+                        padding: .3125rem;
+                        background: var(--white);
+                        border-radius: 100%;
+                        margin-right: .5rem;
+                    }
+                }
+            }
+        }
+
+        .acessibility {
+            /* Estilos para a seção de acessibilidade */
+
+            .contrast {
+                /* Estilos para o contraste */
+
+                .btnContrast {
+                    /* Estilos para o botão de contraste */
+                }
+
+                .mnuContrast {
+                    /* Estilos para o menu de contraste */
+
+                    li {
+                        /* Estilos para os itens da lista */
+                    }
+                }
+            }
+
+            .sizeButtonMore,
+            .sizeButtonLess {
+                /* Estilos para os botões de tamanho de fonte */
+            }
+        }
+    }
+
+    .brandAds {
+        /* Estilos para a seção de marca e anúncios */
+
+        .brand {
+            /* Estilos para a marca */
+
+            a {
+                /* Estilos para os links */
+                span {
+                    /* Estilos para o texto */
+                }
+            }
+        }
+
+        .ads {
+            /* Estilos para os anúncios */
+
+            a {
+                /* Estilos para os links */
+                img {
+                    /* Estilos para as imagens */
+                }
+            }
+        }
+    }
+
+    .mnuDefault {
+        /* Estilos para o menu de navegação principal */
+
+        .mnuPrincipal {
+            /* Estilos para a lista de navegação principal */
+
+            li {
+                /* Estilos para os itens da lista */
+
+                a {
+                    /* Estilos para os links */
+                    &:hover,
+                    &:focus,
+                    &.current-menu-item,
+                    &.current_page_item {
+                        /* Estilos para hover, focus e itens ativos */
+                    }
+                }
+            }
+        }
+    }
+}

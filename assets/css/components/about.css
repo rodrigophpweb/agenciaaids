@@ -1,0 +1,43 @@
+.aboutUs {
+    span {
+        /* Estilos para o span */
+    }
+    h1 {
+        /* Estilos para o título */
+    }
+    article {
+        figure {
+            img {
+                /* Estilos para a imagem */
+            }
+        }
+        header {
+            h2 {
+                /* Estilos para o título */
+            }
+            p {
+                /* Estilos para o parágrafo */
+            }
+            a {
+                img {
+                    /* Estilos para o ícone de email */
+                }
+                span {
+                    /* Estilos para o texto do email */
+                }
+            }
+            h3 {
+                /* Estilos para o subtítulo */
+            }
+            ul {
+                li {
+                    a {
+                        img {
+                            /* Estilos para os ícones das redes sociais */
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

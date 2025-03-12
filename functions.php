@@ -182,3 +182,30 @@ if( function_exists('acf_add_options_page') ) {
     ));
 }
 
+function load_custom_css() {
+    $css_files = [
+        'acessibilidade'            => 'acessibility.css',
+        'artigos'                   => 'articles.css',
+        'contato'                   => 'contact.css',
+        'dicionario'                => 'dictionary.css',
+        'faq'                       => 'faq.css',
+        'home'                      => 'home.css',
+        'palestras'                 => 'lectures.css',
+        'biblioteca'                => 'library.css',
+        'noticias'                  => 'news.css',
+        'politica-de-privacidade'   => 'policePrivacy.css',
+        'quem-somos'                => 'whoWeAre.css',
+    ];
+
+    if (is_page()) {
+        global $post;
+        $slug = $post->post_name;
+
+        if (is_front_page()) {
+            wp_enqueue_style('home', get_template_directory_uri() . '/assets/css/pages/home.css');
+        } elseif (array_key_exists($slug, $css_files)) {
+            wp_enqueue_style($slug, get_template_directory_uri() . '/assets/css/pages/' . $css_files[$slug]);
+        }
+    }
+}
+add_action('wp_enqueue_scripts', 'load_custom_css');

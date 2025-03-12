@@ -1,0 +1,92 @@
+footer {
+    /* Estilos gerais para o rodapé */
+
+    .menu {
+        /* Estilos para o menu do rodapé */
+
+        .footer-menu-container {
+            /* Estilos para o container do menu do rodapé */
+
+            .footer-menu {
+                /* Estilos para a lista do menu do rodapé */
+
+                li {
+                    /* Estilos para os itens da lista */
+
+                    a {
+                        /* Estilos para os links */
+                        &:hover,
+                        &:focus,
+                        &.current-menu-item,
+                        &.current_page_item {
+                            /* Estilos para hover, focus e itens ativos */
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .socialMediaAddress {
+        /* Estilos para a seção de mídias sociais e endereço */
+
+        .mnuSocialMediaFooter {
+            /* Estilos para a lista de mídias sociais do rodapé */
+
+            li {
+                /* Estilos para os itens da lista */
+
+                a {
+                    /* Estilos para os links */
+                    &:hover,
+                    &:focus {
+                        /* Estilos para hover e focus */
+                    }
+
+                    img {
+                        /* Estilos para as imagens */
+                    }
+                }
+            }
+        }
+
+        .addressPhoneMail {
+            /* Estilos para a seção de endereço e contatos */
+
+            address {
+                /* Estilos para o endereço */
+
+                a {
+                    /* Estilos para os links */
+                    span {
+                        /* Estilos para o texto */
+                    }
+                }
+            }
+
+            .contactsPhoneMail {
+                /* Estilos para os contatos de telefone e email */
+
+                a {
+                    /* Estilos para os links */
+                    &:hover,
+                    &:focus {
+                        /* Estilos para hover e focus */
+                    }
+
+                    span {
+                        /* Estilos para o texto */
+                    }
+                }
+            }
+        }
+    }
+
+    .copyrigth {
+        /* Estilos para a seção de direitos autorais */
+
+        small {
+            /* Estilos para o texto de direitos autorais */
+        }
+    }
+}

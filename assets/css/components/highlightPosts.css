@@ -1,0 +1,44 @@
+.highlightPosts {
+    .subtitle {
+        /* Estilos para o subtítulo */
+    }
+    h2 {
+        /* Estilos para o título */
+    }
+    .postSticky {
+        figure {
+            img {
+                /* Estilos para a imagem */
+            }
+        }
+        h3 {
+            /* Estilos para o título */
+        }
+        p {
+            /* Estilos para o parágrafo */
+        }
+        time {
+            /* Estilos para o tempo */
+        }
+    }
+    .aside_notices {
+        .aide_notices_article {
+            figure {
+                img {
+                    /* Estilos para a imagem */
+                }
+            }
+            header {
+                h3 {
+                    /* Estilos para o título */
+                }
+                p {
+                    /* Estilos para o parágrafo */
+                }
+                time {
+                    /* Estilos para o tempo */
+                }
+            }
+        }
+    }
+}
