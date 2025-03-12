@@ -10,8 +10,8 @@
         <time datetime="">20 de Fevereiro de 2025</time>
     </article>
 
-    <aside>
-        <article>
+    <aside class="aside_notices">
+        <article class="aide_notices_article">
             <figure>
                 <img src="" alt="">
             </figure>
