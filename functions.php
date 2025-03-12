@@ -12,7 +12,6 @@ function theme_setup() {
 add_action('after_setup_theme', 'theme_setup');
 
 
-
 function custom_breadcrumbs() {
     // Configurações
     $separator = ' » ';
@@ -154,13 +153,20 @@ function display_custom_breadcrumbs() {
 
 function register_my_menus() {
     register_nav_menus(
-        array(
+        [
             'header-menu' => __( 'Menu do Cabeçalho' ),
-        )
+            'footer-menu' => __( 'Menu do Rodapé' ),
+
+        ]
     );
 }
 add_action( 'init', 'register_my_menus' );
 
+function custom_image_sizes() {
+    add_image_size('latestVideo', 904, 450, true); // Ajuste conforme necessário
+    add_image_size('thumbnail_aside_videos_home', 200, 200, true); // Ajuste conforme necessário
+}
+add_action('after_setup_theme', 'custom_image_sizes');
 
 // Incluir o arquivo ctp.php
 require_once get_template_directory() . '/inc/ctp.php';
@@ -175,3 +181,4 @@ if( function_exists('acf_add_options_page') ) {
         'redirect'      => false
     ));
 }
+
