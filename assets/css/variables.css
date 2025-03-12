@@ -11,7 +11,6 @@
 }
 
 :root {
-    font-size: 62.5%;
     --buttonBlue: #20A8F5;
     --mediumPersianBlue: #085EA9;
     --water: #CDECFF;
@@ -21,7 +20,7 @@
 }
 
 body {
-    font-size: 1.6rem;
+    font-size: 1rem;
     overflow-x: hidden;
 }
 
