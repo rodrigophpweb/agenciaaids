@@ -11,6 +11,10 @@ function theme_setup() {
 }
 add_action('after_setup_theme', 'theme_setup');
 
+function enqueue_custom_scripts() {
+    wp_enqueue_script('custom-app-js', get_template_directory_uri() . '/assets/js/app.js', array(), null, true);
+}
+add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
 
 function custom_breadcrumbs() {
     // Configurações
