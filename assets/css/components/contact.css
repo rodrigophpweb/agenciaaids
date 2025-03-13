@@ -5,7 +5,31 @@
     h1 {
         /* Estilos para o título */
     }
+    P {
+        /* Estilos para o paragrafo */
+    }
     form {
         /* Estilos para o formulário */
+        input[name="nome"] {
+            /* Estilos para o campo nome */
+        }
+        select[name="Motivo"] {
+            /* Estilos para o campo Motivo */
+        }
+        input[name="email"] {
+            /* Estilos para o campo email */
+        }
+        input[name="celular"] {
+            /* Estilos para o campo celular */
+        }
+        textarea[name="mensagem"] {
+            /* Estilos para o campo mensagem */
+        }
+        input[name="termo"] {
+            /* Estilos para o campo termo */
+        }
+        button[name="enviar"] {
+            /* Estilos para o botão enviar */
+        }
     }
 }
