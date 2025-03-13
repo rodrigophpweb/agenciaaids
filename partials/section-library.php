@@ -1,12 +1,14 @@
 <section class="library" itemscope itemtype="http://schema.org/Library">
     <h1>Todos os livros</h1>
-    <p><?php the_exerpt()?></p>
-    <article class="books">
+    <p><?php the_excerpt(); ?></p>
+    <article class="books" id="books-container">
         <?php
-        $args = array(
-            'post_type' => 'livros',
-            'posts_per_page' => -1
-        );
+        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+        $args = [
+            'post_type'         => 'livros',
+            'posts_per_page'    => 10,
+            'paged'             => $paged
+        ];
         $books = new WP_Query($args);
         if ($books->have_posts()) :
             while ($books->have_posts()) :
@@ -17,10 +19,10 @@
                     <?php the_post_thumbnail('thumbnail-book-cover', ['itemprop' => 'image']); ?>
                     <figcaption>
                         <h2 itemprop="name"><?php the_title(); ?></h2>
-                        <span class="author" itemprop="author"><?=get_field('library-author')?></span>
-                        <span class="editor" itemprop="publisher"><?=get_field('library-editora')?></span>
-                        <span class="excerpt" itemprop="description"><?php the_excerpt()?></span>
-                        <a href="<?=esc_html(get_field('library_publisher'))?>" target="_blank" rel="noopener noreferrer" itemprop="url">Visite o site da editora</a>
+                        <span class="author" itemprop="author"><?= get_field('library-author') ?></span>
+                        <span class="editor" itemprop="publisher"><?= get_field('library-editora') ?></span>
+                        <span class="excerpt" itemprop="description"><?php the_excerpt() ?></span>
+                        <a href="<?= esc_html(get_field('library_publisher')) ?>" target="_blank" rel="noopener noreferrer" itemprop="url">Visite o site da editora</a>
                     </figcaption>
                 </figure>
 
@@ -30,4 +32,17 @@
         endif;
         ?>
     </article>
+    <nav class="pagination" itemscope itemtype="http://schema.org/SiteNavigationElement">
+        <?php
+            echo paginate_links([
+                'total' => $books->max_num_pages,
+                'current' => $paged,
+                'format' => '?paged=%#%',
+                'prev_text' => __('&laquo; Anterior'),
+                'next_text' => __('Próximo &raquo;'),
+                'type' => 'list',
+                'before_page_number' => '<span class="screen-reader-text">' . __('Página') . ' </span>'
+            ]);
+        ?>
+    </nav>    
 </section>
