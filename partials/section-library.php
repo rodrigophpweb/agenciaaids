@@ -1,4 +1,4 @@
-<section class="library">
+<section class="library" itemscope itemtype="http://schema.org/Library">
     <h1>Todos os livros</h1>
     <p><?php the_exerpt()?></p>
     <article class="books">
@@ -13,14 +13,14 @@
                 $books->the_post();
                 ?>
 
-                <figure>
-                    <?php the_post_thumbnail('thumbnail-book-cover'); ?>
+                <figure itemscope itemtype="http://schema.org/Book">
+                    <?php the_post_thumbnail('thumbnail-book-cover', ['itemprop' => 'image']); ?>
                     <figcaption>
-                        <h2><?php the_title(); ?></h2>
-                        <span class="author"><?=get_field('library-author')?></span>
-                        <span class="editor"><?=get_field('library-editora')?></span>
-                        <span class="excerpt"><?php the_excerpt()?></span>
-                        <a href="<?=esc_html(get_field('library_publisher'))?>" target="_blank" rel="">Visite o site da editora</a>
+                        <h2 itemprop="name"><?php the_title(); ?></h2>
+                        <span class="author" itemprop="author"><?=get_field('library-author')?></span>
+                        <span class="editor" itemprop="publisher"><?=get_field('library-editora')?></span>
+                        <span class="excerpt" itemprop="description"><?php the_excerpt()?></span>
+                        <a href="<?=esc_html(get_field('library_publisher'))?>" target="_blank" rel="noopener noreferrer" itemprop="url">Visite o site da editora</a>
                     </figcaption>
                 </figure>
 
