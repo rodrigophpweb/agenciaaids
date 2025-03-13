@@ -1,4 +1,28 @@
-<section class="faq paddingContent">
-    <span class="subtitle">FAQ</span>
-    <h1>Tire suas dúvidas se informe sobre HIV/ Aids e Infecções Sexualmente Transmissíveis</h1>
-</section>
+<?php
+get_header();
+
+$templates = [
+    'contato'       => 'contact',
+    'biblioteca'    => 'library',
+    'faq'           => 'faq'
+];
+
+if (is_page(array_keys($templates))) {
+    $page_slug = get_post_field('post_name', get_post());
+    if (array_key_exists($page_slug, $templates)) {
+        get_template_part('partials/' . $templates[$page_slug]);
+    }
+} else {
+    // Template padrão para outras páginas
+    ?>
+    <main>
+        <h1><?php the_title(); ?></h1>
+        <div>
+            <?php the_content(); ?>
+        </div>
+    </main>
+    <?php
+}
+
+get_footer();
+?>

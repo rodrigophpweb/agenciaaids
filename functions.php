@@ -11,6 +11,7 @@ function theme_setup() {
 }
 add_action('after_setup_theme', 'theme_setup');
 
+
 function enqueue_custom_scripts() {
     wp_enqueue_script('custom-app-js', get_template_directory_uri() . '/assets/js/app.js', array(), null, true);
 }
@@ -213,3 +214,9 @@ function load_custom_css() {
     }
 }
 add_action('wp_enqueue_scripts', 'load_custom_css');
+
+// Remover o atributo type das tags script
+function remove_type_attr($tag, $handle, $src) {
+    return str_replace(" type='text/javascript'", '', $tag);
+}
+add_filter('script_loader_tag', 'remove_type_attr', 10, 3);
