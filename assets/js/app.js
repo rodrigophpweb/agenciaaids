@@ -45,23 +45,30 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(error => console.error('Error fetching posts:', error));
     }
 
-    const paginationLinks = document.querySelectorAll('.pagination a');
-    paginationLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault();
-            const url = this.href;
-            fetch(url)
-                .then(response => response.text())
-                .then(html => {
-                    const parser = new DOMParser();
-                    const doc = parser.parseFromString(html, 'text/html');
-                    const newBooks = doc.querySelector('#books-container').innerHTML;
-                    const newPagination = doc.querySelector('.pagination').innerHTML;
-                    document.querySelector('#books-container').innerHTML = newBooks;
-                    document.querySelector('.pagination').innerHTML = newPagination;
-                    window.history.pushState(null, '', url);
-                })
-                .catch(error => console.error('Error fetching the page:', error));
+    function handlePagination(event) {
+        event.preventDefault();
+        const url = this.href;
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(html, 'text/html');
+                const newBooks = doc.querySelector('#books-container').innerHTML;
+                const newPagination = doc.querySelector('.pagination').innerHTML;
+                document.querySelector('#books-container').innerHTML = newBooks;
+                document.querySelector('.pagination').innerHTML = newPagination;
+                window.history.pushState(null, '', url);
+                attachPaginationEvents(); // Reattach events to new pagination links
+            })
+            .catch(error => console.error('Error fetching the page:', error));
+    }
+
+    function attachPaginationEvents() {
+        const paginationLinks = document.querySelectorAll('.pagination a');
+        paginationLinks.forEach(link => {
+            link.addEventListener('click', handlePagination);
         });
-    });
+    }
+
+    attachPaginationEvents(); // Initial attachment of events
 });

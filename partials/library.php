@@ -6,7 +6,7 @@
         $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
         $args = [
             'post_type'         => 'bibliotecas',
-            'posts_per_page'    => 9,
+            'posts_per_page'    => 3,
             'paged'             => $paged
         ];
         $books = new WP_Query($args);
