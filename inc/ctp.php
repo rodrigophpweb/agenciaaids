@@ -58,7 +58,7 @@ function register_custom_post_types() {
     create_custom_post_type('Artigos', 'Artigo', 'dashicons-admin-post');
     create_custom_post_type('Eventos', 'Evento', 'dashicons-calendar');
     create_custom_post_type('Bibliotecas', 'Biblioteca', 'dashicons-book');
-    create_custom_post_type('Servicos', 'Servico', 'dashicons-hammer');
+    create_custom_post_type('Servico', 'Serviço', 'dashicons-hammer');
     create_custom_post_type('Dicionarios', 'Dicionario', 'dashicons-book-alt');
     create_custom_post_type('Respostas', 'Resposta', 'dashicons-format-chat');
 }

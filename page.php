@@ -4,7 +4,8 @@ get_header();
 $templates = [
     'contato'       => 'contact',
     'biblioteca'    => 'library',
-    'faq'           => 'faq'
+    'faq'           => 'faq',
+    'servicos'      => 'services'
 ];
 
 if (is_page(array_keys($templates))) {

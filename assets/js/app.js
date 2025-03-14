@@ -53,9 +53,9 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(html => {
                 const parser = new DOMParser();
                 const doc = parser.parseFromString(html, 'text/html');
-                const newBooks = doc.querySelector('#books-container').innerHTML;
+                const newContent = doc.querySelector('#' + this.closest('nav').previousElementSibling.id).innerHTML;
                 const newPagination = doc.querySelector('.pagination').innerHTML;
-                document.querySelector('#books-container').innerHTML = newBooks;
+                document.querySelector('#' + this.closest('nav').previousElementSibling.id).innerHTML = newContent;
                 document.querySelector('.pagination').innerHTML = newPagination;
                 window.history.pushState(null, '', url);
                 attachPaginationEvents(); // Reattach events to new pagination links

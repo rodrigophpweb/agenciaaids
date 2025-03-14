@@ -215,6 +215,7 @@ function load_custom_css() {
 }
 add_action('wp_enqueue_scripts', 'load_custom_css');
 
+
 // Remover o atributo type das tags script
 function remove_type_attr($tag, $handle, $src) {
     return str_replace(" type='text/javascript'", '', $tag);
