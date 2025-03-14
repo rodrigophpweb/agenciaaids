@@ -1,5 +1,9 @@
 footer {
-    /* Estilos gerais para o rodapé */
+    background-color: var(--mediumPersianBlue);
+    padding-top: .9375rem;
+    padding-bottom: .9375rem;
+    display: flex;
+    flex-wrap: wrap;
 
     .menu {
         /* Estilos para o menu do rodapé */
@@ -12,14 +16,18 @@ footer {
 
                 li {
                     /* Estilos para os itens da lista */
+                    &.current-menu-item,
+                    &.current_page_item {
+                        a {
+                            text-decoration: underline;
+                        }
+                    }
 
                     a {
-                        /* Estilos para os links */
+                        color: var(--white);
                         &:hover,
-                        &:focus,
-                        &.current-menu-item,
-                        &.current_page_item {
-                            /* Estilos para hover, focus e itens ativos */
+                        &:focus {
+                            text-decoration: underline;
                         }
                     }
                 }
@@ -57,9 +65,9 @@ footer {
                 /* Estilos para o endereço */
 
                 a {
-                    /* Estilos para os links */
+                    
                     span {
-                        /* Estilos para o texto */
+                        color: var(--white)    
                     }
                 }
             }
@@ -68,10 +76,11 @@ footer {
                 /* Estilos para os contatos de telefone e email */
 
                 a {
-                    /* Estilos para os links */
+                    
                     &:hover,
                     &:focus {
-                        /* Estilos para hover e focus */
+                        color: var(--white);
+                        text-decoration: underline;
                     }
 
                     span {
@@ -83,10 +92,13 @@ footer {
     }
 
     .copyrigth {
-        /* Estilos para a seção de direitos autorais */
-
+        width: 100%;
+        text-align: center;
+        padding: .9375rem 0 0;
+        border-top: solid .0625rem var(--white);
+        margin-top: .9375rem;
         small {
-            /* Estilos para o texto de direitos autorais */
+            color: var(--white);
         }
     }
 }
