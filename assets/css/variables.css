@@ -25,7 +25,8 @@ body {
 }
 
 .paddingContent{
-    padding: 0 8%;
+    padding-left: 8%;
+    padding-right: 8%;
 }
 
 p, li {
