@@ -1,4 +1,4 @@
-<footer>
+<footer class="paddingContent">
     <nav class="menu">
         <?php
             wp_nav_menu(
