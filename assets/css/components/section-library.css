@@ -1,0 +1,52 @@
+.library {
+    h1 {
+        /* Estilos para o título */
+    }
+    p {
+        /* Estilos para o parágrafo */
+    }
+    .books {
+        /* Estilos para a seção de livros */
+        figure {
+            /* Estilos para a figura */
+            img {
+                /* Estilos para a imagem */
+            }
+            figcaption {
+                /* Estilos para a legenda */
+                h2 {
+                    /* Estilos para o título do livro */
+                }
+                .author {
+                    /* Estilos para o autor */
+                }
+                .editor {
+                    /* Estilos para a editora */
+                }
+                .excerpt {
+                    /* Estilos para o resumo */
+                }
+                a {
+                    /* Estilos para o link */
+                }
+            }
+        }
+    }
+    .pagination {
+        /* Estilos para a paginação */
+        ul {
+            /* Estilos para a lista de paginação */
+            li {
+                /* Estilos para os itens da lista */
+                a {
+                    /* Estilos para os links */
+                    &:hover,
+                    &:focus,
+                    &.current {
+                        /* Estilos para hover, focus e itens ativos */
+                    }
+                }
+            }
+        }
+    }
+}
