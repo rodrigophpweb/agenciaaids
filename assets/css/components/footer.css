@@ -1,17 +1,21 @@
 footer {
-    background-color: var(--mediumPersianBlue);
-    padding-top: .9375rem;
-    padding-bottom: .9375rem;
+    background-color: var(--charlestonGreen);
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem;
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 
     .menu {
-        /* Estilos para o menu do rodapé */
+        width: 50%;
 
-        .footer-menu-container {
-            /* Estilos para o container do menu do rodapé */
+        .footer-menu-container {            
+            margin-bottom: 1.5625rem;
 
             .footer-menu {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
                 /* Estilos para a lista do menu do rodapé */
 
                 li {
@@ -19,15 +23,25 @@ footer {
                     &.current-menu-item,
                     &.current_page_item {
                         a {
-                            text-decoration: underline;
+                            background-color: var(--maize);
+                            color: var(--charlestonGreen);
+                            border-radius: .9375rem;
+                            padding: .3125rem .625rem;
+                            font-weight: 600;
+
                         }
                     }
 
                     a {
                         color: var(--white);
+                        font-size: 1rem;
                         &:hover,
                         &:focus {
-                            text-decoration: underline;
+                            background-color: var(--maize);
+                            color: var(--charlestonGreen);
+                            border-radius: .9375rem;
+                            padding: .3125rem .625rem;
+                            font-weight: 600;
                         }
                     }
                 }
@@ -39,20 +53,32 @@ footer {
         /* Estilos para a seção de mídias sociais e endereço */
 
         .mnuSocialMediaFooter {
-            /* Estilos para a lista de mídias sociais do rodapé */
+            display: flex;
+            justify-content: end;
+            align-items: center;
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
 
             li {
                 /* Estilos para os itens da lista */
 
                 a {
-                    /* Estilos para os links */
+                    
+
                     &:hover,
                     &:focus {
-                        /* Estilos para hover e focus */
+                        
                     }
 
                     img {
-                        /* Estilos para as imagens */
+                        width: 2rem;
+                        height: 2rem;
+                        padding: .3125rem;
+                        background: var(--white);
+                        border-radius: 100%;
+                        margin-right: .5rem;
                     }
                 }
             }
@@ -99,6 +125,7 @@ footer {
         margin-top: .9375rem;
         small {
             color: var(--white);
+            font-size: .875rem;
         }
     }
 }

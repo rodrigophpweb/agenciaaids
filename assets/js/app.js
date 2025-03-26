@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const btnContrast = document.querySelector('.btnContrast');
+    const mnuContrast = document.querySelector('.mnuContrast');
+
+    btnContrast.addEventListener('click', function() {
+        mnuContrast.classList.toggle('open');
+    });
+
+
     const categoryLinks = document.querySelectorAll('.category-link');
 
     categoryLinks.forEach(link => {
@@ -71,4 +79,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     attachPaginationEvents(); // Initial attachment of events
+    
 });

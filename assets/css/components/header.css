@@ -1,4 +1,6 @@
-header {
+header {    
+    box-shadow: 0 .25rem 1.25rem -0.25rem rgba(0,28,51,.11);
+
     .socialMediaAcessibility {
         background: var(--buttonBlue);
         padding-top: .3125rem;
@@ -32,36 +34,69 @@ header {
         }
 
         .acessibility {
-            /* Estilos para a seção de acessibilidade */
+            font-size: 0.875rem; /* 14px em rem */
+            display: flex;
+            align-items: center;
+            cursor: pointer;
 
             .contrast {
-                /* Estilos para o contraste */
-
-                .btnContrast {
-                    /* Estilos para o botão de contraste */
-                }
+                position: relative; /* Adiciona posição relativa ao contêiner do contraste */
 
                 .mnuContrast {
-                    /* Estilos para o menu de contraste */
+                    display: none;
+                    position: absolute; /* Adiciona posição absoluta ao menu */
+                    top: 100%; /* Posiciona o menu abaixo do botão */
+                    left: 0;
+                    background: var(--buttonBlue);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    z-index: 1000;
+                    padding: 0.5rem;
+                    border-radius: 0.5rem;
+                    /* Outros estilos para o menu */
 
                     li {
+                        padding: 0.5rem 0;
                         /* Estilos para os itens da lista */
+                    }
+                }
+
+                .mnuContrast.open {
+                    display: block;
+                    width: max-content;
+                
+                    li {
+                        padding: .625rem;
+                        &:hover {
+                            background-color: var(--white);
+                            border-radius: .625rem;
+                        }
                     }
                 }
             }
 
+            .btnContrast,
             .sizeButtonMore,
             .sizeButtonLess {
-                /* Estilos para os botões de tamanho de fonte */
+                width: 2rem;
+                height: 2rem;
+                border-radius: 100%;
+                background-color: var(--white);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 0.5rem;
+                cursor: pointer;
             }
         }
     }
 
     .brandAds {
-        /* Estilos para a seção de marca e anúncios */
-
+        padding-top: 1.5625rem;
+        padding-bottom: 1.5625rem;
+        display: flex;
+        
         .brand {
-            /* Estilos para a marca */
+            width: 10%;
 
             a {
                 /* Estilos para os links */
@@ -72,8 +107,11 @@ header {
         }
 
         .ads {
-            /* Estilos para os anúncios */
-
+            width: 90%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             a {
                 /* Estilos para os links */
                 img {
@@ -84,21 +122,25 @@ header {
     }
 
     .mnuDefault {
-        /* Estilos para o menu de navegação principal */
+        display: flex;
+        justify-content: center;
 
         .mnuPrincipal {
-            /* Estilos para a lista de navegação principal */
+            display: flex;
+            margin-bottom: 1.5625rem;
 
             li {
-                /* Estilos para os itens da lista */
+                margin-left: .625rem;
+                margin-right: .625rem;
 
                 a {
-                    /* Estilos para os links */
+                    text-transform: uppercase;
+                    font-weight: 500;
                     &:hover,
                     &:focus,
                     &.current-menu-item,
                     &.current_page_item {
-                        /* Estilos para hover, focus e itens ativos */
+                        text-decoration: underline;
                     }
                 }
             }

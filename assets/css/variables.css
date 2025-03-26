@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
 * {
     box-sizing: border-box;
     padding: 0;
@@ -6,17 +7,22 @@
     border: none;
     text-decoration: none;
     list-style: none;
-    font-style: normal;
+    font-family: 'Roboto Flex', sans-serif;
     font-style: normal;
 }
 
 :root {
     --buttonBlue: #20A8F5;
-    --mediumPersianBlue: #085EA9;
-    --water: #CDECFF;
+    --blueJeans: #55ADE0;
+    --maize: #E0C155;
+    --charlestonGreen: #202C33;
+    --darkBlueGray: #63688B;
+    --arsenic: #3B4347;
+    --darkEletroBlue: #5F717A;
     --white: #FFFFFF;
     --black: #000000;
-    --text: #FFD7DA; 
+    --iconSize: 2rem;
+    /* --btnAcessibility:  */
 }
 
 body {
