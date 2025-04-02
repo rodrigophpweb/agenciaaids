@@ -46,3 +46,7 @@ mark {
     border-radius: 0.5rem;
 }
 
+section {
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem;
+}

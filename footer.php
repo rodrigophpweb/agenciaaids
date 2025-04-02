@@ -42,7 +42,7 @@
                     $formatted_phone2 = '55' . preg_replace('/\D+/', '', $phone2);
                 ?>
                 <a href="tel:<?=esc_attr($formatted_phone1)?>" title="Ligue para nós" rel="noopener noreferrer"><span itemprop="telephone">+55 <?=esc_html($phone1)?></span></a> | 
-                <a href="tel:<?=esc_attr($formatted_phone2)?>" title="Ligue para nós" rel="noopener noreferrer"><span itemprop="telephone"><?=esc_html($phone2)?></span></a>
+                <a href="tel:<?=esc_attr($formatted_phone2)?>" title="Ligue para nós" rel="noopener noreferrer"><span itemprop="telephone"><?=esc_html($phone2)?></span></a> | 
                 <a href="mailto:<?=esc_attr(get_field('ourMail', 'option'))?>" target="_blank" rel="noopener noreferrer"><span itemprop="email"><?=esc_html(get_field('ourMail', 'option'))?></span></a>
             </div>
         </div>            

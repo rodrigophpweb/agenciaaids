@@ -1,12 +1,30 @@
 .highlightPosts {
-    .subtitle {
-        /* Estilos para o subtítulo */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    header {
+        box-shadow: none;
+        width: 100%;
+
+        .subtitle {
+            /* Estilos para o subtítulo */
+        }
+        h2 {
+            /* Estilos para o título */
+        }
     }
-    h2 {
-        /* Estilos para o título */
-    }
+
+    
     .postSticky {
+        padding: .625rem;
+
         figure {
+            width: 45.3125rem;
+            min-height: 25rem;
+            background-color: var(--arsenic);
+            border-radius: 3.125rem;
+
             img {
                 /* Estilos para a imagem */
             }

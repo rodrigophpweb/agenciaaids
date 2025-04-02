@@ -85,11 +85,8 @@ footer {
         }
 
         .addressPhoneMail {
-            /* Estilos para a seção de endereço e contatos */
-
             address {
-                /* Estilos para o endereço */
-
+                margin: .625rem 0;
                 a {
                     
                     span {
@@ -99,13 +96,16 @@ footer {
             }
 
             .contactsPhoneMail {
-                /* Estilos para os contatos de telefone e email */
+                display: flex;
+                justify-content: end;
+                color: var(--white);
 
                 a {
-                    
+                    color: var(--white);
+                    margin: 0 .3125rem;
+
                     &:hover,
-                    &:focus {
-                        color: var(--white);
+                    &:focus {                        
                         text-decoration: underline;
                     }
 
