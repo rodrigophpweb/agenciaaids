@@ -26,7 +26,7 @@ function custom_breadcrumbs() {
     global $post;
 
     // Início do breadcrumb
-    echo '<nav aria-label="breadcrumb">';
+    echo '<nav aria-label="breadcrumb" class="paddingContent">';
     echo '<ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">';
 
     // Home (primeiro item do breadcrumb)
@@ -51,27 +51,38 @@ function custom_breadcrumbs() {
         echo '<span itemprop="name">' . get_the_title() . '</span>';
         echo '<meta itemprop="position" content="3" />';
         echo '</li>';
-    } elseif (is_page() && $post->post_parent) {
-        $parent_id  = $post->post_parent;
-        $breadcrumbs = [];
-        while ($parent_id) {
-            $page = get_post($parent_id);
-            $breadcrumbs[] = '<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
-                                <a href="' . get_permalink($page->ID) . '" itemprop="item">
-                                    <span itemprop="name">' . get_the_title($page->ID) . '</span>
-                                </a>
-                                <meta itemprop="position" content="' . (count($breadcrumbs) + 2) . '" />
-                              </li>';
-            $parent_id = $page->post_parent;
+    } elseif (is_page()) {
+        if ($post->post_parent) {
+            $parent_id  = $post->post_parent;
+            $breadcrumbs = [];
+            while ($parent_id) {
+                $page = get_post($parent_id);
+                $breadcrumbs[] = '<li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                                    <a href="' . get_permalink($page->ID) . '" itemprop="item">
+                                        <span itemprop="name">' . get_the_title($page->ID) . '</span>
+                                    </a>
+                                    <meta itemprop="position" content="' . (count($breadcrumbs) + 2) . '" />
+                                  </li>';
+                $parent_id = $page->post_parent;
+            }
+            $breadcrumbs = array_reverse($breadcrumbs);
+            foreach ($breadcrumbs as $index => $breadcrumb) {
+                echo $breadcrumb;
+                // Adicionar o separador após cada breadcrumb, exceto o último
+                if ($index < count($breadcrumbs) - 1) {
+                    echo '<span class="separator">' . $separator . '</span>';
+                }
+            }
+            // Adicionar o separador antes da página atual
+            echo '<span class="separator">' . $separator . '</span>';
         }
-        $breadcrumbs = array_reverse($breadcrumbs);
-        foreach ($breadcrumbs as $breadcrumb) {
-            echo $breadcrumb;
-        }
+        // Adicionar a página atual ao breadcrumb
+        echo '<span class="separator">' . $separator . '</span>';
         echo '<li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
         echo '<span itemprop="name">' . get_the_title() . '</span>';
-        echo '<meta itemprop="position" content="' . (count($breadcrumbs) + 2) . '" />';
-        echo '</li>';
+        echo '<meta itemprop="position" content="' . (isset($breadcrumbs) ? count($breadcrumbs) + 2 : 2) . '" />';
+        echo '</li>';    
+        // Adicionar o separador entre "Início" e a página atual, caso não tenha pai
     } elseif (is_category()) {
         echo '<li class="breadcrumb-item active" aria-current="page" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">';
         echo '<span itemprop="name">' . single_cat_title('', false) . '</span>';

@@ -1,30 +1,42 @@
+[aria-label="breadcrumb"] {
+    padding-bottom: 1.875rem; /* 30px convertido para rem */
+    border-bottom: 0.0625rem solid #e0e0e0; /* 1px convertido para rem e cinza claro */
+}
+
 .breadcrumb {
-    display: flex;
-    flex-wrap: wrap;
+    display: flex; /* Alinha os itens horizontalmente */
+    flex-wrap: nowrap; /* Impede que os itens quebrem para a próxima linha */
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 1.875rem 0 0;
+    font-size: 0.9rem; /* Tamanho de fonte menor para breadcrumbs */
+    color: #333; /* Cor padrão do texto */
+    align-items: center; /* Centraliza verticalmente os itens */
+}
 
-    &-item {
-        display: flex;
-        align-items: center;
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
 
-        & + &::before {
-            content: '»';
-            margin: 0 0.5em;
-        }
+    & a {
+        text-decoration: none;
+        color: #0056b3; /* Azul mais escuro para links */
+        font-weight: 500; /* Peso médio para destaque */
 
-        & a {
-            text-decoration: none;
-            color: #007bff;
-
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-
-        &.active {
-            color: #6c757d;
+        &:hover {
+            text-decoration: underline; /* Adiciona sublinhado no hover */
+            color: #003d80; /* Azul mais escuro no hover */
         }
     }
+
+    &.active {
+        color: #555; /* Cor mais neutra para o item ativo */
+        font-weight: 600; /* Peso maior para destacar o item ativo */
+    }
+}
+
+.separator {
+    margin: 0 0.5em; /* Espaçamento horizontal ao redor do separador */
+    color: #aaa; /* Cor mais clara para o separador */
+    font-size: 1rem; /* Tamanho ligeiramente maior para separador */
 }

@@ -1,12 +1,13 @@
 <?php
-get_header();
+    get_header();
+    get_template_part('partials/breadcrumb');
 
-$templates = [
-    'contato'       => 'contact',
-    'biblioteca'    => 'library',
-    'faq'           => 'faq',
-    'servicos'      => 'services'
-];
+    $templates = [
+        'contato'       => 'contact',
+        'biblioteca'    => 'library',
+        'faq'           => 'faq',
+        'servicos'      => 'services'
+    ];
 
 if (is_page(array_keys($templates))) {
     $page_slug = get_post_field('post_name', get_post());
@@ -26,4 +27,3 @@ if (is_page(array_keys($templates))) {
 }
 
 get_footer();
-?>
