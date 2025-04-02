@@ -1,35 +1,79 @@
 .contact {
+    background-color: var(--background-light); /* Cor de fundo clara para contraste */
+    color: var(--text-dark); /* Cor do texto principal */
+
     .subtitle {
-        /* Estilos para o subtítulo */
+        font-size: var(--font-size-sm); /* Tamanho menor para subtítulos */
+        font-weight: var(--font-weight-bold); /* Destaque no subtítulo */
+        color: var(--primary-color); /* Cor principal */
+        margin-bottom: 1rem; /* Espaçamento inferior */
     }
+
     h1 {
-        /* Estilos para o título */
+        font-size: var(--font-size-lg); /* Tamanho grande para o título */
+        font-weight: var(--font-weight-bold); /* Peso maior para destaque */
+        color: var(--text-dark); /* Cor do texto */
+        margin-bottom: 1.5rem; /* Espaçamento inferior */
     }
-    P {
-        /* Estilos para o paragrafo */
+
+    p {
+        font-size: 1rem; /* Tamanho padrão para parágrafos */
+        line-height: 1.6; /* Altura da linha para melhor legibilidade */
+        margin-bottom: .4375rem; /* Espaçamento inferior */
+        font-weight: 300; /* Peso leve para o texto */
+        
     }
+
     form {
-        /* Estilos para o formulário */
-        input[name="nome"] {
-            /* Estilos para o campo nome */
+        margin-top: 2rem; /* Espaçamento superior para separar do texto */
+
+        label {
+            font-size: var(--font-size-sm); /* Tamanho menor para rótulos */
+            font-weight: var(--font-weight-medium); /* Peso médio */
+            color: var(--text-dark); /* Cor do texto */
+            display: block;
+            margin-bottom: 0.5rem; /* Espaçamento inferior */
         }
-        select[name="Motivo"] {
-            /* Estilos para o campo Motivo */
+
+        input,
+        select,
+        textarea {
+            width: 100%; /* Campos ocupam toda a largura */
+            padding: 0.75rem; /* Espaçamento interno */
+            font-size: var(--font-size-md); /* Tamanho médio */
+            border: 0.0625rem solid var(--border-color); /* Borda fina */
+            border-radius: 0.25rem; /* Bordas arredondadas */
+            background-color: var(--background-light); /* Fundo claro */
+            color: var(--text-dark); /* Texto escuro */
+            margin-bottom: 1rem; /* Espaçamento inferior */
+            transition: border-color 0.3s ease;
+
+            &:focus {
+                border-color: var(--primary-color); /* Destaque na borda ao focar */
+                outline: none; /* Remove o contorno padrão */
+                box-shadow: 0 0 0.25rem var(--primary-color); /* Adiciona sombra */
+            }
         }
-        input[name="email"] {
-            /* Estilos para o campo email */
-        }
-        input[name="celular"] {
-            /* Estilos para o campo celular */
-        }
-        textarea[name="mensagem"] {
-            /* Estilos para o campo mensagem */
-        }
-        input[name="termo"] {
-            /* Estilos para o campo termo */
-        }
+
         button[name="enviar"] {
-            /* Estilos para o botão enviar */
+            background-color: var(--primary-color); /* Cor de fundo principal */
+            color: var(--text-light); /* Texto claro */
+            font-size: var(--font-size-md); /* Tamanho médio */
+            font-weight: var(--font-weight-bold); /* Peso maior */
+            padding: 0.75rem 1.5rem; /* Espaçamento interno */
+            border: none;
+            border-radius: 0.25rem; /* Bordas arredondadas */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: var(--primary-color-dark); /* Cor mais escura no hover */
+            }
+
+            &:focus {
+                outline: none;
+                box-shadow: 0 0 0.25rem var(--primary-color); /* Sombra ao focar */
+            }
         }
     }
 }
