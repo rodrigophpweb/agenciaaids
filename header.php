@@ -87,7 +87,7 @@
             </div>
         </div>
 
-        <nav class="mnuDefault" itemscope itemtype="https://schema.org/SiteNavigationElement">
+        <nav class="mnuDefault paddingContent" itemscope itemtype="https://schema.org/SiteNavigationElement">
             <?php
                 wp_nav_menu(
                     array(
@@ -97,6 +97,7 @@
                         'fallback_cb' => false
                     )
                 );
+                get_template_part('partials/searchform');
             ?>               
         </nav>
     </header>

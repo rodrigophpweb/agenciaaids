@@ -69,7 +69,9 @@ footer {
 
                     &:hover,
                     &:focus {
-                        
+                        img {
+                            background-color: var(--maize);
+                        }
                     }
 
                     img {

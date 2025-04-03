@@ -2,18 +2,33 @@
     background-color: var(--background-light); /* Cor de fundo clara para contraste */
     color: var(--text-dark); /* Cor do texto principal */
 
-    .subtitle {
-        font-size: var(--font-size-sm); /* Tamanho menor para subtítulos */
-        font-weight: var(--font-weight-bold); /* Destaque no subtítulo */
-        color: var(--primary-color); /* Cor principal */
-        margin-bottom: 1rem; /* Espaçamento inferior */
-    }
+    .subTitleAndTitle {
+        text-align: center; /* Centraliza o texto */
+        box-shadow: none; /* Remove sombra */
 
-    h1 {
-        font-size: var(--font-size-lg); /* Tamanho grande para o título */
-        font-weight: var(--font-weight-bold); /* Peso maior para destaque */
-        color: var(--text-dark); /* Cor do texto */
-        margin-bottom: 1.5rem; /* Espaçamento inferior */
+        .subtitle {
+            font-size: 1.125rem; /* Tamanho menor para subtítulos */
+            font-weight: 300; /* Destaque no subtítulo */
+            color: var(--buttonBlue); /* Cor principal */
+            margin-bottom: 1rem; /* Espaçamento inferior */
+            text-transform: uppercase; /* Texto em maiúsculas */
+
+            &::after {
+                content: ''; /* Elemento vazio para a barra */
+                display: block;
+                width: 4rem; /* Largura da barra */
+                height: .0625rem; /* Altura da barra */
+                background-color: var(--buttonBlue); /* Cor da barra */
+                margin: 0.5rem auto 0; /* Espaçamento acima e centralização */
+            }
+        }
+    
+        h1 {
+            font-size: 3rem; /* Tamanho grande para o título */
+            font-weight: 900; /* Peso maior para destaque */
+            color: var(--charlestonGreen); /* Cor do texto */
+            margin: 1rem 0 2rem; /* Espaçamento inferior */                        
+        }
     }
 
     p {
@@ -25,54 +40,95 @@
     }
 
     form {
-        margin-top: 2rem; /* Espaçamento superior para separar do texto */
+        margin-top: 3.125rem; /* Espaçamento superior para separar do texto */
+        display: flex;
+        flex-wrap: wrap;
 
-        label {
-            font-size: var(--font-size-sm); /* Tamanho menor para rótulos */
-            font-weight: var(--font-weight-medium); /* Peso médio */
-            color: var(--text-dark); /* Cor do texto */
-            display: block;
-            margin-bottom: 0.5rem; /* Espaçamento inferior */
-        }
+        p {
+            width: 50%; /* Largura de 50% para os parágrafos */
 
-        input,
-        select,
-        textarea {
-            width: 100%; /* Campos ocupam toda a largura */
-            padding: 0.75rem; /* Espaçamento interno */
-            font-size: var(--font-size-md); /* Tamanho médio */
-            border: 0.0625rem solid var(--border-color); /* Borda fina */
-            border-radius: 0.25rem; /* Bordas arredondadas */
-            background-color: var(--background-light); /* Fundo claro */
-            color: var(--text-dark); /* Texto escuro */
-            margin-bottom: 1rem; /* Espaçamento inferior */
-            transition: border-color 0.3s ease;
-
-            &:focus {
-                border-color: var(--primary-color); /* Destaque na borda ao focar */
-                outline: none; /* Remove o contorno padrão */
-                box-shadow: 0 0 0.25rem var(--primary-color); /* Adiciona sombra */
+            label {
+                font-size: 1rem; /* Tamanho menor para rótulos */
+                font-weight: 500; /* Peso médio */
+                color: var(--black); /* Cor do texto */
+                display: block;
+                margin-bottom: 0.5rem; /* Espaçamento inferior */
+                text-transform: uppercase;
+            }
+    
+            input,
+            select {
+                width: 98%; /* Campos ocupam toda a largura */
+                padding: 0.75rem; /* Espaçamento interno */
+                font-size: var(--font-size-md); /* Tamanho médio */
+                border: 0.0625rem solid var(--border-color); /* Borda fina */
+                border-radius: 0.25rem; /* Bordas arredondadas */
+                background-color: var(--background-light); /* Fundo claro */
+                color: var(--text-dark); /* Texto escuro */
+                margin-bottom: 1rem; /* Espaçamento inferior */
+                transition: border-color 0.3s ease;
+                border: solid .0625rem var(--darkEletroBlue);
+                cursor: pointer; /* Cursor de ponteiro para indicar interatividade */
+    
+                &:focus {
+                    border-color: var(--buttonBlue); /* Destaque na borda ao focar */
+                    outline: none; /* Remove o contorno padrão */
+                    box-shadow: 0 0 0.25rem var(--buttonBlue); /* Adiciona sombra */
+                }
             }
         }
-
-        button[name="enviar"] {
-            background-color: var(--primary-color); /* Cor de fundo principal */
-            color: var(--text-light); /* Texto claro */
-            font-size: var(--font-size-md); /* Tamanho médio */
-            font-weight: var(--font-weight-bold); /* Peso maior */
-            padding: 0.75rem 1.5rem; /* Espaçamento interno */
-            border: none;
-            border-radius: 0.25rem; /* Bordas arredondadas */
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-
-            &:hover {
-                background-color: var(--primary-color-dark); /* Cor mais escura no hover */
+        p:nth-child(6),
+        p:nth-child(7) {
+            width: 100%; /* Largura total para os últimos campos */
+            
+            textarea {
+                width: 100%; /* Campos ocupam toda a largura */
+                padding: 0.75rem; /* Espaçamento interno */
+                font-size: var(--font-size-md); /* Tamanho médio */
+                border: 0.0625rem solid var(--border-color); /* Borda fina */
+                border-radius: 0.25rem; /* Bordas arredondadas */
+                background-color: var(--background-light); /* Fundo claro */
+                color: var(--text-dark); /* Texto escuro */
+                margin-bottom: 1rem; /* Espaçamento inferior */
+                transition: border-color 0.3s ease;
+                border: solid .0625rem var(--darkEletroBlue);
+    
+                &:focus {
+                    border-color: var(--buttonBlue); /* Destaque na borda ao focar */
+                    outline: none; /* Remove o contorno padrão */
+                    box-shadow: 0 0 0.25rem var(--buttonBlue); /* Adiciona sombra */
+                }
             }
+        }
+        
+        p:nth-child(7) {
+            display: flex;
+            justify-content: center; /* Centraliza o botão */
 
-            &:focus {
-                outline: none;
-                box-shadow: 0 0 0.25rem var(--primary-color); /* Sombra ao focar */
+            input[value="Enviar"] {
+                width: 25%; /* Largura de 50% para o botão */
+                margin: 0 auto; /* Centraliza o botão */
+                background-color: var(--buttonBlue); /* Cor de fundo principal */
+                color: var(--white); /* Texto claro */
+                font-size: 1.125rem; /* Tamanho médio */
+                font-weight: 900; /* Peso maior */
+                text-transform: uppercase; /* Texto em maiúsculas */
+                padding: 0.75rem 1.5rem; /* Espaçamento interno */
+                border: none;
+                border-radius: 0.25rem; /* Bordas arredondadas */
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: var(--charlestonGreen); /* Cor mais escura no hover */
+                    box-shadow: 0 0 0.25rem var(--charlestonGreen); /* Sombra ao focar */
+                }
+
+                &:focus {
+                    outline: none;
+                    background-color: var(--charlestonGreen); /* Cor mais escura no hover */
+                    box-shadow: 0 0 0.25rem var(--charlestonGreen); /* Sombra ao focar */
+                }
             }
         }
     }
