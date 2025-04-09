@@ -123,10 +123,12 @@ header {
 
     .mnuDefault {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         padding-top: 1.25rem;
         padding-bottom: 1.25rem;
+        
+        
 
         .mnuPrincipal {
             display: flex;
@@ -136,23 +138,29 @@ header {
                 margin-left: .625rem;
                 margin-right: .625rem;
 
+                &.current-menu-item,
+                &.current_page_item {
+                    a {
+                        background-color: var(--charlestonGreen);
+                        color: var(--white);
+                        font-weight: 500;
+                    }
+                }
+
                 a {
                     text-transform: uppercase;
                     font-weight: 500;
-                    color: var(--buttonBlue);                    
+                    background-color: var(--buttonBlue);                    
+                    color: var(--white);
+                    padding: .3125rem .9375rem;
+                    border-radius: 1.5625rem;
 
                     &:hover,
-                    &:focus,
-                    &.current-menu-item,
-                    &.current_page_item {
-                        &::after {
-                            content: ''; /* Elemento vazio para a barra */
-                            display: block;
-                            width: 4rem; /* Largura da barra */
-                            height: .0625rem; /* Altura da barra */
-                            background-color: var(--buttonBlue); /* Cor da barra */
-                            margin: 0.5rem auto 0; /* Espaçamento acima e centralização */
-                        }
+                    &:focus,                    
+                    &:active {
+                        background-color: var(--charlestonGreen);
+                        color: var(--white);
+                        font-weight: 500;
                     }
                 }
             }
@@ -165,11 +173,19 @@ header {
             border: solid 0.0625rem var(--buttonBlue);
             border-radius: 0.25rem; /* Bordas arredondadas */
             padding: 0.25rem; /* Espaçamento interno */
-            transition: width 0.3s ease; /* Transição suave para o formulário */
+            transition: border-color 0.3s ease; /* Transição suave para a cor da borda */
+
+            &:focus-within {
+                border-color: var(--charlestonGreen); /* Altera a cor da borda */
+                
+                .search-submit svg {
+                    stroke: var(--charlestonGreen); /* Altera a cor do stroke do SVG para vermelho */
+                }
+            }
 
             &:hover .search-field,
             &:focus-within .search-field {
-                width: 40rem; /* Largura expandida ao passar o mouse ou focar */
+                width: 25rem; /* Largura expandida ao passar o mouse ou focar */
                 padding: 0.5rem 1rem; /* Ajusta o padding ao expandir */
                 background-color: var(--background-light); /* Fundo claro ao expandir */
                 color: var(--text-dark); /* Cor do texto */
@@ -207,16 +223,17 @@ header {
                 justify-content: center;
                 padding: 0.5rem;
                 border-radius: 0.25rem; /* Bordas arredondadas */
-                transition: background-color 0.3s ease;
+                transition: background-color 0.3s ease, stroke 0.3s ease; /* Transição suave para o stroke */
 
                 &:hover {
                     background-color: #f0f0f0; /* Fundo claro no hover */
                 }
 
                 svg {
-                    stroke: var(--buttonBlue); /* Cor do ícone */
+                    stroke: var(--buttonBlue); /* Cor inicial do ícone */
                     width: 20px;
                     height: 20px;
+                    transition: stroke 0.3s ease; /* Transição suave para o stroke */
                 }
             }
         }

@@ -1,24 +1,111 @@
 .highlight {
-    &.<?=$args['class']?> {
-        article {
-            .category {
-                /* Estilos para a categoria */
+    display: flex;
+
+    article {
+        width: 50%;
+        padding-right: 2%;
+
+        .category {
+            color: var(--buttonBlue);
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            font-weight: 200;
+            margin-bottom: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+            &::after {
+                content: ''; /* Elemento vazio para a barra */
+                display: block;
+                width: 4.75rem; /* Largura da barra */
+                height: .0625rem; /* Altura da barra */
+                background-color: var(--buttonBlue); /* Cor da barra */
+                margin: 1.5rem auto 0; /* Espaçamento acima e centralização */
+                position: absolute;
             }
-            h1 {
-                /* Estilos para o título */
-            }
-            p {
-                /* Estilos para o parágrafo */
-            }
-            time {
-                /* Estilos para o tempo */
-            }
+            
         }
-        figure {
-            /* Estilos para a figura */
-            img {
-                /* Estilos para a imagem */
-            }
+        h1 {
+            font-weight: 900;
+            font-size: 2.25rem;
+            line-height: 2.875rem;
+            margin-bottom: .9375rem;
+            color: var(--charlestonGreen);
         }
+        p {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            margin-bottom: 2rem;
+            display: block;
+            font-weight: 300;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            time {}
+            figure {
+        img {}
     }
+;
+            font-size: 1;
 }

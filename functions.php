@@ -232,3 +232,12 @@ function remove_type_attr($tag, $handle, $src) {
     return str_replace(" type='text/javascript'", '', $tag);
 }
 add_filter('script_loader_tag', 'remove_type_attr', 10, 3);
+
+//Enable Field Excerpt in posts
+add_action('init', function() {
+    add_post_type_support('post', 'excerpt');
+});
+add_action('init', function() {
+    add_post_type_support('page', 'excerpt');
+});
+
