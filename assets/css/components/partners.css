@@ -1,11 +1,17 @@
 .support {
     h2 {
-        /* Estilos para o título */
+        text-align: center;
+        font-size: 2rem ;
+        margin-bottom: 30px;
     }
     .logoInSVG {
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
         a {
             img {
-                /* Estilos para a imagem */
+                height: clamp(3.125rem, 5vw, 5rem);
+                object-fit: contain
             }
         }
     }

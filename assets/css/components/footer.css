@@ -50,18 +50,26 @@ footer {
     }
 
     .socialMediaAddress {
+        /* width: 50%; */
+        padding-top: 0;
+        
+        
+        
+        
+        
+        
+        
         /* Estilos para a seção de mídias sociais e endereço */
 
         .mnuSocialMediaFooter {
-            display: flex;
-            justify-content: end;
-            align-items: center;
-            gap: 1rem;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-
-            li {
+        display: flex;
+        justify-content: end;
+        align-items: center;
+        gap: 1rem;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        li {
                 /* Estilos para os itens da lista */
 
                 a {
@@ -73,50 +81,48 @@ footer {
                             background-color: var(--maize);
                         }
                     }
-
-                    img {
+        img {
                         width: 2rem;
-                        height: 2rem;
-                        padding: .3125rem;
-                        background: var(--white);
-                        border-radius: 100%;
-                        margin-right: .5rem;
+        height: 2rem;
+        padding: .3125rem;
+        background: var(--white);
+        border-radius: 100%;
+        margin-right: .5rem;
                     }
                 }
             }
         }
 
         .addressPhoneMail {
-            address {
+        address {
                 margin: .625rem 0;
-                a {
+        a {
                     
                     span {
-                        color: var(--white)    
-                    }
+                        color: var(--white)}
                 }
             }
 
             .contactsPhoneMail {
-                display: flex;
-                justify-content: end;
-                color: var(--white);
-
-                a {
+        display: flex;
+        justify-content: end;
+        color: var(--white);
+        a {
                     color: var(--white);
-                    margin: 0 .3125rem;
+        margin: 0 .3125rem;
 
-                    &:hover,
+                    &:
+        hover,
                     &:focus {                        
                         text-decoration: underline;
                     }
-
-                    span {
-                        /* Estilos para o texto */
-                    }
+        span {
+                        /* Estilos para o texto */}
                 }
             }
         }
+    ;
+        width: 5;
     }
 
     .copyrigth {

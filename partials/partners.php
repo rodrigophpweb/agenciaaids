@@ -1,4 +1,4 @@
-<section class="support" itemscope itemtype="https://schema.org/Organization">
+<section class="support paddingContent" itemscope itemtype="https://schema.org/Organization">
     <h2 itemprop="name"><?php the_field('title_sponsor','option')?></h2>
     
     <?php if (have_rows('support_repeater','option')): // Verifica se o Repeater tem dados ?>
