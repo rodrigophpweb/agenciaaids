@@ -1,28 +1,44 @@
 <?php
-// Usa os argumentos diretamente para criar a consulta
+// Protege acesso direto
+if ( ! defined('ABSPATH') ) {
+    exit;
+}
+
+// Garante que $args existe
+$args = isset($args) && is_array($args) ? $args : [];
+
 $query = new WP_Query($args);
 
 if ($query->have_posts()) :
     while ($query->have_posts()) : $query->the_post();
-        ?>
-        <section class="highlight <?=$args['class'] ?? ''?> paddingContent">
+?>
+        <section class="highlight <?= esc_attr($args['class'] ?? ''); ?> paddingContent" itemscope itemtype="http://schema.org/Article">
             <article>
-                <span class="category">Destaque</span>
-                <?php the_title('<h1>', '</h1>'); ?>
-                <?php the_excerpt(); ?>
-                <time datetime="<?= get_the_date('Y-m-d'); ?>"><?= get_the_date('d \d\e F \d\e Y'); ?></time>
+                <span class="category" itemprop="articleSection">Destaque</span>
+                <?php the_title('<h1 itemprop="headline">', '</h1>'); ?>
+                <div itemprop="description">
+                    <?php the_excerpt(); ?>
+                </div>
+                <time datetime="<?= esc_attr(get_the_date('c')); ?>" itemprop="datePublished">
+                    <?= esc_html(get_the_date('d \d\e F \d\e Y')); ?>
+                </time>
             </article>
-            <figure>
-                <?php the_post_thumbnail('posts_highlight', ['alt' => get_the_title(), 'itemprop' => 'image']); ?>
+            <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                <?php
+                if (has_post_thumbnail()) {
+                    the_post_thumbnail('posts_highlight', [
+                        'alt' => get_the_title(),
+                        'itemprop' => 'url',
+                        'loading' => 'lazy'
+                    ]);
+                }
+                ?>
             </figure>
         </section>
-        <?php
+<?php
     endwhile;
     wp_reset_postdata();
 else :
-    // Caso nenhum post seja encontrado
-    ?>
-    <p>Nenhum destaque encontrado.</p>
-    <?php
-endif;
 ?>
+    <p>Nenhum destaque encontrado.</p>
+<?php endif;

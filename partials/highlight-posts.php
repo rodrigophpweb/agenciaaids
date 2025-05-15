@@ -4,6 +4,12 @@
         <h2>Notícias</h2>
     </header>
     <?php
+
+    // Protege o arquivo de acesso direto
+    if ( ! defined('ABSPATH') ) {
+        exit;
+    }
+    
     // Query para pegar o post sticky ou o último post
     $sticky = get_option('sticky_posts');
     $args = array(
@@ -42,9 +48,7 @@
         if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
             <article class="aide_notices_article" itemscope itemtype="http://schema.org/Article">
                 <figure>
-                    <a href="<?php the_permalink(); ?>" title="Saiba mais sobre: <?php the_title(); ?>">
-                        <?php the_post_thumbnail('thumbnail', array('alt' => get_the_title(), 'itemprop' => 'image')); ?>
-                    </a>
+                    <a href="<?php the_permalink(); ?>" title="Saiba mais sobre: <?php the_title(); ?>"><?php the_post_thumbnail('thumbnail', array('alt' => get_the_title(), 'itemprop' => 'image')); ?></a>
                 </figure>
                 <header>
                     <h3 itemprop="headline"><a href="<?php the_permalink(); ?>" title="Saiba mais sobre: <?php the_title(); ?>"><?php the_title(); ?></a></h3>

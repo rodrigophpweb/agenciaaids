@@ -6,6 +6,7 @@
     header {
         box-shadow: none;
         width: 100%;
+        padding-left: 2%;
 
         .subtitle {
             /* Estilos para o subtítulo */
@@ -15,12 +16,17 @@
         }
     }
 
+    .postSticky,
+    .aside_notices {
+        width: 50%;
+        padding:  1%;
+    }
     
     .postSticky {
-        padding: .625rem;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra suave */
 
         figure {
-            width: 45.3125rem;
+            width: 100%;
             min-height: 25rem;
             background-color: var(--arsenic);
             border-radius: 3.125rem;
@@ -41,7 +47,19 @@
     }
     .aside_notices {
         .aide_notices_article {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* sombra suave */
+            margin-bottom: 5rem;
+            padding: 2%;
+            border-radius: .4375rem;
+            display: flex;            
+
             figure {
+                width: 9.375rem;
+                height: 9.375rem;
+                background-color: gray;
+                border-radius: .4375rem;
+                flex-shrink: 0;
+
                 img {
                     /* Estilos para a imagem */
                 }
