@@ -1,95 +1,74 @@
 <?php
-// ...existing code...
+/**
+ * Registra os custom post types do projeto Agência Aids
+ */
+function agencia_aids_register_cpt() {
+    $post_types = [
+        // slug       => [Nome Plural, Nome Singular, Ícone]
+        'noticias'       => ['Notícias', 'Notícia', 'dashicons-media-document'],
+        'artigos'        => ['Artigos', 'Artigo', 'dashicons-media-text'],
+        'eventos'        => ['Eventos', 'Evento', 'dashicons-calendar-alt'],
+        'bibliotecas'    => ['Bibliotecas', 'Livro', 'dashicons-book-alt'],
+        'servicos'       => ['Serviços', 'Serviço', 'dashicons-admin-tools'],
+        'dicionario'     => ['Dicionário', 'Termo', 'dashicons-book'],
+        'respostas'      => ['Respostas', 'Resposta', 'dashicons-format-chat'],
+        'videos'         => ['Vídeos', 'Vídeo', 'dashicons-video-alt3'],
+        'anuncio'        => ['Anúncios', 'Anúncio', 'dashicons-megaphone'],
+    ];
 
-function create_custom_post_type($name, $singular_name, $menu_icon, $supports = array('title', 'editor', 'thumbnail', 'excerpt', 'comments')) {
-    $labels = array(
-        'name'                  => _x($name, 'Post Type General Name', 'textdomain'),
-        'singular_name'         => _x($singular_name, 'Post Type Singular Name', 'textdomain'),
-        'menu_name'             => __($name, 'textdomain'),
-        'name_admin_bar'        => __($singular_name, 'textdomain'),
-        'archives'              => __('Item Archives', 'textdomain'),
-        'attributes'            => __('Item Attributes', 'textdomain'),
-        'parent_item_colon'     => __('Parent Item:', 'textdomain'),
-        'all_items'             => __('All Items', 'textdomain'),
-        'add_new_item'          => __('Add New Item', 'textdomain'),
-        'add_new'               => __('Add New', 'textdomain'),
-        'new_item'              => __('New Item', 'textdomain'),
-        'edit_item'             => __('Edit Item', 'textdomain'),
-        'update_item'           => __('Update Item', 'textdomain'),
-        'view_item'             => __('View Item', 'textdomain'),
-        'view_items'            => __('View Items', 'textdomain'),
-        'search_items'          => __('Search Item', 'textdomain'),
-        'not_found'             => __('Not found', 'textdomain'),
-        'not_found_in_trash'    => __('Not found in Trash', 'textdomain'),
-        'featured_image'        => __('Featured Image', 'textdomain'),
-        'set_featured_image'    => __('Set featured image', 'textdomain'),
-        'remove_featured_image' => __('Remove featured image', 'textdomain'),
-        'use_featured_image'    => __('Use as featured image', 'textdomain'),
-        'insert_into_item'      => __('Insert into item', 'textdomain'),
-        'uploaded_to_this_item' => __('Uploaded to this item', 'textdomain'),
-        'items_list'            => __('Items list', 'textdomain'),
-        'items_list_navigation' => __('Items list navigation', 'textdomain'),
-        'filter_items_list'     => __('Filter items list', 'textdomain'),
-    );
-    $args = array(
-        'label'                 => __($singular_name, 'textdomain'),
-        'description'           => __('Post Type Description', 'textdomain'),
-        'labels'                => $labels,
-        'supports'              => $supports,
-        'taxonomies'            => array(),
-        'hierarchical'          => false,
-        'public'                => true,
-        'show_ui'               => true,
-        'show_in_menu'          => true,
-        'menu_position'         => 5,
-        'menu_icon'             => $menu_icon,
-        'show_in_admin_bar'     => true,
-        'show_in_nav_menus'     => true,
-        'can_export'            => true,
-        'has_archive'           => true,
-        'exclude_from_search'   => false,
-        'publicly_queryable'    => true,
-        'capability_type'       => 'post',
-    );
-    register_post_type(strtolower($name), $args);
+    foreach ($post_types as $slug => [$plural, $singular, $icon]) {
+        // Define os campos padrão
+        $supports = ['title', 'editor', 'thumbnail', 'excerpt', 'custom-fields'];
+
+        // Ajusta os campos do CPT 'anuncio'
+        if ($slug === 'anuncio') {
+            $supports = ['title', 'thumbnail'];
+        }elseif ($slug === 'videos'){
+            $supports = ['title'];
+        }
+
+        register_post_type($slug, [
+            'labels' => [
+                'name'               => $plural,
+                'singular_name'      => $singular,
+                'add_new'            => "Adicionar Novo",
+                'add_new_item'       => "Adicionar Novo $singular",
+                'edit_item'          => "Editar $singular",
+                'new_item'           => "Novo $singular",
+                'view_item'          => "Ver $singular",
+                'view_items'         => "Ver $plural",
+                'search_items'       => "Buscar $plural",
+                'not_found'          => "Nenhum $singular encontrado",
+                'not_found_in_trash' => "Nenhum $singular encontrado na lixeira",
+                'all_items'          => "Todos os $plural",
+                'archives'           => "Arquivos de $plural",
+                'attributes'         => "Atributos de $singular",
+                'menu_name'          => $plural,
+            ],
+            'public'             => true,
+            'has_archive'        => true,
+            'show_in_rest'       => true,
+            'rewrite'            => ['slug' => $slug],
+            'menu_icon'          => $icon,
+            'supports'           => $supports,
+        ]);
+    }
 }
 
-function register_custom_post_types() {
-    create_custom_post_type('Artigos', 'Artigo', 'dashicons-admin-post');
-    create_custom_post_type('Eventos', 'Evento', 'dashicons-calendar');
-    create_custom_post_type('Bibliotecas', 'Biblioteca', 'dashicons-book');
-    create_custom_post_type('Servico', 'Serviço', 'dashicons-hammer');
-    create_custom_post_type('Dicionarios', 'Dicionario', 'dashicons-book-alt');
-    create_custom_post_type('Respostas', 'Resposta', 'dashicons-format-chat');
-}
-add_action('init', 'register_custom_post_types');
+// Hook principal
+add_action('init', 'agencia_aids_register_cpt');
 
-function create_custom_taxonomy($name, $post_type) {
-    $labels = array(
-        'name'              => _x($name, 'taxonomy general name', 'textdomain'),
-        'singular_name'     => _x($name, 'taxonomy singular name', 'textdomain'),
-        'search_items'      => __('Search ' . $name, 'textdomain'),
-        'all_items'         => __('All ' . $name, 'textdomain'),
-        'parent_item'       => __('Parent ' . $name, 'textdomain'),
-        'parent_item_colon' => __('Parent ' . $name . ':', 'textdomain'),
-        'edit_item'         => __('Edit ' . $name, 'textdomain'),
-        'update_item'       => __('Update ' . $name, 'textdomain'),
-        'add_new_item'      => __('Add New ' . $name, 'textdomain'),
-        'new_item_name'     => __('New ' . $name . ' Name', 'textdomain'),
-        'menu_name'         => __($name, 'textdomain'),
-    );
-    $args = array(
-        'hierarchical'      => true,
-        'labels'            => $labels,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'query_var'         => true,
-        'rewrite'           => array('slug' => strtolower($name)),
-    );
-    register_taxonomy(strtolower($name), array($post_type), $args);
-}
 
-function register_custom_taxonomies() {
-    create_custom_taxonomy('Temas', 'respostas');
+
+/**
+ * Anexa a taxonomia 'category' aos custom post types especificados
+ */
+
+function agencia_aids_attach_categories_to_cpts() {
+    $post_types_to_attach = ['noticia', 'artigo', 'video'];
+
+    foreach ($post_types_to_attach as $post_type) {
+        register_taxonomy_for_object_type('category', $post_type);
+    }
 }
-add_action('init', 'register_custom_taxonomies');
+add_action('init', 'agencia_aids_attach_categories_to_cpts');

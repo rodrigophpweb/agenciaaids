@@ -10,12 +10,17 @@ function theme_setup() {
     ));
 }
 add_action('after_setup_theme', 'theme_setup');
-
+add_theme_support('post-thumbnails');
 
 function enqueue_custom_scripts() {
     wp_enqueue_script('custom-app-js', get_template_directory_uri() . '/assets/js/app.js', array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_custom_scripts');
+
+// Arquivos auxiliares
+require_once get_template_directory() . '/inc/helpers.php';
+
+
 
 function custom_breadcrumbs() {
     // Configurações
@@ -198,34 +203,6 @@ if( function_exists('acf_add_options_page') ) {
     ));
 }
 
-function load_custom_css() {
-    $css_files = [
-        'acessibilidade'            => 'acessibility.css',
-        'artigos'                   => 'articles.css',
-        'contato'                   => 'contact.css',
-        'dicionario'                => 'dictionary.css',
-        'faq'                       => 'faq.css',
-        'home'                      => 'home.css',
-        'palestras'                 => 'lectures.css',
-        'biblioteca'                => 'library.css',
-        'noticias'                  => 'news.css',
-        'politica-de-privacidade'   => 'policePrivacy.css',
-        'quem-somos'                => 'whoWeAre.css',
-    ];
-
-    if (is_page()) {
-        global $post;
-        $slug = $post->post_name;
-
-        if (is_front_page()) {
-            wp_enqueue_style('home', get_template_directory_uri() . '/assets/css/pages/home.css');
-        } elseif (array_key_exists($slug, $css_files)) {
-            wp_enqueue_style($slug, get_template_directory_uri() . '/assets/css/pages/' . $css_files[$slug]);
-        }
-    }
-}
-add_action('wp_enqueue_scripts', 'load_custom_css');
-
 
 // Remover o atributo type das tags script
 function remove_type_attr($tag, $handle, $src) {
@@ -240,4 +217,76 @@ add_action('init', function() {
 add_action('init', function() {
     add_post_type_support('page', 'excerpt');
 });
+
+
+/**
+ * agencia_aids_hide_default_post_type
+ * Remove o tipo de post padrão "post" do menu do WordPress
+ * @since 1.0.0
+ * @return void
+ * @link https://developer.wordpress.org/reference/functions/remove_menu_page/
+ * @link https://developer.wordpress.org/reference/hooks/admin_menu/
+ * @link https://developer.wordpress.org/reference/functions/add_action/
+ * @link https://developer.wordpress.org/reference/hooks/remove_menu_page/
+ * @link https://developer.wordpress.org/reference/functions/remove_menu_page/
+ */
+
+function agencia_aids_hide_default_post_type() {
+    remove_menu_page('edit.php'); // Oculta o menu de "Posts"
+}
+add_action('admin_menu', 'agencia_aids_hide_default_post_type');
+
+// Ativa suporte ao ACF via PHP
+add_action('acf/init', function () {
+
+// Inclua os arquivos de campos personalizados aqui
+require_once get_template_directory() . '/inc/acf-libray.php';
+require_once get_template_directory() . '/inc/acf-services.php';
+require_once get_template_directory() . '/inc/acf-ads.php';
+require_once get_template_directory() . '/inc/acf-videos.php';
+require_once get_template_directory() . '/inc/acf-article.php';
+
+/**
+ * Query modifications
+ * This file contains modifications to the main query for custom post types and taxonomies.
+ * It hides expired ads and modifies the query for specific post types.
+ * @package AgenciaAids
+ * @since 1.0.0
+ * @author Rodrigo Vieira Eufrasio da Silva
+ * @link https://www.agenciaaids.com.br
+ * @license GPL-2.0+
+ * @see https://developer.wordpress.org/reference/hooks/pre_get_posts/
+ */
+require_once get_template_directory() . '/inc/query-mods.php';
+
+/**
+ * Ads Cron
+ * This file contains the cron job for managing ads expiration.
+ * It schedules a daily event to check for expired ads and updates their status.
+ * @package AgenciaAids     
+ * @since 1.0.0
+ * @author Rodrigo Vieira Eufrasio da Silva
+ * @link https://www.agenciaaids.com.br
+ * @license GPL-2.0+
+ * @see https://developer.wordpress.org/plugins/cron/
+ */
+require get_template_directory() . '/inc/ads-cron.php';
+
+
+/**
+ * Style and Scripts
+ * This file contains the styles and scripts for the theme.
+ * It enqueues the necessary CSS and JavaScript files for the theme.
+ * @package AgenciaAids
+ * @since 1.0.0
+ * @author Rodrigo Vieira Eufrasio da Silva
+ * @link https://www.agenciaaids.com.br
+ * @license GPL-2.0+
+ * @see https://developer.wordpress.org/themes/basics/including-css-javascript/
+ * @see https://developer.wordpress.org/themes/basics/conditional-tags/ 
+ */
+require get_template_directory() . '/inc/style-scripts.php';
+
+});
+
 
