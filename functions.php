@@ -245,6 +245,7 @@ require_once get_template_directory() . '/inc/acf-services.php';
 require_once get_template_directory() . '/inc/acf-ads.php';
 require_once get_template_directory() . '/inc/acf-videos.php';
 require_once get_template_directory() . '/inc/acf-article.php';
+require_once get_template_directory() . '/inc/acf-notices-others.php';
 
 /**
  * Query modifications
@@ -289,4 +290,32 @@ require get_template_directory() . '/inc/style-scripts.php';
 
 });
 
+/**
+ * Performance Cleanup
+ * This file contains performance optimizations for the WordPress theme.
+ * It removes unnecessary scripts, styles, and features to improve site performance.
+ * @package AgenciaAids
+ * @since 1.0.0
+ * @author Rodrigo Vieira Eufrasio da Silva 
+ * @link https://www.agenciaaids.com.br
+ * @license GPL-2.0+
+ * @see https://developer.wordpress.org/reference/hooks/init/
+ * @see https://developer.wordpress.org/reference/hooks/template_redirect/
+ * @see https://developer.wordpress.org/reference/hooks/wp_head/
+ * @see https://developer.wordpress.org/reference/hooks/wp_enqueue_scripts/
+ */
+require_once get_template_directory() . '/inc/performance-cleanup.php';
 
+/**
+ * Custom Excerpt Length
+ * This file contains the custom excerpt length for the theme.
+ * It modifies the default excerpt length to a custom value.
+ * @package AgenciaAids
+ * @since 1.0.0
+ * @author Rodrigo Vieira Eufrasio da Silva
+ * @link https://www.agenciaaids.com.br
+ * @license GPL-2.0+
+ * @see https://developer.wordpress.org/reference/hooks/excerpt_length/
+ * @see https://developer.wordpress.org/reference/functions/add_filter/
+ */
+require_once get_template_directory() . '/inc/custom-excerpt-lenght.php';

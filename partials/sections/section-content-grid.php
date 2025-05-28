@@ -48,15 +48,17 @@ if (empty($args['query'])) {
                 $video_url = get_field('embed', get_the_ID());
                 $thumb_url = '';
 
+                // Definir tamanho conforme posição
+                $thumb_size = ($counter === 0) ? 'medium' : 'thumbnail';
+
                 if ($video_url && function_exists('get_youtube_thumbnail')) {
                     $thumb_url = get_youtube_thumbnail($video_url);
                 }
 
                 if (empty($thumb_url) && has_post_thumbnail()) {
-                    $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+                    $thumb_url = get_the_post_thumbnail_url(get_the_ID(), $thumb_size);
                 }
             ?>
-
 
                 <?php if ($counter === 0): ?>
                     <article class="featured-post" itemscope itemtype="<?= esc_attr($args['itemtype']) ?>">
@@ -67,7 +69,7 @@ if (empty($args['query'])) {
 
                             <div class="post-info">
                                 <h3 itemprop="<?= esc_attr($args['itemprop_title']) ?>"><?= esc_html(get_the_title()) ?></h3>
-                                <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?= esc_html(get_the_excerpt()) ?></p>
+                                <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?= esc_html(wp_trim_words(get_the_excerpt(), 20, '...')) ?></p>
                                 <time datetime="<?= get_the_date('c') ?>" itemprop="<?= esc_attr($args['itemprop_date']) ?>">
                                     <?= get_the_date('d \d\e F \d\e Y') ?>
                                 </time>
@@ -98,8 +100,6 @@ if (empty($args['query'])) {
                     </article>
                 <?php endif; ?>
             <?php $counter++; endwhile; wp_reset_postdata(); ?>
-            <?php echo '<pre>' . get_youtube_thumbnail('https://www.youtube.com/embed/CEZAJTkMZfk?si=L1q9cKegkFOjNbrs') . '</pre>'; ?>
-
             </div> <!-- .secondary-posts -->
         </div> <!-- .post-grid-two-columns -->
     <?php endif; ?>

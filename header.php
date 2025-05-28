@@ -102,4 +102,4 @@
         </nav>
     </header>
 
-<main>
+<main itemscope itemtype="https://schema.org/WebPage">

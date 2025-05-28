@@ -8,7 +8,7 @@ function agencia_aids_register_cpt() {
         'noticias'       => ['Notícias', 'Notícia', 'dashicons-media-document'],
         'artigos'        => ['Artigos', 'Artigo', 'dashicons-media-text'],
         'eventos'        => ['Eventos', 'Evento', 'dashicons-calendar-alt'],
-        'bibliotecas'    => ['Bibliotecas', 'Livro', 'dashicons-book-alt'],
+        'bibliotecas'    => ['Biblioteca', 'Livro', 'dashicons-book-alt'],
         'servicos'       => ['Serviços', 'Serviço', 'dashicons-admin-tools'],
         'dicionario'     => ['Dicionário', 'Termo', 'dashicons-book'],
         'respostas'      => ['Respostas', 'Resposta', 'dashicons-format-chat'],
