@@ -18,6 +18,7 @@
     // Seções principais com schema.org correto
     render_section('section-content-grid', [
         'section_id'        => 'recent-news',
+        'class'             => 'section-news',
         'title'             => 'Notícias',
         'subtitle'          => 'Recentes',
         'post_type'         => 'noticias',
@@ -33,6 +34,7 @@
 
     render_section('section-content-grid', [
         'section_id'        => 'articles',
+        'class'             => 'section-articles',
         'title'             => 'Artigos',
         'subtitle'          => 'Novos',
         'post_type'         => 'artigos',
@@ -48,6 +50,7 @@
 
     render_section('section-content-grid', [
         'section_id'        => 'tv-agencia-aids',
+        'class'             => 'section-tv',
         'title'             => 'TV Agência Aids',
         'post_type'         => 'videos',
         'highlight'         => 1,

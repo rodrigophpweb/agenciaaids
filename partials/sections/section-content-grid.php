@@ -15,15 +15,17 @@ $args = wp_parse_args($args, [
     'itemprop_date'     => 'datePublished',
 ]);
 
-if (empty($args['query'])) {
+$query = $args['query'] ?? null;
+
+if (!($query instanceof WP_Query)) {
     $query_args = [
-        'post_type'      => $args['post_type'],
+        'post_type'      => $args['post_type'] ?? 'post',
         'posts_per_page' => $args['highlight'] + $args['columns'],
+        'paged'          => get_query_var('paged') ?: 1,
     ];
     $query = new WP_Query($query_args);
-} else {
-    $query = $args['query'];
 }
+
 ?>
 
 <section id="<?= esc_attr($args['section_id']) ?>" class="<?= esc_attr($args['class']) ?> paddingContent" aria-labelledby="<?= esc_attr($args['section_id'] . '-title') ?>">
