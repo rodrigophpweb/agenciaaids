@@ -10,9 +10,10 @@ function agencia_aids_register_cpt() {
         'eventos'        => ['Eventos', 'Evento', 'dashicons-calendar-alt'],
         'bibliotecas'    => ['Biblioteca', 'Livro', 'dashicons-book-alt'],
         'servicos'       => ['Serviços', 'Serviço', 'dashicons-admin-tools'],
-        'dicionario'     => ['Dicionário', 'Termo', 'dashicons-book'],
+        'dicionarios'     => ['Dicionário', 'Termo', 'dashicons-book'],
         'respostas'      => ['Respostas', 'Resposta', 'dashicons-format-chat'],
         'videos'         => ['Vídeos', 'Vídeo', 'dashicons-video-alt3'],
+        'Equipe'         => ['Equipes', 'Equipe', 'dashicons-video-alt3'],
         'anuncio'        => ['Anúncios', 'Anúncio', 'dashicons-megaphone'],
     ];
 
@@ -23,6 +24,8 @@ function agencia_aids_register_cpt() {
         // Ajusta os campos do CPT 'anuncio'
         if ($slug === 'anuncio') {
             $supports = ['title', 'thumbnail'];
+        }elseif ($slug === 'respostas' || $slug === 'dicionario'){
+            $supports = ['title', 'editor'];
         }elseif ($slug === 'videos'){
             $supports = ['title'];
         }
