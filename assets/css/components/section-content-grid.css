@@ -36,6 +36,12 @@ section.paddingContent {
       left: 66.25%;
       width: 1px;
       background-color: var(--buttonBlue);
+
+      @media screen {
+        @media (max-width: 768px) {
+          display: none;
+        }
+      }
     }
 
 

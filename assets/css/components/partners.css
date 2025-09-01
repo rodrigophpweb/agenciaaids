@@ -10,6 +10,13 @@ section.support {
         padding: 0;
         display: flex;
         justify-content: space-between;
+
+        @media screen {
+            @media (max-width: 768px) {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
         a {
             display: flex;
             align-items: center;
