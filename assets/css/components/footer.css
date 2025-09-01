@@ -1,5 +1,5 @@
 footer {
-    background-color: var(--charlestonGreen);
+    background-color: var(--buttonBlue);
     padding-top: 3.125rem;
     padding-bottom: 3.125rem;
     display: flex;
@@ -40,8 +40,8 @@ footer {
                     &.current-menu-item,
                     &.current_page_item {
                         a {
-                            background-color: var(--maize);
-                            color: var(--charlestonGreen);
+                            background-color: var(--white);
+                            color: var(--buttonBlue);
                             border-radius: .9375rem;
                             padding: .3125rem .625rem;
                             font-weight: 600;

@@ -1,16 +1,15 @@
 <?php
-// Protege acesso direto
-if ( ! defined('ABSPATH') ) {
-    exit;
-}
 
-// Garante que $args existe
-$args = isset($args) && is_array($args) ? $args : [];
+    if ( ! defined('ABSPATH') ) {
+        exit;
+    }
 
-$query = new WP_Query($args);
+    $args = isset($args) && is_array($args) ? $args : [];
 
-if ($query->have_posts()) :
-    while ($query->have_posts()) : $query->the_post();
+    $query = new WP_Query($args);
+
+    if ($query->have_posts()) :
+        while ($query->have_posts()) : $query->the_post();
 ?>
         <section class="highlight <?= esc_attr($args['class'] ?? ''); ?> paddingContent" itemscope itemtype="http://schema.org/Article">
             <article>
@@ -22,6 +21,7 @@ if ($query->have_posts()) :
                 <time datetime="<?= esc_attr(get_the_date('c')); ?>" itemprop="datePublished">
                     <?= esc_html(get_the_date('d \d\e F \d\e Y')); ?>
                 </time>
+                <a href="<?php the_permalink();?>" title="Saiba mais sobre <?= esc_attr(get_the_title()); ?>" class="btnUrl">Saiba mais</a>
             </article>
             <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
                 <?php

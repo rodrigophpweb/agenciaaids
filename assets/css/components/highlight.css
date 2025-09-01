@@ -44,8 +44,12 @@
             
             time {}
             
-            
-            
+            .btnUrl {
+                background-color: var(--maize);
+                color: var(--charlestonGreen);
+                margin: 1rem 0;
+                width: fit-content;
+            }            
         }
     }
 

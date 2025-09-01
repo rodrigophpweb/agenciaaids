@@ -48,9 +48,6 @@
                 <a href="tel:<?=esc_attr($formatted_phone1)?>" title="Ligue para nós" rel="noopener noreferrer">
                     <span itemprop="telephone">+55 <?=esc_html($phone1)?></span>
                 </a> <span class="pipe">|</span> 
-                <a href="tel:<?=esc_attr($formatted_phone2)?>" title="Ligue para nós" rel="noopener noreferrer">
-                    <span itemprop="telephone"><?=esc_html($phone2)?></span>
-                </a> <span class="pipe">|</span>     
                 <a href="mailto:<?=esc_attr($email)?>" target="_blank" rel="noopener noreferrer">
                     <span itemprop="email"><?=esc_html($email)?></span>
                 </a>
