@@ -1,14 +1,4 @@
 section.paddingContent {
-  @media (max-width: 767px) {
-    .post-grid-two-columns {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-    .post-grid-two-columns::before {
-      display: none;
-    }
-  }
 
   &:not(:last-of-type) {
     border-bottom: 1px solid var(--buttonBlue); 
@@ -31,6 +21,12 @@ section.paddingContent {
     grid-template-columns: calc(66.25% - 1rem) 1fr;
     gap: 2rem;
     position: relative;
+
+    @media screen {
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
+    }
 
     &::before {
       content: '';
