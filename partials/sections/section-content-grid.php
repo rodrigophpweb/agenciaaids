@@ -23,6 +23,18 @@ if (!($query instanceof WP_Query)) {
         'posts_per_page' => $args['highlight'] + $args['columns'],
         'paged'          => get_query_var('paged') ?: 1,
     ];
+    // Adiciona meta_query ou meta_key/meta_value se existirem nos args
+    if (!empty($args['meta_key']) && isset($args['meta_value'])) {
+        $query_args['meta_key'] = $args['meta_key'];
+        $query_args['meta_value'] = $args['meta_value'];
+    }
+    // Permite passar outros argumentos extras se necessário
+    $extra_args = ['orderby', 'order', 'meta_query', 'tax_query', 'ignore_sticky_posts'];
+    foreach ($extra_args as $extra) {
+        if (isset($args[$extra])) {
+            $query_args[$extra] = $args[$extra];
+        }
+    }
     $query = new WP_Query($query_args);
 }
 
