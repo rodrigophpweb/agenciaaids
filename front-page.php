@@ -27,7 +27,7 @@
         'post_type'         => 'noticias',
         'highlight'         => 1,
         'columns'           => 3,
-        'excerpt_length'    => 17,
+        'excerpt_length'    => 10,
         'itemtype'          => 'https://schema.org/NewsArticle',
         'itemprop_title'    => 'headline',
         'itemprop_image'    => 'image',
