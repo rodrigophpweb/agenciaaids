@@ -50,6 +50,8 @@
             color: var(--charlestonGreen);
             margin: 1rem 0;
             width: fit-content;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
         }  
     }
 

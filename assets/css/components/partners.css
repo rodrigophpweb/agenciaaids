@@ -11,9 +11,16 @@ section.support {
         display: flex;
         justify-content: space-between;
         a {
+            display: flex;
+            align-items: center;
+            
             img {
-                height: clamp(3.125rem, 5vw, 5rem);
-                object-fit: contain
+                max-width: 150px;   /* controla a largura máxima de cada logo */
+                height: auto;       /* mantém a proporção */
+                object-fit: contain; /* garante que a imagem não deforme */
+                display: inline-block;
+                margin: 0 10px;     /* espaçamento entre os logos */
+                vertical-align: middle;
             }
         }
     }
