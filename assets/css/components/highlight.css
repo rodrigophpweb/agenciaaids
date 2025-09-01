@@ -14,10 +14,12 @@
         flex-direction: column;
         justify-content: space-around;
 
-        @media screen (max-width: 768px) {
-            width: 100%;
-            padding-right: 0;
-            margin-top: 1.5rem;
+        @media screen {
+            @media (max-width: 768px) {
+                width: 100%;
+                padding-right: 0;
+                margin-top: 1.5rem;
+            }
         }
 
         .category {
