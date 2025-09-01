@@ -115,11 +115,7 @@ if (!($query instanceof WP_Query)) {
 
                                     <div class="post-info">
                                         <h3 itemprop="<?= esc_attr($args['itemprop_title']) ?>"><?= esc_html(get_the_title()) ?></h3>
-                                        <?php if ($categories = get_the_category(get_the_ID())): ?>
-                                            <?php foreach ($categories as $category): ?>
-                                                <mark><?= esc_html($category->name) ?></mark>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
+                                        
                                         <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?= esc_html(get_the_excerpt()) ?></p>
                                         <time datetime="<?= get_the_date('c') ?>" itemprop="<?= esc_attr($args['itemprop_date']) ?>">
                                             <?= get_the_date('d \d\e F \d\e Y') ?>

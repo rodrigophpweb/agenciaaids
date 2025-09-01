@@ -25,6 +25,8 @@
         'title'             => 'Notícias',
         'subtitle'          => 'Recentes',
         'post_type'         => 'noticias',
+        'meta_key'          => 'destacar_post',
+        'meta_value'        => '0',
         'highlight'         => 1,
         'columns'           => 3,
         'excerpt_length'    => 20,
