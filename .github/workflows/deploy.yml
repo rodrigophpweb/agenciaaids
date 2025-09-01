@@ -29,7 +29,7 @@ jobs:
           # 🔽 AJUSTE ESTA LINHA para o caminho REAL do tema no repo
           local-dir: ./
           # 🔽 Caminho remoto que você informou
-          server-dir: /home3/prog3796/ag.programadorweb.com.br/wp-content/themes/agenciaaids/
+          server-dir: /wp-content/themes/agenciaaids/
           timeout: 190000
           dangerous-clean-slate: false
           exclude: |
