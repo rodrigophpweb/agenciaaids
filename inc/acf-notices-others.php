@@ -31,6 +31,23 @@ if (function_exists('acf_add_local_field_group')) {
                 'append' => '',
                 'maxlength' => '',
             ),
+            array(
+                'key' => 'field_destacar_post',
+                'label' => 'Destacar post?',
+                'name' => 'destacar_post',
+                'type' => 'true_false',
+                'instructions' => '',
+                'required' => 0,
+                'conditional_logic' => 0,
+                'wrapper' => array(
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ),
+                'message' => '',
+                'default_value' => 0,
+                'ui' => 1,
+            ),
         ),
         'location' => array(
             array(

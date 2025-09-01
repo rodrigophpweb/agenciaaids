@@ -1,7 +1,4 @@
 Agência AIDS
-- Colocar imagem do anunciante
-- Ajustar o menu para funcionar em todas as resoluções
-- Menu só vai aparecer as páginas válidas
 - No destaque criar ACF para destaque em notícias
 - Deixar essa em destaque (Crise na Saúde em Guarulhos: Integrante do  Conselho Municipal de Saúde esclarece que os infectologistas contratados não trabalham as 154 horas necessárias para o atendimento adequado às pessoas que vivem com HIV/AIds no município) 
 - No destaque colocar um botão de link
