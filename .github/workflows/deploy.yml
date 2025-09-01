@@ -36,7 +36,7 @@ jobs:
       # Em FTP puro não dá para "descompactar" remoto. Envie a pasta gerada (ex.: dist/).
 
       - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@latest
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
