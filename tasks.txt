@@ -1,5 +1,4 @@
 Agência AIDS
-- Em apoios ajustar todas as imagens
 - Artigo deixar somente um
 - Sessão de videos deixar um grande e dois pequenos
 - Na sessão notícias e artigos remover categorias

@@ -80,6 +80,10 @@ if (!($query instanceof WP_Query)) {
                         if (empty($thumb_url) && has_post_thumbnail()) {
                             $thumb_url = get_the_post_thumbnail_url(get_the_ID(), $thumb_size);
                         }
+                        // Fallback para imagem padrão se não houver thumbnail
+                        if (empty($thumb_url)) {
+                            $thumb_url = get_template_directory_uri() . '/assets/images/backdrop-ag-aids-compress-web.webp';
+                        }
                 ?>
 
                         <?php if ($counter === 0): ?>
@@ -90,12 +94,7 @@ if (!($query instanceof WP_Query)) {
                                     </figure>
 
                                     <div class="post-info">
-                                        <h3 itemprop="<?= esc_attr($args['itemprop_title']) ?>"><?= esc_html(get_the_title()) ?></h3>
-                                        <?php if ($categories = get_the_category(get_the_ID())): ?>
-                                            <?php foreach ($categories as $category): ?>
-                                                <mark><?= esc_html($category->name) ?></mark>
-                                            <?php endforeach; ?>
-                                        <?php endif; ?>
+                                        <h3 itemprop="<?= esc_attr($args['itemprop_title']) ?>"><?= esc_html(get_the_title()) ?></h3>                                        
                                         <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?= esc_html(wp_trim_words(get_the_excerpt(), 20, '...')) ?></p>
                                         <time datetime="<?= get_the_date('c') ?>" itemprop="<?= esc_attr($args['itemprop_date']) ?>">
                                             <?= get_the_date('d \d\e F \d\e Y') ?>
