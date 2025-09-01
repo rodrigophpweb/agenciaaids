@@ -20,6 +20,12 @@ section.support {
         a {
             display: flex;
             align-items: center;
+
+            @media screen {
+                @media (max-width: 768px) {
+                    margin: 0.625rem 0;
+                }
+            }
             
             img {
                 max-width: 150px;   /* controla a largura máxima de cada logo */
