@@ -1,0 +1,96 @@
+<?php
+if (function_exists('acf_add_local_field_group')) {
+    acf_add_local_field_group([
+        'key' => 'group_65affcfda584d',
+        'title' => 'Serviços - Informações',
+        'fields' => [
+            [
+                'key' => 'field_65affcfe4fbe3',
+                'label' => 'Data',
+                'name' => 'data',
+                'type' => 'date_time_picker',
+                'instructions' => '',
+                'required' => 0,
+                'wrapper' => [
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'display_format' => 'd/m/Y g:i a',
+                'return_format' => 'Y-m-d H:i:s',
+                'first_day' => 1,
+            ],
+            [
+                'key' => 'field_65affd404fbe4',
+                'label' => 'Endereço',
+                'name' => 'endereco',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'wrapper' => [
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ],
+            [
+                'key' => 'field_65affd464fbe5',
+                'label' => 'Telefone',
+                'name' => 'telefone',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'wrapper' => [
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ],
+            [
+                'key' => 'field_65affd534fbe6',
+                'label' => 'Email',
+                'name' => 'email',
+                'type' => 'text',
+                'instructions' => '',
+                'required' => 0,
+                'wrapper' => [
+                    'width' => '',
+                    'class' => '',
+                    'id' => '',
+                ],
+                'default_value' => '',
+                'placeholder' => '',
+                'prepend' => '',
+                'append' => '',
+                'maxlength' => '',
+            ],
+        ],
+        'location' => [
+            [
+                [
+                    'param' => 'post_type',
+                    'operator' => '==',
+                    'value' => 'servicos', // confirme se o slug do CPT é esse
+                ],
+            ],
+        ],
+        'menu_order' => 0,
+        'position' => 'normal',
+        'style' => 'default',
+        'label_placement' => 'top',
+        'instruction_placement' => 'label',
+        'hide_on_screen' => '',
+        'active' => true,
+        'description' => '',
+    ]);
+}

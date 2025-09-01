@@ -1,0 +1,50 @@
+.doubt {
+    display: flex;
+    padding-top: 0;
+    padding-bottom: 0;
+    background: linear-gradient(90deg, var(--buttonBlue) 90%, var(--blueJeans));
+    height: 12.5rem;
+    position: relative;
+    margin-top: 6.25rem;
+
+    .info {
+        display: flex;
+        position: absolute;
+        bottom: 0;
+
+        img {
+            /* Estilos para a imagem */}
+        .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 65%;
+            color: var(--white);
+            margin-left: 1.5625rem;
+            margin-top: 30px;
+            
+            h2 {
+                font-weight: 200;
+                font-size: 3rem;
+                margin-top: 1.875rem;
+                margin-bottom: .9375rem;
+            }
+            a {
+                font-weight: 600;
+                color: var(--white);
+                background-color: var(--charlestonGreen);
+                width: fit-content;
+                padding: .625rem 1.25rem;
+                border-radius: .3125rem;
+
+                &:hover {
+                    background-color: var(--maize);
+                    color: var(--charlestonGreen);
+                }
+                &:active {
+                    background-color: var(--darkEletroBlue);
+                }
+            }
+        }
+    }
+}

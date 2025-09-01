@@ -1,0 +1,265 @@
+footer {
+    background-color: var(--charlestonGreen);
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+
+    @media (max-width: 1366px) {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .menu {
+        width: 50%;
+
+        @media (max-width: 1366px) {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+
+        .footer-menu-container {            
+            margin-bottom: 1.5625rem;
+
+            .footer-menu {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 1rem;
+                
+                @media (max-width: 768px) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                li {
+                    /* Estilos para os itens da lista */
+                    &.current-menu-item,
+                    &.current_page_item {
+                        a {
+                            background-color: var(--maize);
+                            color: var(--charlestonGreen);
+                            border-radius: .9375rem;
+                            padding: .3125rem .625rem;
+                            font-weight: 600;
+
+                        }
+                    }
+
+                    a {
+                        color: var(--white);
+                        font-size: 1rem;
+                        &:hover,
+                        &:focus {
+                            background-color: var(--maize);
+                            color: var(--charlestonGreen);
+                            border-radius: .9375rem;
+                            padding: .3125rem .625rem;
+                            font-weight: 600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .socialMediaAddress {
+        padding-top: 0;
+        width: 45%;
+        
+        @media (max-width: 1366px) {
+            width: 100%;
+            padding-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            width: 100%;
+        }
+        
+        /* Estilos para a seção de mídias sociais e endereço */
+        .mnuSocialMediaFooter {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 1rem;
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1rem 0;
+            flex-wrap: wrap;
+
+            @media (max-width: 1366px) {
+                justify-content: center;
+                margin: 1rem 0;
+            }
+
+            @media (max-width: 768px) {
+                justify-content: center;
+                margin: 2rem 0;
+                gap: 0.75rem;
+            }
+
+            @media (max-width: 480px) {
+                gap: 0.5rem;
+            }
+            
+            li {
+                a {
+                    display: inline-block;
+                    transition: all 0.3s ease;
+                    
+                    &:hover,
+                    &:focus {
+                        transform: translateY(-2px);
+                        img {
+                            background-color: var(--maize);
+                        }
+                    }
+                    
+                    img {
+                        width: 2rem;
+                        height: 2rem;
+                        padding: .3125rem;
+                        background: var(--white);
+                        border-radius: 100%;
+                        margin-right: 0;
+                        transition: all 0.3s ease;
+
+                        @media (max-width: 480px) {
+                            width: 1.75rem;
+                            height: 1.75rem;
+                            padding: .25rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .addressPhoneMail {
+            @media (max-width: 1366px) {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            @media (max-width: 768px) {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            /* Ocultar separadores pipe | em media queries menores */
+            @media (max-width: 1366px) {
+                .separator,
+                span.pipe,
+                .pipe {
+                    display: none !important;
+                }
+                
+                /* Se o pipe estiver diretamente no texto */
+                *::before,
+                *::after {
+                    content: none !important;
+                }
+            }
+
+            address {
+                margin: .625rem 0;                
+                
+                a {
+                    
+                    span {
+                        color: var(--white);
+                        &:hover,
+                        &:focus {
+                            text-decoration: underline;
+                            color: var(--maize);    
+                        }
+                    }
+                }
+            }
+
+            .contactsPhoneMail {
+                display: flex;
+                justify-content: flex-end;
+                color: var(--white);
+                flex-wrap: wrap;
+                gap: 0.5rem;
+
+                @media (max-width: 1366px) {
+                    justify-content: center;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0.25rem;
+                }
+
+                @media (max-width: 768px) {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 0.25rem;
+                }
+
+                /* Ocultar caracteres pipe | em telas menores */
+                @media (max-width: 1366px) {
+                    .pipe,
+                    span:contains("|"),
+                    *:contains("|") {
+                        display: none;
+                    }
+                }
+                
+                a {
+                    color: var(--white);
+                    margin: 0 .3125rem;
+                    white-space: nowrap;
+
+                    @media (max-width: 1366px) {
+                        margin: 0;
+                    }
+
+                    @media (max-width: 768px) {
+                        margin: 0;
+                    }
+
+                    &:hover,
+                    &:focus {                        
+                        text-decoration: underline;
+                        color: var(--maize);
+                    }                
+                }
+            }
+        }
+    }
+
+    .copyrigth {
+        width: 100%;
+        text-align: center;
+        padding: .9375rem 0 0;
+        border-top: solid .0625rem var(--white);
+        margin-top: .9375rem;
+        small {
+            color: var(--white);
+            font-size: .875rem;
+        }
+    }
+}
+
+.archive {
+    footer {
+        .menu-item-76,
+        .menu-item-100652 {
+            a {
+                background-color: var(--maize);
+                color: var(--charlestonGreen) !important;
+                border-radius: .9375rem;
+                padding: .3125rem .625rem;
+                font-weight: 600;
+            }
+        }
+    }
+}

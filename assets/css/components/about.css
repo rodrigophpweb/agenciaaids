@@ -1,0 +1,150 @@
+.aboutUs {
+  display: block;
+
+  span[itemprop="name"] {
+    color: var(--buttonBlue);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 200;
+    margin-bottom: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    &::after {
+      content: '';
+      width: 50px;
+      height: 2px;
+      background-color: var(--buttonBlue);
+      margin-top: 0.5rem;
+    }
+  }
+
+  h1 {
+    font-weight: 900;
+    font-size: 2.25rem;
+    line-height: 2.875rem;
+    margin-bottom: .9375rem;
+    color: var(--charlestonGreen);
+  }
+
+  .the_content {
+    p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        margin-bottom: 1rem;
+        display: block;
+        font-weight: 300;
+    }
+  }
+
+  .peoples { 
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 3rem;
+
+    article {
+        margin-bottom: 2rem;
+        display: flex;
+        gap: 1rem;
+        width: 49%;
+        border: solid 1px var(--charlestonGreen);
+        border-radius: 0.8rem;
+        padding: 2rem;
+
+        figure[itemprop="image"] {
+            img {
+                width: 150px;
+                height: auto;
+                border-radius: 50%;
+            }
+        }
+
+        header {
+            box-shadow: none;
+
+            h2 {
+                font-size: 1.5rem;
+                background-color: var(--maize);
+                color: var(--charlestonGreen);
+                font-weight: 700;
+                padding: .3125rem .9375rem;
+                border-radius: 1.5625rem;
+                width: fit-content;
+                margin-bottom: 1rem;
+            }
+
+            p.cargo[itemprop="jobTitle"] {
+                font-weight: bold;
+                margin: 0.25rem 0;
+            }
+
+            p[itemprop="description"] {
+                font-size: 1rem;
+                line-height: 1.5rem;
+                margin-bottom: 1rem;
+                display: block;
+                font-weight: 300;
+            }
+
+            a[itemprop="email"] {
+                display: flex;
+                align-items: center;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+
+                img {
+                width: 20px;
+                height: 20px;
+                }
+
+                span {
+                font-size: 0.9rem;
+                }
+            }
+
+            h3 {
+                margin-top: 1rem;
+                font-size: 1.1rem;
+            }
+
+            .containerEmail {
+                background-color: var(--maize);
+                width: fit-content;
+                padding: 0.5rem 1rem 1rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 0.5rem;
+                margin-top: 0.5rem;
+
+                svg {
+                    width: 1.6rem;
+                    path {
+                        fill: var(--charlestonGreen);
+                    }
+                }
+
+                a {
+                    color: var(--charlestonGreen);
+                }
+            }
+
+            ul {
+                display: flex;
+                gap: 0.5rem;
+                margin-top: 0.5rem;
+
+                li {
+                    a[itemprop="sameAs"] {
+                        img {
+                        width: 24px;
+                        height: 24px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+  }
+}

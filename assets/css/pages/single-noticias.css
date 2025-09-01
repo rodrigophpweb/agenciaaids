@@ -1,0 +1,7 @@
+@import "../variables.css";
+@import '../components/header.css';
+@import '../components/breadcrumb.css';
+@import '../components/singleArticles.css';
+@import '../components/partners.css';
+/* Seu código CSS existente */
+@import '../components/footer.css';

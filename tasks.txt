@@ -1,0 +1,30 @@
+Agência AIDS
+- Usar o git e integrar com hospedagem da hostgator
+- Colocar imagem do anunciante
+- Ajustar o menu para funcionar em todas as resoluções
+- Menu só vai aparecer as páginas válidas
+- No destaque criar ACF para destaque em notícias
+- Deixar essa em destaque (Crise na Saúde em Guarulhos: Integrante do  Conselho Municipal de Saúde esclarece que os infectologistas contratados não trabalham as 154 horas necessárias para o atendimento adequado às pessoas que vivem com HIV/AIds no município) 
+- No destaque colocar um botão de link
+- Em apoios ajustar todas as imagens
+- Artigo deixar somente um
+- Sessão de videos deixar um grande e dois pequenos
+- Na sessão notícias e artigos remover categorias
+- Gerar imagem para os posts em branco via IA
+- Footer deixar em azul
+- CSS da Homem Design Responsivo
+- Single melhorar o CSS para Leitura
+- Criar um Botão e WhatsApp
+- Página de biblioteca
+- Criar a página category
+-
+
+Melhorias futuras
+- Acessibilidaes
+- Criar CTP de anuncios
+- Artigos ser um só
+- Videos deixar dois videos
+- colocar azul no rodapé
+- Area de newsletter
+- Servios tera mapas
+- Linikedin

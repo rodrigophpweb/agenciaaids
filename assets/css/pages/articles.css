@@ -1,0 +1,6 @@
+@import "../variables.css";
+@import '../components/header.css';
+
+/* Seu código CSS existente */
+
+@import '../components/footer.css';

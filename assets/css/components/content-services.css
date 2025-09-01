@@ -1,0 +1,110 @@
+.services {
+    color: var(--charlestonGreen);
+
+    .subtitle {
+        color: var(--buttonBlue);
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: 200;
+        margin-bottom: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        &::after {
+        content: '';
+        width: 50px;
+        height: 2px;
+        background-color: var(--buttonBlue);
+        margin-top: 0.5rem;
+        }
+    }
+
+    h1 {
+        font-weight: 900;
+        font-size: 2.25rem;
+        line-height: 2.875rem;
+        color: var(--charlestonGreen);
+    }
+
+    .listServives {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+        gap: 2rem;
+        padding-top: 3.125rem;
+
+        figure {
+            border-radius: 0.5rem;
+            border: 1px solid var(--charlestonGreen);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.02);
+            }
+
+            img {
+                width: 100%;
+                height: auto;
+                object-fit: cover;
+            }
+
+            figcaption {
+                padding: 1rem;
+
+                h2 {
+                    font-size: 1.5rem;
+                    margin-bottom: 0.5rem;
+                    color: var(--charlestonGreen);
+                }
+
+                p, div[itemprop="description"] {
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                    margin-bottom: 1rem;
+                    display: block;
+                    font-weight: 300;
+                    color: var(--charlestonGreen);
+                }
+
+                a {
+                    display: inline-block;
+                    background-color: var(--maize);
+                    color: var(--charlestonGreen);
+                    font-weight: bold;
+                    padding: 0.5rem 1rem;
+                    text-decoration: none;
+                    border-radius: 0.25rem;
+                    transition: background-color 0.3s;
+
+                    &:hover {
+                        background-color: var(--darkBlueGray);
+                        color: var(--white);
+                    }
+                }
+            }
+        }
+    }
+
+    .pagination {
+        margin-top: 3rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+        .listServives {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .listServives {
+            grid-template-columns: 1fr;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+        }
+    }
+}

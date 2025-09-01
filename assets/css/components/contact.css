@@ -1,0 +1,163 @@
+.contact {
+    background-color: var(--background-light); /* Cor de fundo clara para contraste */
+    color: var(--text-dark); /* Cor do texto principal */
+
+    .subTitleAndTitle {
+        text-align: center; /* Centraliza o texto */
+        box-shadow: none; /* Remove sombra */
+
+        .subtitle {
+            font-size: 1.125rem; /* Tamanho menor para subtítulos */
+            font-weight: 300; /* Destaque no subtítulo */
+            color: var(--buttonBlue); /* Cor principal */
+            margin-bottom: 1rem; /* Espaçamento inferior */
+            text-transform: uppercase; /* Texto em maiúsculas */
+
+            &::after {
+                content: ''; /* Elemento vazio para a barra */
+                display: block;
+                width: 4rem; /* Largura da barra */
+                height: .0625rem; /* Altura da barra */
+                background-color: var(--buttonBlue); /* Cor da barra */
+                margin: 0.5rem auto 0; /* Espaçamento acima e centralização */
+            }
+        }
+    
+        h1 {
+            font-size: 3rem; /* Tamanho grande para o título */
+            font-weight: 900; /* Peso maior para destaque */
+            color: var(--charlestonGreen); /* Cor do texto */
+            margin: 1rem 0 2rem; /* Espaçamento inferior */                        
+        }
+    }
+
+    p {
+        font-size: 1rem; /* Tamanho padrão para parágrafos */
+        line-height: 1.6; /* Altura da linha para melhor legibilidade */
+        margin-bottom: .4375rem; /* Espaçamento inferior */
+        font-weight: 300; /* Peso leve para o texto */
+        
+    }
+
+    form {
+        margin-top: 3.125rem; /* Espaçamento superior para separar do texto */
+        display: flex;
+        flex-wrap: wrap;
+
+        p {
+            width: 50%; /* Largura de 50% para os parágrafos */
+
+            label {
+                font-size: 1rem; /* Tamanho menor para rótulos */
+                font-weight: 500; /* Peso médio */
+                color: var(--black); /* Cor do texto */
+                display: block;
+                margin-bottom: 0.5rem; /* Espaçamento inferior */
+                text-transform: uppercase;
+            }
+    
+            input,
+            select {
+                width: 98%; /* Campos ocupam toda a largura */
+                padding: 0.75rem; /* Espaçamento interno */
+                font-size: var(--font-size-md); /* Tamanho médio */
+                border: 0.0625rem solid var(--border-color); /* Borda fina */
+                border-radius: 0.25rem; /* Bordas arredondadas */
+                background-color: var(--background-light); /* Fundo claro */
+                color: var(--text-dark); /* Texto escuro */
+                margin-bottom: 1rem; /* Espaçamento inferior */
+                transition: border-color 0.3s ease;
+                border: solid .0625rem var(--darkEletroBlue);
+                cursor: pointer; /* Cursor de ponteiro para indicar interatividade */
+    
+                &:focus {
+                    border-color: var(--buttonBlue); /* Destaque na borda ao focar */
+                    outline: none; /* Remove o contorno padrão */
+                    box-shadow: 0 0 0.25rem var(--buttonBlue); /* Adiciona sombra */
+                }
+            }
+        }
+        p:nth-child(6),
+        p:nth-child(7) {
+            width: 100%; /* Largura total para os últimos campos */
+            
+            textarea {
+                width: 100%; /* Campos ocupam toda a largura */
+                padding: 0.75rem; /* Espaçamento interno */
+                font-size: var(--font-size-md); /* Tamanho médio */
+                border: 0.0625rem solid var(--border-color); /* Borda fina */
+                border-radius: 0.25rem; /* Bordas arredondadas */
+                background-color: var(--background-light); /* Fundo claro */
+                color: var(--text-dark); /* Texto escuro */
+                margin-bottom: 1rem; /* Espaçamento inferior */
+                transition: border-color 0.3s ease;
+                border: solid .0625rem var(--darkEletroBlue);
+    
+                &:focus {
+                    border-color: var(--buttonBlue); /* Destaque na borda ao focar */
+                    outline: none; /* Remove o contorno padrão */
+                    box-shadow: 0 0 0.25rem var(--buttonBlue); /* Adiciona sombra */
+                }
+            }
+        }
+        
+        p:nth-child(7) {
+            display: flex;
+            justify-content: center; /* Centraliza o botão */
+
+            input[value="Enviar"] {
+                width: 25%; /* Largura de 50% para o botão */
+                margin: 0 auto; /* Centraliza o botão */
+                background-color: var(--buttonBlue); /* Cor de fundo principal */
+                color: var(--white); /* Texto claro */
+                font-size: 1.125rem; /* Tamanho médio */
+                font-weight: 900; /* Peso maior */
+                text-transform: uppercase; /* Texto em maiúsculas */
+                padding: 0.75rem 1.5rem; /* Espaçamento interno */
+                border: none;
+                border-radius: 0.25rem; /* Bordas arredondadas */
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: var(--charlestonGreen); /* Cor mais escura no hover */
+                    box-shadow: 0 0 0.25rem var(--charlestonGreen); /* Sombra ao focar */
+                }
+
+                &:focus {
+                    outline: none;
+                    background-color: var(--charlestonGreen); /* Cor mais escura no hover */
+                    box-shadow: 0 0 0.25rem var(--charlestonGreen); /* Sombra ao focar */
+                }
+            }
+        }
+    }
+
+    address {
+        padding: 1.5625rem 0;
+
+        h2 {
+            margin-bottom: 1.5625rem;
+            color: var(--charlestonGreen);
+        }
+
+        .map-responsive {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            aspect-ratio: 4 / 3; /* mantém a proporção responsiva moderna */
+            overflow: hidden;
+            border-radius: 0.5rem; /* opcional: bordas arredondadas */
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* opcional: sombra suave */
+        }
+
+        .map-responsive iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    }
+}

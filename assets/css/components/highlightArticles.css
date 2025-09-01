@@ -1,0 +1,26 @@
+.highlightArticles {
+    article {
+        figure {
+            img {
+                /* Estilos para a imagem */
+            }
+            figcaption {
+                /* Estilos para a legenda */
+            }
+        }
+        header {
+            h3 {
+                /* Estilos para o subtítulo */
+            }
+            h4 {
+                /* Estilos para o título */
+            }
+            p {
+                /* Estilos para o parágrafo */
+            }
+            a {
+                /* Estilos para o link */
+            }
+        }
+    }
+}

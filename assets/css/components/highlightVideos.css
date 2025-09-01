@@ -1,0 +1,20 @@
+.highlightVideos {
+    h2 {
+        /* Estilos para o título */
+    }
+    .latestVideoPost,
+    .aside_videos_article {
+        figure {
+            a {
+                img {
+                    /* Estilos para a imagem */
+                }
+            }
+        }
+        a {
+            h3 {
+                /* Estilos para o título */
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+section.support {
+    h2 {
+        text-align: center;
+        font-size: 2rem ;
+        margin-bottom: 30px;
+        text-transform: uppercase;
+        color: var(--charlestonGreen);
+    }
+    .logoInSVG {
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+        a {
+            img {
+                height: clamp(3.125rem, 5vw, 5rem);
+                object-fit: contain
+            }
+        }
+    }
+}

@@ -1,0 +1,30 @@
+.relatedNews {
+    h2 {
+        /* Estilos para o título */
+    }
+    article {
+        figure {
+            img {
+                /* Estilos para a imagem */
+            }
+        }
+        mark {
+            /* Estilos para a marca */
+        }
+        h3 {
+            /* Estilos para o título */
+        }
+        p {
+            /* Estilos para o parágrafo */
+        }
+        time {
+            /* Estilos para o tempo */
+        }
+        a {
+            /* Estilos para o link */
+        }
+    }
+    a[itemprop="mainEntityOfPage"] {
+        /* Estilos para o link principal */
+    }
+}

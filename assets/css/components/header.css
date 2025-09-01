@@ -1,0 +1,294 @@
+header {    
+    box-shadow: 0 .25rem 1.25rem -0.25rem rgba(0,28,51,.11);
+
+    .socialMediaAcessibility {
+        background: var(--buttonBlue);
+        padding-top: .3125rem;
+        padding-bottom: .3125rem;
+        display: flex;
+        justify-content: space-between;
+
+        @media (max-width: 768px) {
+            justify-content: center; /* Centraliza o conteúdo em telas pequenas */
+            padding-top: 0.625rem; /* Ajusta o padding superior */
+            padding-bottom: 0.625rem; /* Ajusta o padding inferior */
+        }
+
+        .mnuSocialMedia {
+            display: flex;
+
+            @media (max-width: 768px) {
+                display: none; /* Esconde o menu de redes sociais em telas pequenas */
+            }
+
+            li {
+                /* Estilos para os itens da lista */
+
+                a {
+                    /* Estilos para os links */
+                    &:hover,
+                    &:focus {
+                        
+                    }
+
+                    img {
+                        width: 2rem;
+                        height: 2rem;
+                        padding: .3125rem;
+                        background: var(--white);
+                        border-radius: 100%;
+                        margin-right: .5rem;
+
+                        &:hover {
+                            background-color: var(--maize);
+                        }
+
+                        svg {
+                            path {
+                                fill: var(--primary)
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+
+        .acessibility {
+            font-size: 0.875rem; /* 14px em rem */
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            .contrast {
+                position: relative; /* Adiciona posição relativa ao contêiner do contraste */
+
+                .mnuContrast {
+                    display: none;
+                    position: absolute; /* Adiciona posição absoluta ao menu */
+                    top: 100%; /* Posiciona o menu abaixo do botão */
+                    left: 0;
+                    background: var(--buttonBlue);
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    z-index: 1000;
+                    padding: 0.5rem;
+                    border-radius: 0.5rem;
+                    /* Outros estilos para o menu */
+
+                    li {
+                        padding: 0.5rem 0;
+                        /* Estilos para os itens da lista */
+                    }
+                }
+
+                .mnuContrast.open {
+                    display: block;
+                    width: max-content;
+                
+                    li {
+                        padding: .625rem;
+                        &:hover {
+                            background-color: var(--white);
+                            border-radius: .625rem;
+                        }
+                    }
+                }
+            }
+
+            .btnContrast,
+            .sizeButtonMore,
+            .sizeButtonLess {
+                width: 2rem;
+                height: 2rem;
+                border-radius: 100%;
+                background-color: var(--white);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-left: 0.5rem;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--maize);
+                }
+            }
+        }
+    }
+
+    .brandAds {
+        padding-top: 1.5625rem;
+        padding-bottom: 1.5625rem;
+        display: flex;
+
+        @media (max-width: 768px) {            
+            justify-content: space-between;
+        }
+
+        
+        .brand {
+            width: 10%;
+
+            a {
+                /* Estilos para os links */
+                span {
+                    /* Estilos para o texto */
+                }
+            }
+        }
+
+        .ads {
+            width: 90%;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            @media (max-width: 768px) {
+                display: none; /* Esconde o bloco de anúncios em telas pequenas */
+            }
+
+            a {
+                /* Estilos para os links */
+                img {
+                    /* Estilos para as imagens */
+                }
+            }
+        }
+
+        .btnMobile {
+            display: none; /* Esconde o botão em telas grandes */
+            width: 100%;
+            text-align: center;
+
+            @media (max-width: 768px) {
+                padding: 0.625rem 1.25rem;
+                width: 4rem;
+                font-size: 2.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: transparent;
+            }
+        }
+    }
+
+    .mnuDefault {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 1.25rem;
+        padding-bottom: 1.25rem;
+        
+        @media (max-width: 768px) {
+            display: none;
+        }
+
+        .mnuPrincipal {
+            display: flex;
+            /* margin-bottom: 1.5625rem; */
+
+            li {
+                margin-left: .625rem;
+                margin-right: .625rem;
+
+                &.current-menu-item,
+                &.current_page_item {
+                    a {
+                        background-color: var(--charlestonGreen);
+                        color: var(--white);
+                        font-weight: 500;
+                    }
+                }
+
+                a {
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    background-color: var(--buttonBlue);                    
+                    color: var(--white);
+                    padding: .3125rem .9375rem;
+                    border-radius: 1.5625rem;
+
+                    &:hover,
+                    &:focus,                    
+                    &:active {
+                        background-color: var(--charlestonGreen);
+                        color: var(--white);
+                        font-weight: 500;
+                    }
+                }
+            }
+        }
+
+        form {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* Espaçamento entre o campo e o botão */
+            border: solid 0.0625rem var(--buttonBlue);
+            border-radius: 0.25rem; /* Bordas arredondadas */
+            padding: 0.25rem; /* Espaçamento interno */
+            transition: border-color 0.3s ease; /* Transição suave para a cor da borda */
+
+            &:focus-within {
+                border-color: var(--charlestonGreen); /* Altera a cor da borda */
+                
+                .search-submit svg {
+                    stroke: var(--charlestonGreen); /* Altera a cor do stroke do SVG para vermelho */
+                }
+            }
+
+            &:hover .search-field,
+            &:focus-within .search-field {
+                width: 25rem; /* Largura expandida ao passar o mouse ou focar */
+                padding: 0.5rem 1rem; /* Ajusta o padding ao expandir */
+                background-color: var(--background-light); /* Fundo claro ao expandir */
+                color: var(--text-dark); /* Cor do texto */
+            }
+
+            .search-field {
+                cursor: pointer;
+                width: 2rem; /* Largura inicial pequena */
+                padding: 0.5rem; /* Espaçamento interno */
+                border: none;
+                border-radius: 0.25rem; /* Bordas arredondadas */
+                font-size: 1rem;
+                transition: width 0.3s ease, padding 0.3s ease; /* Transição suave para largura e padding */
+                outline: none; /* Remove o contorno padrão */
+                background-color: transparent; /* Fundo transparente inicialmente */
+                color: var(--text-dark); /* Cor do texto */
+
+                &::placeholder {
+                    color: var(--text-secondary); /* Cor do placeholder */
+                    opacity: 0; /* Placeholder invisível inicialmente */
+                    transition: opacity 0.3s ease; /* Transição suave para o placeholder */
+                }
+
+                &:focus::placeholder {
+                    opacity: 1; /* Torna o placeholder visível ao focar */
+                }
+            }
+
+            .search-submit {
+                background: none;
+                border: none;
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 0.5rem;
+                border-radius: 0.25rem; /* Bordas arredondadas */
+                transition: background-color 0.3s ease, stroke 0.3s ease; /* Transição suave para o stroke */
+
+                &:hover {
+                    background-color: #f0f0f0; /* Fundo claro no hover */
+                }
+
+                svg {
+                    stroke: var(--buttonBlue); /* Cor inicial do ícone */
+                    width: 20px;
+                    height: 20px;
+                    transition: stroke 0.3s ease; /* Transição suave para o stroke */
+                }
+            }
+        }
+    }
+}

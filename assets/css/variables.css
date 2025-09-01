@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap');
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    border: none;
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Roboto Flex', sans-serif;
+    font-style: normal;
+}
+
+:root {
+    --buttonBlue: #20A8F5;
+    --blueJeans: #55ADE0;
+    --maize: #E0C155;
+    --charlestonGreen: #202C33;
+    --darkBlueGray: #63688B;
+    --arsenic: #3B4347;
+    --darkEletroBlue: #5F717A;
+    --white: #FFFFFF;
+    --black: #000000;
+    --water: #CDECFF;
+    --iconSize: 2rem;
+    /* --btnAcessibility:  */
+}
+
+body {
+    font-size: 1rem;
+    overflow-x: hidden;
+}
+
+.paddingContent{
+    padding-left: 8%;
+    padding-right: 8%;
+}
+
+p, li {
+    font-weight: 400;
+}
+
+mark {
+    background-color: var(--primay);
+    color: var(--text);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+section {
+    padding-top: 3.125rem;
+    padding-bottom: 3.125rem;
+}
