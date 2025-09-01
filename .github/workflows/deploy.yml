@@ -1,0 +1,57 @@
+name: Deploy via FTP to HostGator
+
+on:
+  push:
+    branches: [ "main" ]   # ajuste se quiser outra branch
+  workflow_dispatch:        # permite rodar manualmente
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # (Opcional) Se tiver build (Node/PHP/Composer/etc.)
+      # Descomente e ajuste:
+      # - name: Setup Node
+      #   uses: actions/setup-node@v4
+      #   with:
+      #     node-version: '20'
+      # - name: Install deps
+      #   run: npm ci
+      # - name: Build
+      #   run: npm run build
+
+      # (Opcional) Composer (se for PHP com libs)
+      # - name: Setup PHP
+      #   uses: shivammathur/setup-php@v2
+      #   with:
+      #     php-version: '8.2'
+      # - name: Composer install (no-dev, autoloader otimizado)
+      #   run: composer install --no-dev --optimize-autoloader
+
+      # (Opcional) Zipe arquivos de build e depois descompactar no servidor?
+      # Em FTP puro não dá para "descompactar" remoto. Envie a pasta gerada (ex.: dist/).
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT || 21 }}
+          protocol: ftps
+          local-dir: ./         # ou ./dist se tiver build
+          server-dir: public_html/ # ajuste conforme seu site/subpasta
+          # Segurança / performance:
+          dangerous-clean-slate: false    # true apaga tudo antes de enviar (cuidado!)
+          exclude: |
+            **/.git*
+            **/.github/**
+            **/node_modules/**
+            **/tests/**
+            **/.vscode/**
+            **/*.map
+            **/README.md
