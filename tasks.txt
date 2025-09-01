@@ -1,5 +1,4 @@
 Agência AIDS
-- Usar o git e integrar com hospedagem da hostgator
 - Colocar imagem do anunciante
 - Ajustar o menu para funcionar em todas as resoluções
 - Menu só vai aparecer as páginas válidas

@@ -64,7 +64,9 @@
             </figure>
 
             <div class="ads" itemscope itemtype="https://schema.org/WPAdBlock">
-                <img src="https://agenciaaids.com.br/dashboard/wp-content/uploads/2025/02/DireitosHumanos_550x90px.gif" alt="" width="550" height="90">
+                <a href="https://www.sescsp.org.br/projetos/oju-roda-sesc-de-cinemas-negros/?ads=agenciaaids" target="_blank" itemprop="url">
+                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ads/sesc-sao-paulo-oju-roda-sesc-de-cinemas-negros.gif" alt="Banner - OJU - Roda Sesc de Cinemas Negros" >
+                </a>
                 <?php
                     $ads_query = new WP_Query(array(
                         'post_type'         => 'ads',
