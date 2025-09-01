@@ -10,6 +10,7 @@
     @media screen {
         @media (max-width: 768px) {
             height: auto;
+            margin-top: 0;
         }
     }
 
@@ -50,6 +51,12 @@
                 font-size: 3rem;
                 margin-top: 1.875rem;
                 margin-bottom: .9375rem;
+                @media screen {
+                    @media (max-width: 768px) {
+                        font-size: 2.5rem;
+                        text-align: center;
+                    }
+                }
             }
             a {
                 font-weight: 600;
