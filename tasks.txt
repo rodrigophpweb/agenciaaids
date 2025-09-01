@@ -1,5 +1,5 @@
 Agência AIDS
-- deploy feito 3
+- deploy feito 4
 - Artigo deixar somente um
 - CSS da Homem Design Responsivo
 - Single melhorar o CSS para Leitura
