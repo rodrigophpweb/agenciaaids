@@ -155,7 +155,7 @@ section.paddingContent {
           @media screen {
             @media (max-width: 768px) {
               width: 100%;
-              height: auto;
+              height: 200px;
             }
           }
 
@@ -167,8 +167,8 @@ section.paddingContent {
 
             @media (max-width: 768px) {
               border-radius: 0.3rem 0.3rem 0 0;
+              object-fit: none;
             }
-
           }
         }
 
