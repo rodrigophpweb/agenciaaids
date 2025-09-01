@@ -7,6 +7,12 @@
     position: relative;
     margin-top: 6.25rem;
 
+    @media screen {
+        @media (max-width: 768px) {
+            height: auto;
+        }
+    }
+
     .info {
         display: flex;
         position: absolute;
@@ -16,6 +22,8 @@
             @media (max-width: 768px) {
                 flex-direction: column-reverse;
                 align-items: center;
+                justify-content: center;
+                position: unset;
             }
         }
 
@@ -29,6 +37,13 @@
             color: var(--white);
             margin-left: 1.5625rem;
             margin-top: 30px;
+
+            @media screen {
+                @media (max-width: 768px) {
+                    width: 100%;
+                    margin-left: 0;
+                }
+            }
             
             h2 {
                 font-weight: 200;
