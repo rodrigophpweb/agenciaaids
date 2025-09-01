@@ -22,8 +22,6 @@ if (!($query instanceof WP_Query)) {
         'post_type'      => $args['post_type'] ?? 'post',
         'posts_per_page' => $args['highlight'] + $args['columns'],
         'paged'          => get_query_var('paged') ?: 1,
-        'meta_key'              => 'destacar_post',
-        'meta_value'            => 0,
     ];
     $query = new WP_Query($query_args);
 }
