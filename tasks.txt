@@ -1,12 +1,12 @@
 Agência AIDS
+- deploy feito
 - Artigo deixar somente um
-- Sessão de videos deixar um grande e dois pequenos
 - CSS da Homem Design Responsivo
 - Single melhorar o CSS para Leitura
 - Criar um Botão e WhatsApp
 - Página de biblioteca
 - Criar a página category
--
+- 
 
 Melhorias futuras
 - Acessibilidaes
@@ -17,3 +17,4 @@ Melhorias futuras
 - Area de newsletter
 - Servios tera mapas
 - Linikedin
+
