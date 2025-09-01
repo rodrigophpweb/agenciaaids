@@ -6,7 +6,8 @@
     $highlight_args = [
         'post_type'             => 'noticias',
         'posts_per_page'        => 1,
-        'post__in'              => get_option('sticky_posts') ?: [],
+        'meta_key'              => 'destacar_post',
+        'meta_value'            => '1',
         'orderby'               => 'date',
         'order'                 => 'DESC',
         'ignore_sticky_posts'   => 1
