@@ -127,7 +127,7 @@ section.paddingContent {
 
       a {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         text-decoration: none;
         color: inherit;
         gap: 1rem;
