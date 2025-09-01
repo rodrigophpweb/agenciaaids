@@ -1,77 +1,12 @@
 section.paddingContent {
-  /* Responsivo: mobile first */
-  .post-grid-two-columns {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  .secondary-posts {
-    flex-direction: column;
-    gap: 1.2rem;
-  }
-
-  @media (min-width: 768px) {
+  @media (max-width: 767px) {
     .post-grid-two-columns {
-      display: grid;
-      grid-template-columns: calc(66.25% - 1rem) 1fr;
+      display: flex;
+      flex-direction: column;
       gap: 2rem;
-      position: relative;
     }
     .post-grid-two-columns::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 66.25%;
-      width: 1px;
-      background-color: var(--buttonBlue);
-    }
-    .secondary-posts {
-      flex-direction: column;
-      gap: 1.2rem;
-      height: 100%;
-    }
-  }
-
-  @media (max-width: 767px) {
-    .featured-post, .post-card {
-      flex-direction: column !important;
-      align-items: stretch !important;
-    }
-    .featured-post figure, .post-card figure {
-      width: 100% !important;
-      height: auto !important;
-      aspect-ratio: 16/9;
-      padding: 0.5rem;
-    }
-    .post-card a {
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-    .post-card figure {
-      width: 100% !important;
-      height: 180px !important;
-      max-width: 100%;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .section-title {
-      font-size: 1.3rem;
-    }
-    .section-subtitle {
-      font-size: 1rem;
-    }
-    .featured-post .post-info h3,
-    .post-card .post-info h3 {
-      font-size: 1rem;
-    }
-    .featured-post .post-info p,
-    .post-card .post-info p {
-      font-size: 0.95rem;
-    }
-    .post-card figure {
-      height: 120px !important;
+      display: none;
     }
   }
 
