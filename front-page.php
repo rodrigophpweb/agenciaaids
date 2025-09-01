@@ -57,7 +57,7 @@
         'title'             => 'TV Agência Aids',
         'post_type'         => 'videos',
         'highlight'         => 1,
-        'columns'           => 3,
+        'columns'           => 2,
         'excerpt_length'    => 20,
         'itemtype'          => 'https://schema.org/VideoObject',
         'itemprop_title'    => 'name',

@@ -1,9 +1,6 @@
 Agência AIDS
 - Artigo deixar somente um
 - Sessão de videos deixar um grande e dois pequenos
-- Na sessão notícias e artigos remover categorias
-- Gerar imagem para os posts em branco via IA
-- Footer deixar em azul
 - CSS da Homem Design Responsivo
 - Single melhorar o CSS para Leitura
 - Criar um Botão e WhatsApp
@@ -20,4 +17,3 @@ Melhorias futuras
 - Area de newsletter
 - Servios tera mapas
 - Linikedin
--test 5
