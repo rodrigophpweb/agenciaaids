@@ -1,40 +1,22 @@
-name: Deploy via FTP to HostGator
+name: Deploy tema
 
 on:
   push:
-    branches: [ "main" ]   # ajuste se quiser outra branch
-  workflow_dispatch:        # permite rodar manualmente
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     environment: FTP
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      # (Opcional) Se tiver build (Node/PHP/Composer/etc.)
-      # Descomente e ajuste:
-      # - name: Setup Node
-      #   uses: actions/setup-node@v4
-      #   with:
-      #     node-version: '20'
-      # - name: Install deps
-      #   run: npm ci
-      # - name: Build
-      #   run: npm run build
-
-      # (Opcional) Composer (se for PHP com libs)
-      # - name: Setup PHP
-      #   uses: shivammathur/setup-php@v2
-      #   with:
-      #     php-version: '8.2'
-      # - name: Composer install (no-dev, autoloader otimizado)
-      #   run: composer install --no-dev --optimize-autoloader
-
-      # (Opcional) Zipe arquivos de build e depois descompactar no servidor?
-      # Em FTP puro não dá para "descompactar" remoto. Envie a pasta gerada (ex.: dist/).
+      - name: Inspecionar estrutura
+        run: |
+          pwd
+          ls -la
+          find . -maxdepth 3 -type d -name "agenciaaids" || true
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
@@ -42,12 +24,14 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: ${{ secrets.FTP_PORT || 21 }}
           protocol: ftps
-          local-dir: ./wp-content/themes/agenciaaids/
-          server-dir: ag.programadorweb.com.br/wp-content/themes/agenciaaids/ # ajuste conforme seu site/subpasta
-          # Segurança / performance:
-          dangerous-clean-slate: false    # true apaga tudo antes de enviar (cuidado!)
+          port: 21
+          # 🔽 AJUSTE ESTA LINHA para o caminho REAL do tema no repo
+          local-dir: ./agenciaaids/
+          # 🔽 Caminho remoto que você informou
+          server-dir: ag.programadorweb.com.br/wp-content/themes/agenciaaids/
+          timeout: 190000
+          dangerous-clean-slate: false
           exclude: |
             **/.git*
             **/.github/**
