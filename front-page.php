@@ -25,8 +25,6 @@
         'title'             => 'Notícias',
         'subtitle'          => 'Recentes',
         'post_type'         => 'noticias',
-        'meta_key'          => 'destacar_post',
-        'meta_value'        => '0',
         'highlight'         => 1,
         'columns'           => 3,
         'excerpt_length'    => 20,
@@ -35,6 +33,9 @@
         'itemprop_image'    => 'image',
         'itemprop_excerpt'  => 'description',
         'itemprop_date'     => 'datePublished',
+        // Não exibir posts destacados
+        'meta_key'          => 'destacar_post',
+        'meta_value'        => 0,
     ]);
 
     render_section('section-content-grid', [
