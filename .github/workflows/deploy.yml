@@ -45,7 +45,7 @@ jobs:
           port: ${{ secrets.FTP_PORT || 21 }}
           protocol: ftps
           local-dir: ./         # ou ./dist se tiver build
-          server-dir: wp-content/themes/agenciaaids # ajuste conforme seu site/subpasta
+          server-dir: wp-content/themes/agenciaaids/ # ajuste conforme seu site/subpasta
           # Segurança / performance:
           dangerous-clean-slate: false    # true apaga tudo antes de enviar (cuidado!)
           exclude: |
