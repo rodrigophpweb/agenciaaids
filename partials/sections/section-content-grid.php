@@ -32,7 +32,7 @@ if (!($query instanceof WP_Query)) {
                 'key' => 'destacar_post',
                 'compare' => 'NOT EXISTS'
             ]
-        ]
+        ],
         'paged'          => get_query_var('paged') ?: 1,
     ];
     $query = new WP_Query($query_args);
