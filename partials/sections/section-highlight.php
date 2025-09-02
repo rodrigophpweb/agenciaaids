@@ -26,8 +26,8 @@
                         </figure>
                         
                         <div class="post-info">
-                            <?php the_title('<h3 itemprop="headline">','<h3>')?>
-                            <p itemprop="description"><?php the_excerpt(30); ?></p>
+                            <?php the_title('<h3 itemprop="headline">','</h3>')?>
+                            <p itemprop="description"><?php echo wp_trim_words(get_the_excerpt(), 50, '...'); ?></p>
                             <time datetime="<?php echo get_the_date('c'); ?>" itemprop="datePublished"><?php echo get_the_date(); ?></time>
                             <meta itemprop="dateModified" content="<?php echo get_the_modified_date('c'); ?>">
                             <meta itemprop="author" content="<?php echo get_the_author(); ?>">
