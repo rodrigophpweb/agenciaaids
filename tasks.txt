@@ -14,9 +14,3 @@ Melhorias futuras
 - Servicos tera mapas
 - Linikedin
 
-<<<<<<< HEAD
-=======
-
-Talita Martins
-Agencia610222rt
->>>>>>> 0864ff8 (update tasks)
