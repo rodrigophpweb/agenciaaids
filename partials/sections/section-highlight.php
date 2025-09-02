@@ -20,7 +20,7 @@
         ?>
             <div class="post-grid-one-columns">
                 <article class="featured-post" itemscope="" itemtype="https://schema.org/Article">
-                    <a href="<?php esc_url(get_the_permalink())?>" itemprop="url">
+                    <a href="<?=esc_url(the_permalink())?>" itemprop="url">
                         <figure itemprop="image" itemscope="" itemtype="https://schema.org/ImageObject">
                             <img src="<?php echo esc_url(get_the_post_thumbnail_url()); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" itemprop="url" loading="lazy">
                         </figure>
