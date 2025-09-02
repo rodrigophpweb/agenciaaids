@@ -51,7 +51,12 @@ article[id^="post-"] {
         justify-content: center;
 
         img {
-            border-radius: .5rem
+            border-radius: .5rem;
+
+            @media screen and (min-width: 768px) {
+                width: 90%;
+                height: auto;                
+            }
         }
     }
 

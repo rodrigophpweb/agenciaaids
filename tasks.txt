@@ -1,6 +1,20 @@
 Agência AIDS
 - Criar um Botão e WhatsApp
 - create page search
+- Create page nossas notícias
+-- Create Filter with (Make FetchAPI)
+--- Year
+--- Month
+--- category
+---- Cards (20 posts)
+----- Imagem
+----- Name category
+----- Date Post
+----- Excerpt
+----- Link
+------ Pagination (With Ajax)
+------- Section (Posts more reads)
+-------- Cards (4 posts)
 - create single videos
 - Single melhorar o CSS para Leitura
 - Página de biblioteca
