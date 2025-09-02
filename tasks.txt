@@ -1,5 +1,8 @@
 Agência AIDS
 - create page search
+- In section with background blue (Less font-size)
+- In section partherns less size logos
+-- In mobile ajustment logos in two columns
 - create category
 - Create page nossas notícias
 -- Create Filter with (Make FetchAPI)
