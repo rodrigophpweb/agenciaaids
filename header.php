@@ -3,7 +3,18 @@
 <head>
     <meta charset="<?=bloginfo('charset')?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+        <?php
+            if (is_front_page()) {
+                bloginfo('name');
+                echo ' | ';
+                bloginfo('description');
+            } else {
+                wp_title('|', true, 'right');
+                bloginfo('name');
+            }
+        ?>
+    </title>
     <?php wp_head()?>
 </head>
 <body <?php body_class( 'class-name' ); ?>>
