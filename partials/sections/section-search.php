@@ -34,8 +34,8 @@
     <aside>
         <h2>Quer receber notícias e artigos como esses?</h2>
         <p>Assine nossa newsletter e fique por dentro das novidades sobre HIV e outras doenças.</p>
-    </aside>
-    <nav class="paginator">
-        <?php echo paginate_links(array('total' => $wp_query->max_num_pages));?>
-    </nav>
+    </aside>    
 </search>
+<nav class="paginator">
+    <?php echo paginate_links(array('total' => $wp_query->max_num_pages));?>
+</nav>
