@@ -1,10 +1,11 @@
-<search>
-    <header>
-        <h1>Resultados da Busca "<?php the_search_query(); ?>"</h1>
-        <span><?php echo $wp_query->found_posts; ?> resultado(s) encontrado(s)</span>
-    </header>
-
+<search class="paddingContent">
     <div class="articles">
+
+        <header>
+            <h1>Resultados da Busca "<?php the_search_query(); ?>"</h1>
+            <span><?php echo $wp_query->found_posts; ?> resultado(s) encontrado(s)</span>
+        </header>
+
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <article>
                 <figure>
