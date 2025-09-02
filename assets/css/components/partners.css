@@ -13,8 +13,9 @@ section.support {
 
         @media screen {
             @media (max-width: 768px) {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
+                flex-wrap: wrap;
             }
         }
         a {
@@ -28,7 +29,7 @@ section.support {
             }
             
             img {
-                max-width: 150px;   /* controla a largura máxima de cada logo */
+                max-width: 125px;   /* controla a largura máxima de cada logo */
                 height: auto;       /* mantém a proporção */
                 object-fit: contain; /* garante que a imagem não deforme */
                 display: inline-block;
