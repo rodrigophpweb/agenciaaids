@@ -8,25 +8,27 @@
 
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <article>
-                <figure>
-                    <?php if (has_post_thumbnail()) : ?>
-                        <?php the_post_thumbnail('thumbnail'); ?>
-                    <?php else : ?>
-                        <img src="https://www.agenciaaids.com.br/wp-content/themes/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?= esc_attr(get_the_title()); ?>">
-                    <?php endif; ?>
-                </figure>
+                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                    <figure>
+                        <?php if (has_post_thumbnail()) : ?>
+                            <?php the_post_thumbnail('thumbnail'); ?>
+                        <?php else : ?>
+                            <img src="https://www.agenciaaids.com.br/wp-content/themes/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?= esc_attr(get_the_title()); ?>">
+                        <?php endif; ?>
+                    </figure>
 
-                <div class="content">
-                    <?php the_title('<h2>', '</h2>')?>
-                    <p><?php the_excerpt(); ?></p>
-                    <time datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
-                    <?php
-                    $categories = get_the_category();
-                        if (!empty($categories)) {
-                            echo '<mark class="category">' . esc_html($categories[0]->name) . '</mark>';
-                        }
-                    ?>                    
-                </div>
+                    <div class="content">
+                        <?php the_title('<h2>', '</h2>')?>
+                        <p><?php the_excerpt(); ?></p>
+                        <time datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
+                        <?php
+                        $categories = get_the_category();
+                            if (!empty($categories)) {
+                                echo '<mark class="category">' . esc_html($categories[0]->name) . '</mark>';
+                            }
+                        ?>                    
+                    </div>
+                </a>
             </article>
         <?php endwhile; else : ?>
             <p>Nenhum resultado encontrado.</p>
