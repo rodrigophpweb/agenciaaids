@@ -1,7 +1,8 @@
 Agência AIDS
-- create page search
-- Single melhorar o CSS para Leitura
 - Criar um Botão e WhatsApp
+- create page search
+- create single videos
+- Single melhorar o CSS para Leitura
 - Página de biblioteca
 - Criar a página category
 - 
@@ -9,10 +10,7 @@ Agência AIDS
 Melhorias futuras
 - Acessibilidaes
 - Criar CTP de anuncios
-- Artigos ser um só
-- Videos deixar dois videos
-- colocar azul no rodapé
 - Area de newsletter
-- Servios tera mapas
+- Servicos tera mapas
 - Linikedin
 
