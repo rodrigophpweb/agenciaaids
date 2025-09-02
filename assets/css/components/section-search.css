@@ -31,7 +31,7 @@ search {
             a {
 
                 display: flex;
-                flex-direction: column; 
+                flex-direction: row; 
                 gap: 2rem;
 
                 figure {
