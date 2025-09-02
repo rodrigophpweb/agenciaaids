@@ -143,6 +143,7 @@ section.paddingContent {
         text-decoration: none;
         color: inherit;
         display: flex;
+        flex-direction: column;
 
         figure {
           width: 100%;
