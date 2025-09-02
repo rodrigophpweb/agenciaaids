@@ -9,7 +9,11 @@
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <article>
                 <figure>
-                    <img src="<?php the_post_thumbnail_url('thumbnail'); ?>" alt="<?php the_title(); ?>">
+                    <?php if (has_post_thumbnail()) : ?>
+                        <img src="<?php the_post_thumbnail_url('thumbnail'); ?>" alt="<?php the_title(); ?>">
+                    <?php else : ?>
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?php the_title(); ?>">
+                    <?php endif; ?>
                 </figure>
 
                 <div class="content">
