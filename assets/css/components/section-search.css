@@ -20,9 +20,6 @@ search {
             }
         }
 
-        display: flex;
-        flex-direction: column;
-        gap: 2rem;
         
         article {
             display: flex;
@@ -31,40 +28,48 @@ search {
             margin-bottom: 1rem;
             border-bottom: solid 1px var(--buttonBlue);
 
-            figure {
-                margin: 0;
-                img {
-                    width: 150px;
-                    height: 150px;
-                    object-fit: cover;
-                    border-radius: 8px;
+            a {
+
+                display: flex;
+                flex-direction: column; 
+                gap: 2rem;
+
+                figure {
+                    margin: 0;
+                    img {
+                        width: 150px;
+                        height: 150px;
+                        object-fit: cover;
+                        border-radius: 8px;
+                    }
                 }
-            }
-            .content {
-                flex: 1;
-                h2 {
-                    font-size: 1.25rem;
-                    margin: 0 0 0.5rem 0;
-                }
-                p {
-                    margin: 0 0 0.5rem 0;
-                }
-                time {
-                    display: block;
-                    color: #aaa;
-                    font-size: 0.9rem;
-                }
-                mark.category {
-                    background: #e0e0e0;
-                    color: #333;
-                    border-radius: 4px;
-                    padding: 0.1em 0.5em;
-                    font-size: 0.95em;
-                }
-                hr {
-                    margin: 1rem 0;
-                    border: none;
-                    border-top: 1px solid #eee;
+
+                .content {
+                    flex: 1;
+                    h2 {
+                        font-size: 1.25rem;
+                        margin: 0 0 0.5rem 0;
+                    }
+                    p {
+                        margin: 0 0 0.5rem 0;
+                    }
+                    time {
+                        display: block;
+                        color: #aaa;
+                        font-size: 0.9rem;
+                    }
+                    mark.category {
+                        background: #e0e0e0;
+                        color: #333;
+                        border-radius: 4px;
+                        padding: 0.1em 0.5em;
+                        font-size: 0.95em;
+                    }
+                    hr {
+                        margin: 1rem 0;
+                        border: none;
+                        border-top: 1px solid #eee;
+                    }
                 }
             }
         }
