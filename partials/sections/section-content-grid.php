@@ -83,7 +83,7 @@ if (!($query instanceof WP_Query)) {
                         $thumb_url = '';
 
                         // Definir tamanho conforme posição
-                        $thumb_size = ($counter === 0) ? 'large' : 'thumbnail';
+                        $thumb_size = ($counter === 0) ? 'large' : 'medium';
 
                         if ($video_url && function_exists('get_youtube_thumbnail')) {
                             $thumb_url = get_youtube_thumbnail($video_url);
