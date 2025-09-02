@@ -39,7 +39,7 @@
         
         <?php if (has_post_thumbnail()): ?>
             <figure class="post-thumbnail">
-                <?php the_post_thumbnail('large', [
+                <?php the_post_thumbnail('medium', [
                     'itemprop' => 'image',
                     //'style' => 'width: 100%; height: 300px; object-fit: cover;'
                 ]); ?>
