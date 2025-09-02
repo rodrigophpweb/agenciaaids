@@ -1,6 +1,6 @@
 Agência AIDS
-- Criar um Botão e WhatsApp
 - create page search
+- create category
 - Create page nossas notícias
 -- Create Filter with (Make FetchAPI)
 --- Year

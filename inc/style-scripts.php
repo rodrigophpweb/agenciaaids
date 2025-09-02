@@ -35,6 +35,7 @@ function load_custom_css() {
         'quem-somos'                => 'whoWeAre.css',
         'single-artigos'            => 'single-artigos.css',
         'single-noticias'           => 'single-noticias.css',
+        'single-videos'            => 'single-videos.css',
         'category'                  => 'category.css',
     ];
 
@@ -73,6 +74,11 @@ function load_custom_css() {
     // Categorias
     if (is_category()) {
         wp_enqueue_style('category', get_template_directory_uri() . '/assets/css/pages/' . $css_files['category']);
+    }
+
+    // Search
+    if (is_search()) {
+        wp_enqueue_style('search', get_template_directory_uri() . '/assets/css/pages/search.css');
     }
 }
 add_action('wp_enqueue_scripts', 'load_custom_css');
