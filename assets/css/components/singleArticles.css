@@ -75,9 +75,14 @@ article[id^="post-"] {
         p {
             margin: 1rem 0;
             font-weight: 300;
+            align-items: justify;
 
             strong {
                 font-weight: bold;
+            }
+
+            em {
+                font-style: italic;
             }
         }
 
@@ -99,7 +104,7 @@ article[id^="post-"] {
         }
 
         ul {
-            list-style: disc;
+            padding-left: 0;
         }
 
         ol {
@@ -109,6 +114,7 @@ article[id^="post-"] {
         li {
             margin-bottom: 0.75rem;
             font-weight: 300;
+            list-style: disc;
         }
 
         blockquote {
