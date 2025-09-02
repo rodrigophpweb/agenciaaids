@@ -75,9 +75,18 @@
             </figure>
 
             <div class="ads" itemscope itemtype="https://schema.org/WPAdBlock">
-                <a href="https://www.sescsp.org.br/projetos/oju-roda-sesc-de-cinemas-negros/?ads=agenciaaids" target="_blank" itemprop="url">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ads/sesc-sao-paulo-oju-roda-sesc-de-cinemas-negros.gif" alt="Banner - OJU - Roda Sesc de Cinemas Negros" >
-                </a>
+                
+                <?php if (is_singular('noticias') && in_array(get_the_ID(), [105690, 105688, 102609])) :?>
+                    <a href="https://www.sescsp.org.br/bienal-sesc-de-danca/?ads=agenciaaids" target="_blank" itemprop="url">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ads/banner-bienal-danca-jul25-sesc.gif" alt="Banner - Bienal SESC de Dança" >
+                    </a>
+                <?php else:?>
+                
+                    <a href="https://www.sescsp.org.br/projetos/oju-roda-sesc-de-cinemas-negros/?ads=agenciaaids" target="_blank" itemprop="url">
+                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ads/sesc-sao-paulo-oju-roda-sesc-de-cinemas-negros.gif" alt="Banner - OJU - Roda Sesc de Cinemas Negros" >
+                    </a>
+                <?php endif; ?>
+                
                 <?php
                     $ads_query = new WP_Query(array(
                         'post_type'         => 'ads',
