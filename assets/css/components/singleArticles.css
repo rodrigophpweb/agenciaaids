@@ -47,6 +47,8 @@ article[id^="post-"] {
 
     .post-thumbnail {
         width: 100%;
+        display: flex;
+        justify-content: center;
 
         img {
             border-radius: .5rem
