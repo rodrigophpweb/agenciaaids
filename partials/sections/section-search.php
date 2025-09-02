@@ -9,13 +9,12 @@
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <article>
                 <figure>
-                    <?php if (!has_post_thumbnail()) : ?>
-                        <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/backdrop-ag-aids-compress-web.webp'); ?>" alt="<?= esc_attr(get_the_title()); ?>">
-                    <?php else : ?>
+                    <?php if (has_post_thumbnail()) : ?>
                         <?php the_post_thumbnail('thumbnail'); ?>
+                    <?php else : ?>
+                        <img src="<?= esc_url(get_template_directory_uri())?>/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?= esc_attr(get_the_title()); ?>">
                     <?php endif; ?>
                 </figure>
-
 
                 <div class="content">
                     <?php the_title('<h2>', '</h2>')?>
