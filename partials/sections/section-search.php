@@ -10,11 +10,12 @@
             <article>
                 <figure>
                     <?php if (!has_post_thumbnail()) : ?>
-                        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?php the_title(); ?>">
+                        <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/backdrop-ag-aids-compress-web.webp'); ?>" alt="<?= esc_attr(get_the_title()); ?>">
                     <?php else : ?>
-                            <img src="<?php the_post_thumbnail_url('thumbnail'); ?>" alt="<?php the_title(); ?>">
+                        <?php the_post_thumbnail('thumbnail'); ?>
                     <?php endif; ?>
                 </figure>
+
 
                 <div class="content">
                     <?php the_title('<h2>', '</h2>')?>
@@ -27,9 +28,6 @@
                         }
                     ?>                    
                 </div>
-                <?php if (get_next_post()) : ?>
-                    <hr>
-                <?php endif; ?>
             </article>
         <?php endwhile; else : ?>
             <p>Nenhum resultado encontrado.</p>

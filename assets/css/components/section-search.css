@@ -6,6 +6,10 @@ search {
     
     .articles {
 
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: solid 1px var(--buttonBlue);
+
         header {
             margin-bottom: 2rem;
             drop-shadow: none;
