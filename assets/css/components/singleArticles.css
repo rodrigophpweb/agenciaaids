@@ -10,6 +10,11 @@ article[id^="post-"] {
         gap: 1rem;
         box-shadow: unset;
 
+        @media screen and (min-width: 768px) {
+            display: flex;
+            flex-direction: column;
+        }
+
         .post-category {
             display: inline-block;
             font-size: 0.875rem;
@@ -54,7 +59,7 @@ article[id^="post-"] {
             border-radius: .5rem;
 
             @media screen and (min-width: 768px) {
-                width: 90%;
+                width: 95%;
                 height: auto;                
             }
         }
