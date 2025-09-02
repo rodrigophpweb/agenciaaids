@@ -7,83 +7,88 @@
         }
     }
 
-    article {
-        width: 50%;
-        padding-right: 2%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
+    a {
+        outline: none;
+        text-decoration: none;
 
-        @media screen {
-            @media (max-width: 768px) {
-                width: 100%;
-                padding-right: 0;
-                margin-top: 1.5rem;
-            }
-        }
-
-        .category {
-            color: var(--buttonBlue);
-            text-transform: uppercase;
-            font-size: 1.5rem;
-            font-weight: 200;
-            margin-bottom: 1.25rem;
+        article {
+            width: 50%;
+            padding-right: 2%;
             display: flex;
             flex-direction: column;
+            justify-content: space-around;
 
-            &::after {
-                content: ''; /* Elemento vazio para a barra */
-                display: block;
-                width: 4.75rem; /* Largura da barra */
-                height: .0625rem; /* Altura da barra */
-                background-color: var(--buttonBlue); /* Cor da barra */
-                margin: 1.5rem auto 0; /* Espaçamento acima e centralização */
-                position: absolute;
+            @media screen {
+                @media (max-width: 768px) {
+                    width: 100%;
+                    padding-right: 0;
+                    margin-top: 1.5rem;
+                }
             }
-            
-        }
-        h1 {
-            font-weight: 900;
-            font-size: 2.25rem;
-            line-height: 2.875rem;
-            margin-bottom: .9375rem;
-            color: var(--charlestonGreen);
-        }
-        p {
-            font-size: 1rem;
-            line-height: 1.5rem;
-            margin-bottom: 2rem;
-            display: block;
-            font-weight: 300;
-            
-            time {}                      
+
+            .category {
+                color: var(--buttonBlue);
+                text-transform: uppercase;
+                font-size: 1.5rem;
+                font-weight: 200;
+                margin-bottom: 1.25rem;
+                display: flex;
+                flex-direction: column;
+
+                &::after {
+                    content: ''; /* Elemento vazio para a barra */
+                    display: block;
+                    width: 4.75rem; /* Largura da barra */
+                    height: .0625rem; /* Altura da barra */
+                    background-color: var(--buttonBlue); /* Cor da barra */
+                    margin: 1.5rem auto 0; /* Espaçamento acima e centralização */
+                    position: absolute;
+                }
+                
+            }
+            h1 {
+                font-weight: 900;
+                font-size: 2.25rem;
+                line-height: 2.875rem;
+                margin-bottom: .9375rem;
+                color: var(--charlestonGreen);
+            }
+            p {
+                font-size: 1rem;
+                line-height: 1.5rem;
+                margin-bottom: 2rem;
+                display: block;
+                font-weight: 300;
+                
+                time {}                      
+            }
+
+            .btnUrl {
+                background-color: var(--maize);
+                color: var(--charlestonGreen);
+                margin: 1rem 0;
+                width: fit-content;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
+            }  
         }
 
-        .btnUrl {
-            background-color: var(--maize);
-            color: var(--charlestonGreen);
-            margin: 1rem 0;
-            width: fit-content;
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-        }  
-    }
-
-    figure {
-        width: 50%;
-        height: 25rem;
-        border-radius: .625rem;
-        border: solid .0625rem #ccc;
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        @media screen {
-            @media (max-width: 768px) {
+        figure {
+            width: 50%;
+            height: 25rem;
+            border-radius: .625rem;
+            border: solid .0625rem #ccc;
+            img {
                 width: 100%;
-                height: auto;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            @media screen {
+                @media (max-width: 768px) {
+                    width: 100%;
+                    height: auto;
+                }
             }
         }
     }
