@@ -17,7 +17,7 @@
                     <span class="category" itemprop="articleSection">Destaque</span>
                     <?php the_title('<h1 itemprop="headline">', '</h1>'); ?>
                     <div itemprop="description">
-                        <p><?php echo wp_trim_words(get_the_content(), 40, '...'); ?></p>
+                        <p><?php echo wp_trim_words(get_the_content(), 50, '...'); ?></p>
                     </div>
                     <time datetime="<?= esc_attr(get_the_date('c')); ?>" itemprop="datePublished">
                         <?= esc_html(get_the_date('d \d\e F \d\e Y')); ?>

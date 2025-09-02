@@ -62,7 +62,9 @@
                 font-weight: 300;
                 color: var(--black);
                 
-                time {}                      
+                time {
+                    color: var(--black);
+                }                      
             }
 
             .btnUrl {
