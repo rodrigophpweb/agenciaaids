@@ -13,7 +13,7 @@
                         <?php if (has_post_thumbnail()) : ?>
                             <?php the_post_thumbnail('thumbnail'); ?>
                         <?php else : ?>
-                            <img src="https://www.agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?= esc_attr(get_the_title()); ?>">
+                            <img src="https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?= esc_attr(get_the_title()); ?>">
                         <?php endif; ?>
                     </figure>
 
