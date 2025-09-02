@@ -73,9 +73,10 @@ article[id^="post-"] {
 
         /* Conteúdo típico do editor clássico */
         p {
-            margin: 1rem 0;
+            margin: .7rem 0;
+            line-height: 1.7rem;
             font-weight: 300;
-            align-items: justify;
+            text-align: justify;
 
             strong {
                 font-weight: bold;
