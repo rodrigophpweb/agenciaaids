@@ -9,10 +9,10 @@
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
             <article>
                 <figure>
-                    <?php if (has_post_thumbnail()) : ?>
-                        <img src="<?php the_post_thumbnail_url('thumbnail'); ?>" alt="<?php the_title(); ?>">
-                    <?php else : ?>
+                    <?php if (!has_post_thumbnail()) : ?>
                         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?php the_title(); ?>">
+                    <?php else : ?>
+                            <img src="<?php the_post_thumbnail_url('thumbnail'); ?>" alt="<?php the_title(); ?>">
                     <?php endif; ?>
                 </figure>
 
@@ -25,11 +25,11 @@
                         if (!empty($categories)) {
                             echo '<mark class="category">' . esc_html($categories[0]->name) . '</mark>';
                         }
-                    ?>
-                    <?php if (get_next_post()) : ?>
-                        <hr>
-                    <?php endif; ?>
+                    ?>                    
                 </div>
+                <?php if (get_next_post()) : ?>
+                    <hr>
+                <?php endif; ?>
             </article>
         <?php endwhile; else : ?>
             <p>Nenhum resultado encontrado.</p>
