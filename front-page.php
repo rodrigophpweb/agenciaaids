@@ -35,21 +35,23 @@
         'itemprop_date'     => 'datePublished',
     ]);
 
-    render_section('section-content-grid', [
-        'section_id'        => 'articles',
-        'class'             => 'section-articles',
-        'title'             => 'Artigos',
-        'subtitle'          => 'Novos',
-        'post_type'         => 'artigos',
-        'highlight'         => 1,
-        'columns'           => 1,
-        'excerpt_length'    => 20,
-        'itemtype'          => 'https://schema.org/Article',
-        'itemprop_title'    => 'headline',
-        'itemprop_image'    => 'image',
-        'itemprop_excerpt'  => 'description',
-        'itemprop_date'     => 'datePublished',
-    ]);
+    // render_section('section-content-grid', [
+    //     'section_id'        => 'articles',
+    //     'class'             => 'section-articles',
+    //     'title'             => 'Artigos',
+    //     'subtitle'          => 'Novos',
+    //     'post_type'         => 'artigos',
+    //     'highlight'         => 1,
+    //     'columns'           => 0,
+    //     'excerpt_length'    => 20,
+    //     'itemtype'          => 'https://schema.org/Article',
+    //     'itemprop_title'    => 'headline',
+    //     'itemprop_image'    => 'image',
+    //     'itemprop_excerpt'  => 'description',
+    //     'itemprop_date'     => 'datePublished',
+    // ]);
+
+    get_template_part('partials/sections/section-highlight');
 
     render_section('section-content-grid', [
         'section_id'        => 'tv-agencia-aids',

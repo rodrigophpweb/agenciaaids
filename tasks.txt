@@ -1,6 +1,5 @@
 Agência AIDS
 - create page search
-- Artigo deixar somente um
 - Single melhorar o CSS para Leitura
 - Criar um Botão e WhatsApp
 - Página de biblioteca

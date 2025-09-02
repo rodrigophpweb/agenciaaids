@@ -83,7 +83,7 @@ if (!($query instanceof WP_Query)) {
                         $thumb_url = '';
 
                         // Definir tamanho conforme posição
-                        $thumb_size = ($counter === 0) ? 'large' : 'medium';
+                        $thumb_size = ($counter === 0) ? 'large' : 'thumbnail';
 
                         if ($video_url && function_exists('get_youtube_thumbnail')) {
                             $thumb_url = get_youtube_thumbnail($video_url);
@@ -107,7 +107,7 @@ if (!($query instanceof WP_Query)) {
 
                                     <div class="post-info">
                                         <h3 itemprop="<?= esc_attr($args['itemprop_title']) ?>"><?= esc_html(get_the_title()) ?></h3>                                        
-                                        <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?= esc_html(wp_trim_words(get_the_excerpt(), 30, '...')) ?></p>
+                                        <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?= esc_html(wp_trim_words(get_the_excerpt(), 25, '...')) ?></p>
                                         <time datetime="<?= get_the_date('c') ?>" itemprop="<?= esc_attr($args['itemprop_date']) ?>">
                                             <?= get_the_date('d \d\e F \d\e Y') ?>
                                         </time>
