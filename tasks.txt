@@ -1,7 +1,6 @@
 Agência AIDS
-- deploy feito 4
+- create page search
 - Artigo deixar somente um
-- CSS da Homem Design Responsivo
 - Single melhorar o CSS para Leitura
 - Criar um Botão e WhatsApp
 - Página de biblioteca
