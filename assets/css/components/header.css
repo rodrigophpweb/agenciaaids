@@ -15,7 +15,11 @@ header {
         }
 
         .mnuSocialMedia {
-            display: flex;            
+            display: flex;
+
+            @media (max-width: 768px) {
+                display: none; /* Esconde o menu de redes sociais em telas pequenas */
+            }
 
             li {
                 /* Estilos para os itens da lista */
@@ -120,6 +124,7 @@ header {
             justify-content: space-between;
         }
 
+        
         .brand {
             width: 10%;
 
@@ -131,62 +136,40 @@ header {
             }
         }
 
-        .header-mobile {
+        .ads {
+            width: 90%;
+            text-align: center;
             display: flex;
-            flex-direction: column;
             align-items: center;
-            width: 100%;    
+            justify-content: center;
 
-            @media screen and (min-width: 768px) {
-                flex-wrap: wrap;
+            @media (max-width: 768px) {
+                display: none; /* Esconde o bloco de anúncios em telas pequenas */
             }
 
-            .ads {
-                width: 90%;
-                text-align: center;
+            a {
+                /* Estilos para os links */
+                img {
+                    /* Estilos para as imagens */
+                }
+            }
+        }
+
+        .btnMobile {
+            display: none; /* Esconde o botão em telas grandes */
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+
+            @media (max-width: 768px) {
+                padding: 0.625rem 1.25rem;
+                width: 4rem;
+                font-size: 2.5rem;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                order: 1;
-
-                @media (max-width: 768px) {
-                    order: 1;
-
-                    a {
-                        img {
-                            width: 100%;
-                            height: auto;
-                        }
-                    }
-                }
-
-                a {
-                    /* Estilos para os links */
-                    img {
-                        /* Estilos para as imagens */
-                    }
-                }
+                background-color: transparent;
             }
-
-            .btnMobile {
-                display: none; /* Esconde o botão em telas grandes */
-                width: 100%;
-                text-align: center;
-                cursor: pointer;
-                order: 2; /* padrão: depois do ads */
-
-                @media (max-width: 768px) {
-                    padding: 0.625rem 1.25rem;
-                    width: 4rem;
-                    font-size: 2.5rem;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    background-color: transparent;
-                    order: 1;
-                }
-            }
-
         }
     }
 
