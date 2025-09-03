@@ -27,7 +27,7 @@
                         
                         <div class="post-info">
                             <?php the_title('<h3 itemprop="headline">','</h3>')?>
-                            <p itemprop="description"><?php echo wp_trim_words(get_the_content(), 100, '...'); ?></p>
+                            <p itemprop="description"><?php echo wp_trim_words(get_the_content(), 120, '...'); ?></p>
                             <meta itemprop="dateModified" content="<?php echo get_the_modified_date('c'); ?>">
                             <meta itemprop="author" content="<?php echo get_the_author(); ?>">
                         </div>
