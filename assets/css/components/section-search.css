@@ -7,18 +7,20 @@ search {
     .articles {
 
         header {
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
             box-shadow: none;
 
             h1 {
                 font-size: 2rem;
-                margin: 0 0 0.5rem 0;
+                margin: 0 0 1rem 0;
             }
             .resultSearch {
                 background: var(--buttonBlue);
+                color: var(--white);
+                font-weight: bold;
                 padding: .7rem;
                 border-radius: .5rem;
-                margin: 1rem;
+                margin: 1rem 0 ;
             }
         }
 
@@ -50,7 +52,7 @@ search {
                     flex: 1;
                     h2 {
                         font-size: 1.25rem;
-                        margin: 0 0 0.5rem 0;
+                        margin: 1rem 0 0.5rem 0;
                         color: var(--charlestonGreen);
                     }
                     p {
@@ -80,6 +82,8 @@ search {
         padding: 1.5rem;
         border-radius: 8px;
         margin: 2rem 0;
+        display: none;
+
         h2 {
             font-size: 1.1rem;
             margin-bottom: 0.5rem;

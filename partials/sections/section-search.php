@@ -34,10 +34,11 @@
             <p>Nenhum resultado encontrado.</p>
         <?php endif; ?>
     </div>
-    <aside>
+    
+    <!--<aside>
         <h2>Quer receber notícias e artigos como esses?</h2>
         <p>Assine nossa newsletter e fique por dentro das novidades sobre HIV e outras doenças.</p>
-    </aside>    
+    </aside>-->    
 </search>
 <nav class="paginator">
     <?php echo paginate_links(array('total' => $wp_query->max_num_pages));?>
