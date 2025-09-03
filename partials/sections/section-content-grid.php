@@ -83,14 +83,14 @@ if (!($query instanceof WP_Query)) {
                         $thumb_url = '';
 
                         // Definir tamanho conforme posição
-                        $thumb_size = ($counter === 0) ? 'large' : 'thumbnail';
+                        //$thumb_size = ($counter === 0) ? 'large' : 'thumbnail';
 
                         if ($video_url && function_exists('get_youtube_thumbnail')) {
                             $thumb_url = get_youtube_thumbnail($video_url);
                         }
 
                         if (empty($thumb_url) && has_post_thumbnail()) {
-                            $thumb_url = get_the_post_thumbnail_url(get_the_ID(), $thumb_size);
+                            $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'large');
                         }
                         // Fallback para imagem padrão se não houver thumbnail
                         if (empty($thumb_url)) {
