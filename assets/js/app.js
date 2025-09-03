@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const btnContrast = document.querySelector('.btnContrast');
     const mnuContrast = document.querySelector('.mnuContrast');
+    const ads = document.querySelector(".ads");
 
     btnContrast.addEventListener('click', function() {
         mnuContrast.classList.toggle('open');
@@ -24,21 +25,15 @@ document.addEventListener('DOMContentLoaded', function() {
         if (window.innerWidth > 768) {
             mnuMobile.classList.remove('open');
         }
-    });
 
-    const ads = document.querySelector(".ads");
-
-    function reorderElements() {
         if (window.innerWidth <= 768) {
             ads.parentNode.insertBefore(btnMenu, ads); // coloca o botão antes do ads
         } else {
             ads.parentNode.insertBefore(ads, btnMenu); // volta o ads antes do botão
         }
-    }
-
-    reorderElements();
-    window.addEventListener("resize", reorderElements);
     });
+
+});
 
 
     const categoryLinks = document.querySelectorAll('.category-link');
