@@ -120,7 +120,7 @@
                         'fallback_cb' => false
                     )
                 );
-                //get_template_part('partials/searchform');
+                get_template_part('partials/searchform');
             ?>               
         </nav>
     </header>
