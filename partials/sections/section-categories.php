@@ -50,3 +50,32 @@
         </div>
     </header>
 </section>
+
+<section class="cards paddingContent">
+    <!-- Loop to posts in category.php -->
+    <?php
+        if (have_posts()) :
+            while (have_posts()) : the_post();
+    ?>
+        <article>
+            <figure>
+                <img src="<?php echo esc_url(get_the_post_thumbnail_url(get_the_ID(), 'medium')); ?>" alt="<?php the_title(); ?>">
+            </figure>
+            <div class="content">
+                <h2><?php the_title('<h2>', '</h2>'); ?></h2>
+                <?php
+                    $categories = get_the_category();
+                    if (!empty($categories)) {
+                        echo '<mark class="category">' . esc_html($categories[0]->name) . '</mark>';
+                    }
+                ?>
+                <p><?php echo wp_trim_words(get_the_content(), 30, '...'); ?></p>
+                <time datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
+            </div>
+        </article>
+    <?php
+            endwhile;
+        endif;
+    ?>
+</section>
+

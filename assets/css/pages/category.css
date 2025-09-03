@@ -1,0 +1,6 @@
+@import "../variables.css";
+@import '../components/header.css';
+@import '../components/breadcrumb.css';
+@import '../components/section-category.css';
+@import '../components/partners.css';
+@import '../components/footer.css';
