@@ -6,6 +6,25 @@ document.addEventListener('DOMContentLoaded', function() {
         mnuContrast.classList.toggle('open');
     });
 
+    // Menu Mobile Dropdown
+    const btnMenu = document.querySelector('.btnMobile');
+    const mnuMobile = document.querySelector('.mnuDefault');
+
+    function toggleMenu() {
+        mnuMobile.classList.toggle('open');
+    }
+
+    // Event listener para o botão mobile
+    if (btnMenu) {
+        btnMenu.addEventListener('click', toggleMenu);
+    }
+
+    // Fechar menu ao redimensionar para desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            mnuMobile.classList.remove('open');
+        }
+    });
 
     const categoryLinks = document.querySelectorAll('.category-link');
 
