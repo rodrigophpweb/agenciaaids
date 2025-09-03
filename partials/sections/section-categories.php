@@ -61,6 +61,7 @@ $args = [
   'cat'            => $cat_id,
   'paged'          => $paged,
   'post_status'    => 'publish',
+  'posts_per_page' => 20,
   'ignore_sticky_posts' => true,
 ];
 
@@ -95,12 +96,14 @@ $q = new WP_Query($args);
             </article>
        <?php endwhile; ?>
 
-    <?php
-      echo paginate_links([
-        'total'   => $q->max_num_pages,
-        'current' => $paged,
-      ]);
-    ?>
+    <nav class="paginator">
+        <?php
+            echo paginate_links([
+                'total'   => $q->max_num_pages,
+                'current' => $paged,
+            ]);
+        ?>
+    </nav>
   <?php else : ?>
     <p>Nenhum conteúdo encontrado nesta categoria.</p>
   <?php endif; wp_reset_postdata(); ?>
