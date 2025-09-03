@@ -12,6 +12,12 @@
         text-decoration: none;
         display: flex;
 
+        @media screen {
+            @media (max-width: 768px) {
+                flex-direction: column-reverse;
+            }
+        }
+
         article {
             width: 50%;
             padding-right: 2%;
