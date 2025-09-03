@@ -9,6 +9,11 @@ search {
         header {
             margin-bottom: 3rem;
             box-shadow: none;
+            
+            @media screen and (max-width: 768px) {
+                text-align: center;
+                
+            }
 
             h1 {
                 font-size: 2rem;
