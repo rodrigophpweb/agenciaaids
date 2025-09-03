@@ -3,7 +3,7 @@
 
         <header>
             <h1>Resultados da Busca "<?php the_search_query(); ?>"</h1>
-            <span><?php echo $wp_query->found_posts; ?> resultado(s) encontrado(s)</span>
+            <mark class="resultSearch"><?php echo $wp_query->found_posts; ?> resultado(s) encontrado(s)</mark class="resultSearch">
         </header>
 
         <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
@@ -19,14 +19,14 @@
 
                     <div class="content">
                         <?php the_title('<h2>', '</h2>')?>
-                        <p><?php the_excerpt(); ?></p>
-                        <time datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
                         <?php
-                        $categories = get_the_category();
+                            $categories = get_the_category();
                             if (!empty($categories)) {
                                 echo '<mark class="category">' . esc_html($categories[0]->name) . '</mark>';
                             }
-                        ?>                    
+                        ?>
+                        <p><?php echo wp_trim_words(get_the_content(), 30, '...'); ?></p>
+                        <time datetime="<?php echo get_the_date('c'); ?>"><?php echo get_the_date(); ?></time>
                     </div>
                 </a>
             </article>

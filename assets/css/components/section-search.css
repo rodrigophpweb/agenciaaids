@@ -8,15 +8,17 @@ search {
 
         header {
             margin-bottom: 2rem;
-            drop-shadow: none;
+            box-shadow: none;
 
             h1 {
                 font-size: 2rem;
                 margin: 0 0 0.5rem 0;
             }
-            span {
-                color: #888;
-                font-size: 1rem;
+            .resultSearch {
+                background: var(--buttonBlue);
+                padding: .7rem;
+                border-radius: .5rem;
+                margin: 1rem;
             }
         }
 
@@ -49,9 +51,12 @@ search {
                     h2 {
                         font-size: 1.25rem;
                         margin: 0 0 0.5rem 0;
+                        color: var(--charlestonGreen);
                     }
                     p {
                         margin: 0 0 0.5rem 0;
+                        color: var(--black);
+
                     }
                     time {
                         display: block;
@@ -59,16 +64,11 @@ search {
                         font-size: 0.9rem;
                     }
                     mark.category {
-                        background: #e0e0e0;
-                        color: #333;
+                        background: var(--maize);
+                        color: var(--charlestonGreen);
                         border-radius: 4px;
                         padding: 0.1em 0.5em;
                         font-size: 0.95em;
-                    }
-                    hr {
-                        margin: 1rem 0;
-                        border: none;
-                        border-top: 1px solid #eee;
                     }
                 }
             }
