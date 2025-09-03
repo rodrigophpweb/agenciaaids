@@ -59,3 +59,8 @@
         <small>&copy;<time datetime="<?=date('Y')?>"><?=date('Y')?></time> - Todos os direitos reservados - <span itemprop="name">Agência de notícias da Aids</span></small>
     </div>
 </footer>
+
+</main>
+<?php wp_footer(); ?>
+</body>
+</html>

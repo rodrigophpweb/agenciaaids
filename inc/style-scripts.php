@@ -94,6 +94,19 @@ add_action('wp_enqueue_scripts', 'load_custom_css');
  * 
  */
 function load_custom_scripts() {
-    wp_enqueue_script('app-js', get_template_directory_uri() . '/assets/js/app.js', [], filemtime(get_template_directory() . '/assets/js/app.js'), true);
+    $js_file_path = get_template_directory() . '/assets/js/app.js';
+    $js_file_uri = get_template_directory_uri() . '/assets/js/app.js';
+    
+    // Verifica se o arquivo existe antes de carregar
+    if (file_exists($js_file_path)) {
+        $version = filemtime($js_file_path);
+        wp_enqueue_script('app-js', $js_file_uri, array(), $version, true);
+        
+        // Adiciona o objeto de localização para AJAX se necessário
+        wp_localize_script('app-js', 'ajax_object', array(
+            'ajax_url' => admin_url('admin-ajax.php'),
+            'nonce' => wp_create_nonce('ajax_nonce')
+        ));
+    }
 }
 add_action('wp_enqueue_scripts', 'load_custom_scripts');
