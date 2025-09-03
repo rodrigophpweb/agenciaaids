@@ -73,10 +73,10 @@
                         : '<a href="' . esc_url(home_url('/')) . '" itemprop="url"><span itemprop="name">' . get_bloginfo('name') . '</span></a>';
                 ?>
             </figure>
-
-            <?php get_template_part('partials/ads');?>
-
-            <button class="btnMobile">☰</button>
+            <div class="header-mobile">
+                <button class="btnMobile">☰</button>
+                <?php get_template_part('partials/ads');?>
+            </div>
         </div>
 
         <nav class="mnuDefault paddingContent" itemscope itemtype="https://schema.org/SiteNavigationElement">
