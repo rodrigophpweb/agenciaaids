@@ -15,11 +15,7 @@ header {
         }
 
         .mnuSocialMedia {
-            display: flex;
-
-            @media (max-width: 768px) {
-                display: none; /* Esconde o menu de redes sociais em telas pequenas */
-            }
+            display: flex;            
 
             li {
                 /* Estilos para os itens da lista */
