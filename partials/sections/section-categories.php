@@ -100,12 +100,13 @@ $q = new WP_Query($args);
   <?php else : ?>
     <p>Nenhum conteúdo encontrado nesta categoria.</p>
   <?php endif; wp_reset_postdata(); ?>
+    
+    <nav class="paginator">
+        <?php
+            echo paginate_links([
+                'total'   => $q->max_num_pages,
+                'current' => $paged,
+            ]);
+        ?>
+    </nav>
 </section>
-<nav class="paginator">
-    <?php
-        echo paginate_links([
-            'total'   => $q->max_num_pages,
-            'current' => $paged,
-        ]);
-    ?>
-</nav>
