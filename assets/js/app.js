@@ -26,9 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-});
-
-
     const categoryLinks = document.querySelectorAll('.category-link');
 
     categoryLinks.forEach(link => {
