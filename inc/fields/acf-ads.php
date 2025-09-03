@@ -35,6 +35,33 @@ if (function_exists('acf_add_local_field_group')) {
                 'return_format' => 'Y-m-d',
                 'required' => 0,
             ),
+            array(
+                'key' => 'field_origem_campanha',
+                'label' => 'Origem da Campanha',
+                'name' => 'origem_campanha',
+                'type' => 'text',
+                'instructions' => 'Informe a origem da campanha publicitária.',
+                'required' => 0,
+                'placeholder' => 'Referência: Google, Newsletter',
+            ),
+            array(
+                'key' => 'field_tipo_midia',
+                'label' => 'Tipo de Mídia',
+                'name' => 'tipo_midia',
+                'type' => 'text',
+                'instructions' => 'Informe o tipo de mídia utilizada na campanha.',
+                'required' => 0,
+                'placeholder' => 'CPC, Banner, E-mail',
+            ),
+            array(
+                'key' => 'field_nome_campanha',
+                'label' => 'Nome da Campanha',
+                'name' => 'nome_campanha',
+                'type' => 'text',
+                'instructions' => 'Informe o nome da campanha publicitária.',
+                'required' => 0,
+                'placeholder' => 'Quer saber Senac',
+            ),
         ),
         'location' => array(
             array(
