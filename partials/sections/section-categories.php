@@ -96,6 +96,11 @@ $q = new WP_Query($args);
             </article>
        <?php endwhile; ?>
 
+    
+  <?php else : ?>
+    <p>Nenhum conteúdo encontrado nesta categoria.</p>
+  <?php endif; wp_reset_postdata(); ?>
+    
     <nav class="paginator">
         <?php
             echo paginate_links([
@@ -104,7 +109,4 @@ $q = new WP_Query($args);
             ]);
         ?>
     </nav>
-  <?php else : ?>
-    <p>Nenhum conteúdo encontrado nesta categoria.</p>
-  <?php endif; wp_reset_postdata(); ?>
 </section>
