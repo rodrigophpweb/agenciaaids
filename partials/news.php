@@ -1,8 +1,8 @@
 <section class="paddingContent headerCategory">
     <header>
         <!-- Name category -->
-        <h1><?php single_cat_title(); ?></h1>
-        <span><?php echo category_description(); ?></span>
+        <?php the_title('<h1>','</h1>');?>
+        <span><?php the_content();?></span>
 
         <div class="filters">
             <select name="year_filter" id="year_filter">
@@ -59,12 +59,12 @@
     $paged  = max(1, get_query_var('paged'));
 
     $args = [
-    'post_type'      => ['noticias'], // ajuste aqui seus CPTs
-    'cat'            => $cat_id,
-    'paged'          => $paged,
-    'post_status'    => 'publish',
-    'posts_per_page' => 20,
-    'ignore_sticky_posts' => true,
+        'post_type'      => ['noticias'], 
+        'cat'            => $cat_id,
+        'paged'          => $paged,
+        'post_status'    => 'publish',
+        'posts_per_page' => 20,
+        'ignore_sticky_posts' => true,
     ];
 
     $q = new WP_Query($args);
