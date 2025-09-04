@@ -2,13 +2,13 @@
     <header>
         <!-- Name category -->
         <?php the_title('<h1>','</h1>');?>
-        <span><?php the_content();?></span>
+        <span class="theContent"><?php the_content();?></span>
 
         <div class="filters">
             <select name="year_filter" id="year_filter">
                 <option value="">Todos os anos</option>
                 <?php
-                    $years = range(date('Y'), 2011);
+                    $years = range(date('Y'), 2025);
                     foreach ($years as $year) {
                         echo '<option value="' . esc_attr($year) . '">' . esc_html($year) . '</option>';
                     }

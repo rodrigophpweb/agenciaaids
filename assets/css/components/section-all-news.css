@@ -15,6 +15,38 @@
             margin-bottom: 1rem;
         }
 
+        .theContent {
+            p {
+                margin: .7rem 0;
+                line-height: 1.7rem;
+                font-weight: 300;
+                text-align: justify;
+
+                strong {
+                    font-weight: bold;
+                }
+            }
+            ul, ol {
+                margin: 1.5rem 0 1.5rem 1.5rem;
+                padding-left: 1rem;
+            }
+
+            ul {
+                padding-left: 0;
+            }
+
+            ol {
+                list-style: decimal;
+            }
+
+            li {
+                line-height: 1.7rem;
+                font-weight: 300;
+                text-align: justify;
+                list-style: disc;
+            }
+        }
+
         .filters {
             display: flex;
             flex-wrap: wrap;
