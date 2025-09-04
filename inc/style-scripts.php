@@ -30,7 +30,7 @@ function load_custom_css() {
         'palestras'                 => 'lectures.css',
         'servico'                   => 'services.css',
         'biblioteca'                => 'library.css',
-        'noticias'                  => 'news.css',
+        'todas-as-noticias'         => 'news.css',
         'politica-de-privacidade'   => 'policePrivacy.css',
         'quem-somos'                => 'whoWeAre.css',
         'single-artigos'            => 'single-artigos.css',

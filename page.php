@@ -4,6 +4,7 @@
 
     $templates = [
         'quem-somos'    => 'about',
+        'todas-noticias' => 'news',
         'palestras'     => 'lectures',
         'contato'       => 'contact',
         'biblioteca'    => 'library',
