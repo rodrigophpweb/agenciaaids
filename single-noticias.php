@@ -1,12 +1,16 @@
 <?php 
     get_header();
-    get_template_part('partials/breadcrumb');
+    //get_template_part('partials/breadcrumb');
 ?>
     <article id="post-<?php the_ID(); ?>" <?php post_class('paddingContent'); ?> itemscope itemtype="https://schema.org/Article">
         <header class="entry-header">
             <?php 
-                ($category = get_the_category()[0] ?? null) ? 
-                printf('<span class="post-category" itemprop="articleSection">%s</span>', esc_html($category->name)) : ''; 
+                if ($category = get_the_category()[0] ?? null) {
+                    printf('<a href="%s" class="post-category-link"><mask class="post-category" itemprop="articleSection">%s</mask></a>', 
+                        esc_url(get_category_link($category->term_id)), 
+                        esc_html($category->name)
+                    );
+                }
             ?>
 
             <h1 class="entry-title" itemprop="headline"><?php the_title(); ?></h1>

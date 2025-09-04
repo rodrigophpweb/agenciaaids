@@ -15,6 +15,21 @@ article[id^="post-"] {
             flex-direction: column;
         }
 
+        .post-category-link {
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s ease;
+
+            &:hover {
+                transform: translateY(-1px);
+
+                .post-category {
+                    background-color: var(--buttonBlue);
+                    color: var(--white);
+                }
+            }
+        }
+
         .post-category {
             display: inline-block;
             font-size: 0.875rem;
@@ -24,6 +39,7 @@ article[id^="post-"] {
             padding: 0.25rem 0.75rem;
             border-radius: 99px;
             width: fit-content;
+            transition: all 0.2s ease;
         }
 
         .entry-title {
