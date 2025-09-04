@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    margin-bottom: 2.5rem;
   
     article.card {
         background: var(--white);
@@ -66,7 +65,29 @@
         }
     }
     
-    .paginator {
+    @media (max-width: 1100px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    @media (max-width: 800px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+        article.card .content {
+            padding: 1rem 0.7rem 0.8rem 0.7rem;
+        }
+    }
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        article.card .content {
+            padding: 0.8rem 0.5rem 0.7rem 0.5rem;
+        }
+        .paginator {
+            font-size: 0.95rem;
+        }
+    }
+}
+
+ .paginator {
         display: flex;
         justify-content: center;
         margin: 2rem 0;
@@ -131,25 +152,3 @@
             }
         }
     }
-
-    @media (max-width: 1100px) {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    @media (max-width: 800px) {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.2rem;
-        article.card .content {
-            padding: 1rem 0.7rem 0.8rem 0.7rem;
-        }
-    }
-    @media (max-width: 500px) {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        article.card .content {
-            padding: 0.8rem 0.5rem 0.7rem 0.5rem;
-        }
-        .paginator {
-            font-size: 0.95rem;
-        }
-    }
-}

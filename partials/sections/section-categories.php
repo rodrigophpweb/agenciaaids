@@ -51,21 +51,20 @@
     </header>
 </section>
 
-
 <?php
-$cat_id = get_queried_object_id();
-$paged  = max(1, get_query_var('paged'));
+    $cat_id = get_queried_object_id();
+    $paged  = max(1, get_query_var('paged'));
 
-$args = [
-  'post_type'      => ['post', 'noticias'], // ajuste aqui seus CPTs
-  'cat'            => $cat_id,
-  'paged'          => $paged,
-  'post_status'    => 'publish',
-  'posts_per_page' => 20,
-  'ignore_sticky_posts' => true,
-];
+    $args = [
+    'post_type'      => ['post', 'noticias'], // ajuste aqui seus CPTs
+    'cat'            => $cat_id,
+    'paged'          => $paged,
+    'post_status'    => 'publish',
+    'posts_per_page' => 20,
+    'ignore_sticky_posts' => true,
+    ];
 
-$q = new WP_Query($args);
+    $q = new WP_Query($args);
 ?>
 <section class="cards paddingContent">
     <?php if ($q->have_posts()) : ?>
@@ -100,13 +99,13 @@ $q = new WP_Query($args);
   <?php else : ?>
     <p>Nenhum conteúdo encontrado nesta categoria.</p>
   <?php endif; wp_reset_postdata(); ?>
-    
-    <nav class="paginator">
-        <?php
-            echo paginate_links([
-                'total'   => $q->max_num_pages,
-                'current' => $paged,
-            ]);
-        ?>
-    </nav>
 </section>
+
+<nav class="paginator">
+    <?php
+        echo paginate_links([
+            'total'   => $q->max_num_pages,
+            'current' => $paged,
+        ]);
+    ?>
+</nav>
