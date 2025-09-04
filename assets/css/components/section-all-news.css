@@ -52,6 +52,11 @@
             flex-wrap: wrap;
             gap: 1rem;
             margin-top: 1rem;
+
+            @media screen and (max-width: 600px) {
+                width: 100%;
+                flex-direction: column;
+            }
             
             select {
                 padding: 0.5rem 1rem;
@@ -78,7 +83,7 @@
             
             @media (max-width: 600px) {
                 select {
-                    min-width: 140px;
+                    min-width: 100%;
                     font-size: 0.9rem;
                     padding: 0.4rem 0.8rem;
                 }
