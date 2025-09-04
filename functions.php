@@ -144,10 +144,11 @@ function agenciaaids_filter_posts() {
     // Filtro por categoria
     if ($category) {
         $args['cat'] = $category;
-    } else {
-        // Se não foi especificada categoria no filtro, usar a categoria atual
+    } elseif ($current_category) {
+        // Se não foi especificada categoria no filtro mas existe categoria atual, usar a categoria atual
         $args['cat'] = $current_category;
     }
+    // Se nem category nem current_category existem, busca todas as categorias
 
     $query = new WP_Query($args);
     
@@ -160,7 +161,7 @@ function agenciaaids_filter_posts() {
                 <a href="<?php the_permalink(); ?>" class="card-link" aria-label="<?php echo esc_attr(get_the_title()); ?>">
                     <figure>
                         <?php if (has_post_thumbnail()) : ?>
-                            <?php the_post_thumbnail('thumbnail'); ?>
+                            <?php the_post_thumbnail('large'); ?>
                         <?php else : ?>
                             <img src="https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?= esc_attr(get_the_title()); ?>">
                         <?php endif; ?>
@@ -172,10 +173,14 @@ function agenciaaids_filter_posts() {
                         <?php
                             $post_cats = get_the_category();
                             if (!empty($post_cats)) :
+                                $category = $post_cats[0];
                         ?>
-                            <mark class="category"><?php echo esc_html($post_cats[0]->name); ?></mark>
+                            <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="category-link">
+                                <mark class="category"><?php echo esc_html($category->name); ?></mark>
+                            </a>
                         <?php endif; ?>
-                        <p><?php echo wp_trim_words(get_the_content(), 30, '...'); ?></p>
+                        
+                        <p><?php echo wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 30, '...'); ?></p>
                         <time class="card-date" datetime="<?php echo esc_attr(get_the_date('c')); ?>"><?php echo esc_html(get_the_date()); ?></time>
                     </div>
                 </a>
@@ -192,10 +197,19 @@ function agenciaaids_filter_posts() {
     $pagination = '';
     if ($query->max_num_pages > 1) {
         ob_start();
+        
+        // Construir URL base para paginação
+        $current_url = home_url($_SERVER['REQUEST_URI']);
+        $base_url = strtok($current_url, '?'); // Remove query string se existir
+        
         echo paginate_links([
             'total'   => $query->max_num_pages,
             'current' => $paged,
+            'base'    => $base_url . '%_%',
             'format'  => '?paged=%#%',
+            'prev_text' => '« Anterior',
+            'next_text' => 'Próxima »',
+            'type'      => 'plain',
         ]);
         $pagination = ob_get_clean();
     }

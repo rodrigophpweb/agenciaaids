@@ -8,7 +8,7 @@
             <select name="year_filter" id="year_filter">
                 <option value="">Todos os anos</option>
                 <?php
-                    $years = range(date('Y'), 2006);
+                    $years = range(date('Y'), 2011);
                     foreach ($years as $year) {
                         echo '<option value="' . esc_attr($year) . '">' . esc_html($year) . '</option>';
                     }
@@ -48,19 +48,17 @@
                 ?>
             </select>
             
-            <!-- Campo oculto para armazenar a categoria atual -->
-            <input type="hidden" id="current_category" value="<?php echo esc_attr(get_queried_object_id()); ?>">
+            <!-- Campo oculto para página de todas as notícias (sem categoria específica) -->
+            <input type="hidden" id="current_category" value="">
         </div>
     </header>
 </section>
 
 <?php
-    $cat_id = get_queried_object_id();
-    $paged  = max(1, get_query_var('paged'));
+    $paged = max(1, get_query_var('paged'));
 
     $args = [
-        'post_type'      => ['noticias'], 
-        'cat'            => $cat_id,
+        'post_type'      => ['post', 'noticias'], 
         'paged'          => $paged,
         'post_status'    => 'publish',
         'posts_per_page' => 20,
@@ -92,7 +90,7 @@
                         ?>
                             <mark class="category"><?php echo esc_html($post_cats[0]->name); ?></mark>
                         <?php endif; ?>
-                        <p><?php echo wp_trim_words(get_the_content(), 30, '...'); ?></p>
+                        <p><?php echo wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 30, '...'); ?></p>
                         <time class="card-date" datetime="<?php echo esc_attr(get_the_date('c')); ?>"><?php echo esc_html(get_the_date()); ?></time>
                     </div>
                 </a>
@@ -108,8 +106,11 @@
 <nav class="paginator">
     <?php
         echo paginate_links([
-            'total'   => $q->max_num_pages,
-            'current' => $paged,
+            'total'     => $q->max_num_pages,
+            'current'   => $paged,
+            'prev_text' => '« Anterior',
+            'next_text' => 'Próxima »',
+            'type'      => 'plain',
         ]);
     ?>
 </nav>

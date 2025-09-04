@@ -102,7 +102,61 @@ document.addEventListener('DOMContentLoaded', function() {
     // Sistema de filtros para categorias
     initCategoryFilters();
     
+    // Inicializar eventos de paginação para conteúdo já carregado
+    initInitialPagination();
+    
 });
+
+function initInitialPagination() {
+    const paginator = document.querySelector('.paginator');
+    const cardsGrid = document.getElementById('cards-grid');
+    
+    if (!paginator || !cardsGrid) {
+        return;
+    }
+    
+    const paginationLinks = paginator.querySelectorAll('a');
+    paginationLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Mostrar loading
+            cardsGrid.innerHTML = '<div class="loading" style="text-align: center; padding: 40px; font-size: 16px; color: #666;">Carregando...</div>';
+            
+            // Fazer requisição AJAX para a página
+            fetch(this.href)
+                .then(response => response.text())
+                .then(html => {
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    
+                    // Extrair novo conteúdo
+                    const newCardsGrid = doc.getElementById('cards-grid');
+                    const newPaginator = doc.querySelector('.paginator');
+                    
+                    if (newCardsGrid) {
+                        cardsGrid.innerHTML = newCardsGrid.innerHTML;
+                    }
+                    
+                    if (newPaginator && paginator) {
+                        paginator.innerHTML = newPaginator.innerHTML;
+                        // Reattach events para os novos links
+                        initInitialPagination();
+                    }
+                    
+                    // Scroll suave para o topo dos cards
+                    cardsGrid.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Atualizar URL
+                    window.history.pushState({}, '', this.href);
+                })
+                .catch(error => {
+                    console.error('Erro ao carregar página:', error);
+                    cardsGrid.innerHTML = '<p>Erro ao carregar conteúdo. Tente novamente.</p>';
+                });
+        });
+    });
+}
 
 function initCategoryFilters() {
     const yearFilter = document.getElementById('year_filter');
@@ -119,7 +173,7 @@ function initCategoryFilters() {
     
     function showLoading() {
         if (cardsGrid) {
-            cardsGrid.innerHTML = '<div class="loading">Carregando...</div>';
+            cardsGrid.innerHTML = '<div class="loading" style="text-align: center; padding: 40px; font-size: 16px; color: #666;">Carregando...</div>';
         }
         if (paginator) {
             paginator.innerHTML = '';
@@ -180,20 +234,64 @@ function initCategoryFilters() {
         paginationLinks.forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
+                
+                // Extrair número da página da URL ou do texto do link
+                let page = 1;
                 const url = new URL(this.href);
-                const page = url.searchParams.get('paged') || 1;
+                
+                // Tentar pegar da query string primeiro
+                page = url.searchParams.get('paged') || url.searchParams.get('page') || 1;
+                
+                // Se não encontrou na query string, tentar extrair do pathname
+                if (page === 1) {
+                    const pathMatch = url.pathname.match(/\/page\/(\d+)/);
+                    if (pathMatch) {
+                        page = pathMatch[1];
+                    }
+                }
+                
+                // Se ainda não encontrou, tentar extrair do texto do link (para números)
+                if (page === 1 && this.textContent.match(/^\d+$/)) {
+                    page = this.textContent;
+                }
+                
                 filterPosts(page);
                 
                 // Scroll suave para o topo dos cards
                 if (cardsGrid) {
                     cardsGrid.scrollIntoView({ behavior: 'smooth' });
                 }
+                
+                // Atualizar URL sem recarregar a página
+                const newUrl = new URL(window.location);
+                if (page > 1) {
+                    newUrl.searchParams.set('paged', page);
+                } else {
+                    newUrl.searchParams.delete('paged');
+                }
+                window.history.pushState({}, '', newUrl);
             });
         });
     }
     
     // Event listeners para os selects
-    yearFilter.addEventListener('change', () => filterPosts(1));
-    monthFilter.addEventListener('change', () => filterPosts(1));
-    categoryFilter.addEventListener('change', () => filterPosts(1));
+    yearFilter.addEventListener('change', () => {
+        filterPosts(1);
+        updateUrlParams();
+    });
+    monthFilter.addEventListener('change', () => {
+        filterPosts(1);
+        updateUrlParams();
+    });
+    categoryFilter.addEventListener('change', () => {
+        filterPosts(1);
+        updateUrlParams();
+    });
+    
+    // Função para atualizar parâmetros da URL
+    function updateUrlParams() {
+        const url = new URL(window.location);
+        url.searchParams.delete('paged'); // Remove paginação ao filtrar
+        window.history.pushState({}, '', url);
+    }
 }

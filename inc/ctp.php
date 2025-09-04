@@ -54,7 +54,7 @@ function agencia_aids_register_cpt() {
             'public'             => true,
             'has_archive'        => true,
             'show_in_rest'       => true,
-            'rewrite'            => ['slug' => $custom_slug],
+            'rewrite'            => ['slug' => $slug],
             'menu_icon'          => $icon,
             'supports'           => $supports,
         ]);
