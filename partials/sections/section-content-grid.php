@@ -107,7 +107,7 @@ if (!($query instanceof WP_Query)) {
 
                                     <div class="post-info">
                                         <h3 itemprop="<?= esc_attr($args['itemprop_title']) ?>"><?= esc_html(get_the_title()) ?></h3>                                        
-                                        <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?= esc_html(wp_trim_words(get_the_content(), 35, '...')) ?></p>
+                                        <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?= esc_html(wp_trim_words(get_the_content(), 90, '...')) ?></p>
                                         <time datetime="<?= get_the_date('c') ?>" itemprop="<?= esc_attr($args['itemprop_date']) ?>">
                                             <?= get_the_date('d \d\e F \d\e Y') ?>
                                         </time>
@@ -127,6 +127,7 @@ if (!($query instanceof WP_Query)) {
 
                                     <div class="post-info">
                                         <h3 itemprop="<?= esc_attr($args['itemprop_title']) ?>"><?= esc_html(get_the_title()) ?></h3>
+                                        <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?= esc_html(wp_trim_words(get_the_content(), 15, '...')) ?></p>
                                         <time datetime="<?= get_the_date('c') ?>" itemprop="<?= esc_attr($args['itemprop_date']) ?>">
                                             <?= get_the_date('d \d\e F \d\e Y') ?>
                                         </time>
