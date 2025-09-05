@@ -163,7 +163,8 @@ function agenciaaids_filter_posts() {
                         <?php if (has_post_thumbnail()) : ?>
                             <?php the_post_thumbnail('thumbnail'); ?>
                         <?php else : ?>
-                            <img src="https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?= esc_attr(get_the_title()); ?>">
+                            <!-- <img src="https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?= esc_attr(get_the_title()); ?>"> -->
+                            <?php echo aa_get_safe_thumbnail_html( get_the_ID(), 'medium', ['class' => 'thumb'] );?>
                         <?php endif; ?>
                     </figure>
 
@@ -223,4 +224,28 @@ function agenciaaids_filter_posts() {
 
 add_action('wp_ajax_filter_posts', 'agenciaaids_filter_posts');
 add_action('wp_ajax_nopriv_filter_posts', 'agenciaaids_filter_posts');
+
+
+// --------------------------------------------------
+// Função para obter thumbnail com fallback
+// --------------------------------------------------
+function aa_get_safe_thumbnail_html( $post_id = null, $size = 'medium', $attr = [] ) {
+    $post_id = $post_id ?: get_the_ID();
+    $fallback = 'https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp';
+
+    $thumb_id = get_post_thumbnail_id( $post_id );
+    if ( $thumb_id ) {
+        $file = get_attached_file( $thumb_id ); // caminho absoluto do arquivo original
+        if ( $file && file_exists( $file ) ) {
+            // Ok, arquivo existe
+            return get_the_post_thumbnail( $post_id, $size, $attr );
+        }
+    }
+
+    // Sem thumb ou arquivo sumiu -> imprime <img> com o fallback
+    $alt = esc_attr( get_the_title( $post_id ) );
+    $classes = isset($attr['class']) ? 'class="'. esc_attr($attr['class']) .'"' : '';
+    $loading = isset($attr['loading']) ? 'loading="'. esc_attr($attr['loading']) .'"' : 'loading="lazy"';
+    return sprintf('<img src="%s" alt="%s" %s %s />', esc_url($fallback), $alt, $classes, $loading);
+}
 
