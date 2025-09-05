@@ -161,10 +161,9 @@ function agenciaaids_filter_posts() {
                 <a href="<?php the_permalink(); ?>" class="card-link" aria-label="<?php echo esc_attr(get_the_title()); ?>">
                     <figure>
                         <?php if (has_post_thumbnail()) : ?>
-                            <?php the_post_thumbnail('thumbnail'); ?>
+                            <?php the_post_thumbnail('large'); ?>
                         <?php else : ?>
-                            <!-- <img src="https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?= esc_attr(get_the_title()); ?>"> -->
-                            <?php echo aa_get_safe_thumbnail_html( get_the_ID(), 'medium', ['class' => 'thumb'] );?>
+                            <img src="https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?= esc_attr(get_the_title()); ?>">
                         <?php endif; ?>
                     </figure>
 
@@ -174,8 +173,11 @@ function agenciaaids_filter_posts() {
                         <?php
                             $post_cats = get_the_category();
                             if (!empty($post_cats)) :
+                                $category = $post_cats[0];
                         ?>
-                            <mark class="category"><?php echo esc_html($post_cats[0]->name); ?></mark>
+                            <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="category-link">
+                                <mark class="category"><?php echo esc_html($category->name); ?></mark>
+                            </a>
                         <?php endif; ?>
                         
                         <p><?php echo wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 30, '...'); ?></p>
@@ -224,28 +226,4 @@ function agenciaaids_filter_posts() {
 
 add_action('wp_ajax_filter_posts', 'agenciaaids_filter_posts');
 add_action('wp_ajax_nopriv_filter_posts', 'agenciaaids_filter_posts');
-
-
-// --------------------------------------------------
-// Função para obter thumbnail com fallback
-// --------------------------------------------------
-function aa_get_safe_thumbnail_html( $post_id = null, $size = 'medium', $attr = [] ) {
-    $post_id = $post_id ?: get_the_ID();
-    $fallback = 'https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp';
-
-    $thumb_id = get_post_thumbnail_id( $post_id );
-    if ( $thumb_id ) {
-        $file = get_attached_file( $thumb_id ); // caminho absoluto do arquivo original
-        if ( $file && file_exists( $file ) ) {
-            // Ok, arquivo existe
-            return get_the_post_thumbnail( $post_id, $size, $attr );
-        }
-    }
-
-    // Sem thumb ou arquivo sumiu -> imprime <img> com o fallback
-    $alt = esc_attr( get_the_title( $post_id ) );
-    $classes = isset($attr['class']) ? 'class="'. esc_attr($attr['class']) .'"' : '';
-    $loading = isset($attr['loading']) ? 'loading="'. esc_attr($attr['loading']) .'"' : 'loading="lazy"';
-    return sprintf('<img src="%s" alt="%s" %s %s />', esc_url($fallback), $alt, $classes, $loading);
-}
 
