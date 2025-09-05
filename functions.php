@@ -161,7 +161,7 @@ function agenciaaids_filter_posts() {
                 <a href="<?php the_permalink(); ?>" class="card-link" aria-label="<?php echo esc_attr(get_the_title()); ?>">
                     <figure>
                         <?php if (has_post_thumbnail()) : ?>
-                            <?php the_post_thumbnail('large'); ?>
+                            <?php the_post_thumbnail('thumbnail'); ?>
                         <?php else : ?>
                             <img src="https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?= esc_attr(get_the_title()); ?>">
                         <?php endif; ?>
@@ -173,11 +173,8 @@ function agenciaaids_filter_posts() {
                         <?php
                             $post_cats = get_the_category();
                             if (!empty($post_cats)) :
-                                $category = $post_cats[0];
                         ?>
-                            <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="category-link">
-                                <mark class="category"><?php echo esc_html($category->name); ?></mark>
-                            </a>
+                            <mark class="category"><?php echo esc_html($post_cats[0]->name); ?></mark>
                         <?php endif; ?>
                         
                         <p><?php echo wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 30, '...'); ?></p>
