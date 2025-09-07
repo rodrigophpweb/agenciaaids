@@ -71,6 +71,10 @@
 
         header {
             box-shadow: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
 
             h2 {
                 font-size: 1.5rem;

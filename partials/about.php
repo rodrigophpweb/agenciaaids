@@ -54,16 +54,16 @@
                             <ul>
                                 <?php 
                                     $socials = [
-                                        'facebook' => 'icone-facebook.svg',
-                                        'instagram' => 'icone-instagram.svg',
-                                        'linkedin' => 'icone-linkedin.svg'
+                                        'facebook' => 'icon-facebook.svg',
+                                        'instagram' => 'icon-instagram.svg',
+                                        'linkedin' => 'icon-linkedin.svg'
                                     ];
 
                                     foreach ($socials as $key => $icon) :
                                         if (!empty($$key)) : ?>
                                             <li>
                                                 <a href="<?= esc_url($$key); ?>" title="<?= ucfirst($key); ?> de <?= esc_attr($nome); ?>" target="_blank" rel="noopener noreferrer" itemprop="sameAs">
-                                                    <img src="<?= get_template_directory_uri(); ?>/assets/images/<?= $icon; ?>" alt="Ícone do <?= ucfirst($key); ?>">
+                                                    <img src="<?= get_template_directory_uri(); ?>/assets/images/<?= $icon; ?>" alt="Ícone do <?= ucfirst($key); ?>" width="32" height="32" loading="lazy">
                                                 </a>
                                             </li>
                                         <?php endif;
