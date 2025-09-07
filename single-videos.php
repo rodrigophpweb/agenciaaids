@@ -64,37 +64,51 @@
                 // Inserir iframe pegar os dados arquivo acf videos - com sanitização de segurança
                 $embed = get_field('embed');
                 if ($embed): 
-                    // Sanitizar e validar o embed para prevenir XSS
-                    $embed = wp_kses($embed, [
-                        'iframe' => [
-                            'src' => true,
-                            'width' => true,
-                            'height' => true,
-                            'frameborder' => true,
-                            'allowfullscreen' => true,
-                            'allow' => true,
-                            'title' => true,
-                            'loading' => true,
-                            'referrerpolicy' => true
-                        ],
-                        'video' => [
-                            'src' => true,
-                            'width' => true,
-                            'height' => true,
-                            'controls' => true,
-                            'autoplay' => true,
-                            'muted' => true,
-                            'loop' => true,
-                            'poster' => true,
-                            'preload' => true
-                        ],
-                        'source' => [
-                            'src' => true,
-                            'type' => true
-                        ]
-                    ]);
+                    $embed = trim($embed);
                     
-                    // Verificar se ainda há conteúdo após sanitização
+                    // Verificar se é uma URL do YouTube e converter para iframe
+                    if (preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/', $embed, $matches)) {
+                        $video_id = $matches[1];
+                        $embed = '<iframe src="https://www.youtube.com/embed/' . esc_attr($video_id) . '" width="560" height="315" frameborder="0" allowfullscreen title="Vídeo do YouTube"></iframe>';
+                    }
+                    // Verificar se é uma URL do Vimeo e converter para iframe
+                    elseif (preg_match('/(?:vimeo\.com\/)([0-9]+)/', $embed, $matches)) {
+                        $video_id = $matches[1];
+                        $embed = '<iframe src="https://player.vimeo.com/video/' . esc_attr($video_id) . '" width="560" height="315" frameborder="0" allowfullscreen title="Vídeo do Vimeo"></iframe>';
+                    }
+                    // Se já é um iframe ou código HTML, sanitizar
+                    else {
+                        $embed = wp_kses($embed, [
+                            'iframe' => [
+                                'src' => true,
+                                'width' => true,
+                                'height' => true,
+                                'frameborder' => true,
+                                'allowfullscreen' => true,
+                                'allow' => true,
+                                'title' => true,
+                                'loading' => true,
+                                'referrerpolicy' => true
+                            ],
+                            'video' => [
+                                'src' => true,
+                                'width' => true,
+                                'height' => true,
+                                'controls' => true,
+                                'autoplay' => true,
+                                'muted' => true,
+                                'loop' => true,
+                                'poster' => true,
+                                'preload' => true
+                            ],
+                            'source' => [
+                                'src' => true,
+                                'type' => true
+                            ]
+                        ]);
+                    }
+                    
+                    // Verificar se ainda há conteúdo após processamento
                     if (!empty(trim($embed))): ?>
                         <div class="video-embed">
                             <?= $embed; ?>
