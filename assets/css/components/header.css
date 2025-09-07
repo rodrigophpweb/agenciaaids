@@ -372,8 +372,8 @@ header {
 
 .single-noticias {
     header {
-        nav {
-            . menu-header {
+        .mnuDefault {
+            .menu-header {
                 #menu-item-105811 > a {
                     text-transform: uppercase;
                     font-weight: 500;
