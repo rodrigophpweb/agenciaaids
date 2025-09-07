@@ -285,3 +285,20 @@ footer {
         }
     }
 }
+
+.single-artigos,
+.page-todos-artigos {
+    footer {
+        .footer-menu {
+            .menu-item-105916 {
+                a {
+                    background-color: var(--white);
+                    color: var(--buttonBlue) !important;
+                    border-radius: .9375rem;
+                    padding: .3125rem .625rem;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}
