@@ -375,12 +375,9 @@ header {
         .mnuDefault {
             .mnuPrincipal {
                 #menu-item-105811 > a {
-                    text-transform: uppercase;
-                    font-weight: 500;
-                    background-color: var(--buttonBlue);
-                    color: var(--white);
-                    padding: .3125rem .9375rem;
-                    border-radius: 1.5625rem;
+                        background-color: var(--charlestonGreen);
+                        color: var(--white);
+                        font-weight: 500;
                 }
             }
         }
