@@ -26,11 +26,24 @@
             <article class="card">
                 <a href="<?php the_permalink(); ?>" class="card-link" aria-label="<?php echo esc_attr(get_the_title()); ?>">
                     <figure>
-                        <?php if (has_post_thumbnail()) : ?>
-                            <?php the_post_thumbnail('thumbnail'); ?>
-                        <?php else : ?>
-                            <img src="https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?= esc_attr(get_the_title()); ?>">
-                        <?php endif; ?>
+                        <?php
+                            $video_url = get_field('embed', get_the_ID());
+                            $thumb_url = '';
+
+                            if ($video_url && function_exists('get_youtube_thumbnail')) {
+                                $thumb_url = get_youtube_thumbnail($video_url);
+                            }
+
+                            if (empty($thumb_url) && has_post_thumbnail()) {
+                                $thumb_url = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
+                            }
+
+                            // Fallback para imagem padrão se não houver thumbnail
+                            if (empty($thumb_url)) {
+                                $thumb_url = get_template_directory_uri() . '/assets/images/backdrop-ag-aids-compress-web.webp';
+                            }
+                        ?>
+                        <img src="<?= esc_url($thumb_url) ?>" alt="<?= esc_attr(get_the_title()); ?>" loading="lazy">
                     </figure>
 
                     <div class="content">
