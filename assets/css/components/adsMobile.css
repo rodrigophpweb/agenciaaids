@@ -1,0 +1,25 @@
+.adsMobile {
+    display: none;
+
+    @media (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+        margin: 1.25rem 0.8rem;
+    }
+
+    .ads {
+        
+        a {
+            display: flex;
+            justify-content: center;
+        
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+            }
+        }
+
+        
+    }
+}

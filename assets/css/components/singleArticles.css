@@ -324,7 +324,6 @@ article[id^="post-"] {
 /* Responsivo para tablets */
 @media (max-width: 768px) {
     article[id^="post-"] {
-        padding-inline: 1rem;
         display: flex;
         flex-direction: column;
 
@@ -346,8 +345,6 @@ article[id^="post-"] {
 /* Responsivo para celulares */
 @media (max-width: 480px) {
     article[id^="post-"] {
-        padding-inline: 0.75rem;
-
         .entry-header {
             .entry-title {
                 font-size: 1.75rem;

@@ -1,10 +1,14 @@
 <?php
     get_header();
     get_template_part('partials/breadcrumb');
+    echo '<div class="adsMobile paddingContent">';
+        get_template_part('partials/sections/section-ads');
+    echo '</div>';
 
     $templates = [
         'quem-somos'    => 'about',
         'todas-noticias' => 'news',
+        'todos-artigos'  => 'articles',
         'palestras'     => 'lectures',
         'contato'       => 'contact',
         'biblioteca'    => 'library',

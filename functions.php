@@ -223,3 +223,25 @@ function agenciaaids_filter_posts() {
 add_action('wp_ajax_filter_posts', 'agenciaaids_filter_posts');
 add_action('wp_ajax_nopriv_filter_posts', 'agenciaaids_filter_posts');
 
+function custom_class( $classes ) {
+    // Array com páginas especiais e suas respectivas classes CSS
+    $special_pages = [
+        'todas-noticias' => 'page-todas-noticias',
+        'todos-artigos'  => 'page-todos-artigos',
+        'todos-videos'   => 'page-todos-videos',
+        // Adicione novas páginas aqui seguindo o padrão:
+        // 'slug-da-pagina' => 'classe-css'
+    ];
+    
+    // Verifica se a página atual está na lista de páginas especiais
+    foreach ( $special_pages as $page_slug => $css_class ) {
+        if ( is_page( $page_slug ) ) {
+            $classes[] = $css_class;
+            break; // Para na primeira correspondência
+        }
+    }
+    
+    return $classes;
+}
+add_filter( 'body_class', 'custom_class' );
+

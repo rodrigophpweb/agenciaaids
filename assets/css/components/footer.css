@@ -268,3 +268,20 @@ footer {
         }
     }
 }
+
+.single-noticias,
+.page-todas-noticias {
+    footer {
+        .footer-menu {
+            .menu-item-105652 {
+                a {
+                    background-color: var(--white);
+                    color: var(--buttonBlue) !important;
+                    border-radius: .9375rem;
+                    padding: .3125rem .625rem;
+                    font-weight: 600;
+                }
+            }
+        }
+    }
+}

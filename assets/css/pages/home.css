@@ -1,5 +1,6 @@
 @import "../variables.css";
 @import "../components/header.css";
+@import "../components/adsMobile.css";
 @import "../components/highlight.css";
 @import "../components/doubt.css";
 @import "../components/section-content-grid.css";

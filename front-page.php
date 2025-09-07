@@ -14,6 +14,9 @@
     ];
 
     // Depois passa
+    echo '<div class="adsMobile paddingContent">';
+    get_template_part('partials/sections/section-ads');
+    echo '</div>';
     get_template_part('partials/highlight', null, $highlight_args);
     get_template_part('partials/doubt');
     get_template_part('partials/partners');

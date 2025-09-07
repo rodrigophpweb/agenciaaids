@@ -2,6 +2,10 @@
     get_header();
     //get_template_part('partials/breadcrumb');
 ?>
+    <div class="adsMobile paddingContent">
+        <?php get_template_part('partials/sections/section-ads'); ?>
+    </div>
+
     <article id="post-<?php the_ID(); ?>" <?php post_class('paddingContent'); ?> itemscope itemtype="https://schema.org/Article">
         <header class="entry-header">
             <?php 

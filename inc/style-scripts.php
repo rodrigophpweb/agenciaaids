@@ -22,7 +22,7 @@
 function load_custom_css() {
     $css_files = [
         'acessibilidade'            => 'acessibility.css',
-        'artigos'                   => 'artigos.css',
+        'todos-artigos'                   => 'articles.css',
         'contato'                   => 'contact.css',
         'dicionario'                => 'dicionario.css',
         'faq'                       => 'faq.css',

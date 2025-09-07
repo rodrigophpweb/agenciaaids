@@ -1,6 +1,7 @@
 @import "../variables.css";
 @import '../components/header.css';
-
-/* Seu código CSS existente */
-
+@import '../components/breadcrumb.css';
+@import '../components/adsMobile.css';
+@import '../components/section-all-news.css';
+@import '../components/partners.css';
 @import '../components/footer.css';
