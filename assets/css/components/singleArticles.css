@@ -318,6 +318,62 @@ article[id^="post-"] {
                 width: 32px;
             }
         }
+
+        /* CSS para embed de vídeos responsivo */
+        .video-embed {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            margin: 2rem 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Container responsivo para aspectos 16:9 (padrão YouTube/Vimeo) */
+        .video-embed iframe,
+        .video-embed video,
+        .video-embed embed,
+        .video-embed object {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: inherit;
+        }
+
+        /* Aspect ratio 16:9 por padrão */
+        .video-embed::before {
+            content: "";
+            display: block;
+            padding-top: 56.25%; /* 16:9 aspect ratio (9/16 * 100%) */
+        }
+
+        /* Responsive breakpoints */
+        @media (max-width: 768px) {
+            .video-embed {
+                margin: 1.5rem 0;
+                border-radius: 6px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .video-embed {
+                margin: 1rem 0;
+                border-radius: 4px;
+            }
+        }
+
+        /* Fallback para vídeos sem iframe (HTML5 video) */
+        .video-embed video {
+            position: relative;
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+        }
+
     }
 }
 
