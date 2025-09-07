@@ -52,7 +52,16 @@
         border-radius: 0.8rem;
         padding: 2rem;
 
+        @media (max-width: 768px) {
+            width: 100%;
+            flex-direction: column;
+        }
+
         figure[itemprop="image"] {
+            @media (max-width: 768px) {
+                margin: 0 auto;
+            }
+
             img {
                 width: 150px;
                 height: auto;
@@ -72,6 +81,11 @@
                 border-radius: 1.5625rem;
                 width: fit-content;
                 margin-bottom: 1rem;
+
+                @media (max-width: 768px) {
+                    width: 100%;
+                    text-align: center;
+                }
             }
 
             p.cargo[itemprop="jobTitle"] {
