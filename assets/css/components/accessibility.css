@@ -1,8 +1,5 @@
 /* Estilo para página de acessibilidade */
 .accessibility {
-    max-width: 1200px;
-    margin-inline: auto;
-    padding: 2rem 1rem;
 
     h1 {
         font-weight: 900;
@@ -398,7 +395,7 @@
     }
 }
 
-/* Modo escuro */
+/* Modo escuro 
 @media (prefers-color-scheme: dark) {
     .accessibility {
         background-color: #1a1a1a;
@@ -444,3 +441,4 @@
         }
     }
 }
+*/
