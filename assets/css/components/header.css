@@ -383,3 +383,17 @@ header {
         }
     }
 }
+
+.single-artigos {
+    header {
+        .mnuDefault {
+            .mnuPrincipal {
+                .menu-item-105908 > a {
+                        background-color: var(--charlestonGreen);
+                        color: var(--white);
+                        font-weight: 500;
+                }
+            }
+        }
+    }
+}
