@@ -370,7 +370,7 @@ header {
     }
 }
 
-.single-noticias header {
+.single-noticias {
     header {
         nav {
             . menu-header {
