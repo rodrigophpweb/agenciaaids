@@ -24,7 +24,7 @@ function load_custom_css() {
         'acessibilidade'            => 'acessibility.css',
         'todos-artigos'             => 'articles.css',
         'todas-noticias'            => 'news.css',
-        'todas-videos'              => 'videos.css',
+        'todos-videos'              => 'videos.css',
         'contato'                   => 'contact.css',
         'dicionario'                => 'dicionario.css',
         'faq'                       => 'faq.css',
