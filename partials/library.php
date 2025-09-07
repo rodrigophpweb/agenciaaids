@@ -17,7 +17,6 @@
 
                 <figure itemscope itemtype="http://schema.org/Book">
                     <?php the_post_thumbnail('thumbnail-book-cover', ['itemprop' => 'image']); ?>
-                    <img src="" alt="">
                     <figcaption>
                         <h2 itemprop="name"><?php the_title(); ?></h2>
                         <span class="author" itemprop="author"><?= get_field('autor') ?></span>
