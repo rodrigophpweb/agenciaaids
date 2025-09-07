@@ -22,7 +22,9 @@
 function load_custom_css() {
     $css_files = [
         'acessibilidade'            => 'acessibility.css',
-        'todos-artigos'                   => 'articles.css',
+        'todos-artigos'             => 'articles.css',
+        'todas-noticias'            => 'news.css',
+        'todas-videos'              => 'videos.css',
         'contato'                   => 'contact.css',
         'dicionario'                => 'dicionario.css',
         'faq'                       => 'faq.css',
@@ -30,7 +32,6 @@ function load_custom_css() {
         'palestras'                 => 'lectures.css',
         'servico'                   => 'services.css',
         'biblioteca'                => 'library.css',
-        'todas-noticias'            => 'news.css',
         'politica-de-privacidade'   => 'policePrivacy.css',
         'quem-somos'                => 'whoWeAre.css',
         'single-artigos'            => 'single-artigos.css',

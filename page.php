@@ -9,6 +9,7 @@
         'quem-somos'    => 'about',
         'todas-noticias' => 'news',
         'todos-artigos'  => 'articles',
+        'todos-videos'  => 'videos',
         'palestras'     => 'lectures',
         'contato'       => 'contact',
         'biblioteca'    => 'library',
