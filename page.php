@@ -6,15 +6,16 @@
     echo '</div>';
 
     $templates = [
-        'quem-somos'    => 'about',
-        'todas-noticias' => 'news',
-        'todos-artigos'  => 'articles',
-        'todos-videos'  => 'videos',
-        'palestras'     => 'lectures',
-        'contato'       => 'contact',
-        'biblioteca'    => 'library',
-        'faq'           => 'faq',
-        'servico'       => 'services'
+        'quem-somos'        => 'about',
+        'todas-noticias'    => 'news',
+        'todos-artigos'     => 'articles',
+        'todos-videos'      => 'videos',
+        'palestras'         => 'lectures',
+        'contato'           => 'contact',
+        'biblioteca'        => 'library',
+        'faq'               => 'faq',
+        'servico'           => 'services',
+        'acessibilidade'    => 'accessibility'
     ];
 
 if (is_page(array_keys($templates))) {
