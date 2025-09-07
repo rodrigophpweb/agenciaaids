@@ -369,3 +369,20 @@ header {
         }
     }
 }
+
+.page-todas-noticias header {
+    header {
+        nav {
+            . menu-header {
+                #menu-item-105811 > a {
+                    text-transform: uppercase;
+                    font-weight: 500;
+                    background-color: var(--buttonBlue);
+                    color: var(--white);
+                    padding: .3125rem .9375rem;
+                    border-radius: 1.5625rem;
+                }
+            }
+        }
+    }
+}
