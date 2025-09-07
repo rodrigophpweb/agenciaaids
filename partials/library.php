@@ -16,7 +16,11 @@
                 ?>
 
                 <figure itemscope itemtype="http://schema.org/Book">
-                    <?php the_post_thumbnail('thumbnail-book-cover', ['itemprop' => 'image']); ?>
+                    <?php if (has_post_thumbnail()) : ?>
+                        <?php the_post_thumbnail('thumbnail', ['itemprop' => 'image']); ?>
+                    <?php else : ?>
+                        <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/backdrop-ag-aids-compress-web.webp') ?>" alt="<?= esc_attr(get_the_title()) ?>" itemprop="image" loading="lazy">
+                    <?php endif; ?>
                     <figcaption>
                         <h2 itemprop="name"><?php the_title(); ?></h2>
                         <span class="author" itemprop="author"><?= get_field('autor') ?></span>
