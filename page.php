@@ -15,7 +15,8 @@
         'biblioteca'        => 'library',
         'faq'               => 'faq',
         'servico'           => 'services',
-        'acessibilidade'    => 'accessibility'
+        'acessibilidade'    => 'accessibility',
+        'politica-de-privacidade' => 'privacyPolicy'
     ];
 
 if (is_page(array_keys($templates))) {
