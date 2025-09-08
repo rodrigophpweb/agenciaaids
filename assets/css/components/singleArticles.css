@@ -100,6 +100,11 @@ article[id^="post-"] {
 
             em {
                 font-style: italic;
+                strong {
+                    font-weight: bold;
+                    font-style: italic;
+                }
+
             }
 
             img.alignright {float:right; margin:0 0 1em 1em}
