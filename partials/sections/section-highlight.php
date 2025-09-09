@@ -30,13 +30,13 @@
                             <p itemprop="description"><?php echo wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 100, '...'); ?></p>
 
                             <?php 
-                            $autor_nome = get_field('autor');
-                            if ($autor_nome) {
-                                echo '<span itemprop="author" itemscope itemtype="https://schema.org/Person" style="display:block;font-size:14px;color:#555;margin-top:8px;">';
-                                echo '<span itemprop="name">' . esc_html($autor_nome) . '</span>';
-                                echo '</span>';
-                            }
+                                $autor_nome = get_field('autor');
+                                if ($autor_nome) :
                             ?>
+                                <span itemprop="author" itemscope itemtype="https://schema.org/Person" class="author-name">
+                                    <span itemprop="name"><strong>Author:</strong> <?=esc_html($autor_nome)?></span>
+                                </span>
+                            <?php endif;?>
                             <meta itemprop="dateModified" content="<?php echo get_the_modified_date('c'); ?>">
                         </div>
                     </a>
