@@ -59,9 +59,9 @@
             ?>
 
             <?php if ($autor): ?>
-                <div class="post-author" itemprop="author" itemscope itemtype="https://schema.org/Person" style="margin-bottom: 2rem; margin-top: 1rem;">
-                    <span class="author-label" style="font-weight: 600; color: #444;">Autor:</span>
-                    <span class="author-name" itemprop="name" style="font-weight: 400; color: #222; margin-left: 0.5em;">
+                <div class="post-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <span class="author-label">Autor:</span>
+                    <span class="author-name" itemprop="name">
                         <?= esc_html($autor); ?>
                     </span>
                 </div>
