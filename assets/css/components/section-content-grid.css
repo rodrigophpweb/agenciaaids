@@ -119,8 +119,10 @@ section.paddingContent {
     gap: 2rem;
     position: relative;
 
-    @media screen (max-width: 768px) {
-      grid-template-columns: 1fr;      
+    @media screen {
+      @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+      }
     }
     
     .featured-post {
@@ -255,7 +257,7 @@ section.paddingContent {
 
             img {
               width: 100%;
-              height: auto%;
+              height: auto;
               object-fit: inherit;
               display: block;
 
@@ -304,6 +306,7 @@ section.paddingContent {
     }
   }
 }
+
 /* .section-articles {
   background-color: var(--water); 
   padding-top: 3rem;
