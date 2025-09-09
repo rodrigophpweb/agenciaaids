@@ -143,8 +143,10 @@ section.paddingContent {
         color: inherit;
         display: flex;
         
-        @media screen (max-width: 768px) {
-          flex-direction: column;          
+        @media screen {
+          @media (max-width: 768px) {
+            flex-direction: column;
+          }
         }
 
         figure {
