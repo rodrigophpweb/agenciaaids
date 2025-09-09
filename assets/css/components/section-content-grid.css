@@ -111,6 +111,103 @@ section.paddingContent {
         }
       }
     }
+
+    .secondary-posts {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.2rem;
+      height: 100%;
+
+      .post-card {
+        display: flex;
+        gap: 1rem;
+        background: #fff;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        align-items: center;
+        transition: all 0.2s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        flex: 1;
+        min-height: 0;
+
+        &:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.50);
+        }
+
+        a {
+          display: flex;
+          flex-direction: column;
+          text-decoration: none;
+          color: inherit;
+          gap: 2rem;
+          width: 100%;
+          height: -webkit-fill-available;
+
+          figure {
+            width: 100%;
+            height: 150px;
+            flex-shrink: 0;
+            overflow: hidden;
+            border-radius: 0.3rem;
+
+            @media screen {
+              @media (max-width: 768px) {
+                width: 100%;
+                height: 200px;
+              }
+            }
+
+            img {
+              width: 100%;
+              height: auto;
+              object-fit: inherit;
+              display: block;
+
+              @media (max-width: 768px) {
+                border-radius: 0.3rem 0.3rem 0 0;
+                object-fit: none;
+              }
+            }
+          }
+
+          .post-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h3 {
+              font-size: 1rem;
+              margin-bottom: 0.3rem;
+              font-weight: 600;
+              color: var(--charlestonGreen)
+            }
+
+            mark {
+              background-color: var(--maize);
+              color: var(--charlestonGreen);
+              margin: 1rem 0;
+              width: fit-content;
+            }
+
+            p {
+              font-size: 1rem;
+              line-height: 1.5rem;
+              margin-bottom: 1.5rem;
+              display: block;
+              font-weight: 300;
+            }
+          }
+
+          time {
+            font-size: 0.75rem;
+            color: #888;
+          }
+        }
+      }
+    }
   }
 
   .post-grid-one-columns {
@@ -309,8 +406,8 @@ section.paddingContent {
   }
 }
 
-/* .section-articles {
+.section-articles {
   background-color: var(--water); 
   padding-top: 3rem;
   padding-bottom: 3rem;
-} */
+}
