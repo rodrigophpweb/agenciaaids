@@ -28,13 +28,19 @@
                         <div class="post-info">
                             <?php the_title('<h3 itemprop="headline">','</h3>')?>
                             <p itemprop="description"><?php echo wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 100, '...'); ?></p>
+
+                            <?php 
+                            $autor_nome = get_field('autor');
+                            if ($autor_nome) {
+                                echo '<span itemprop="author" itemscope itemtype="https://schema.org/Person" style="display:block;font-size:14px;color:#555;margin-top:8px;">';
+                                echo '<span itemprop="name">' . esc_html($autor_nome) . '</span>';
+                                echo '</span>';
+                            }
+                            ?>
                             <meta itemprop="dateModified" content="<?php echo get_the_modified_date('c'); ?>">
-                            <meta itemprop="author" content="<?php echo get_the_author(); ?>">
                         </div>
                     </a>
                 </article>
-                <div class="secondary-posts">
-                </div>
             </div>
 
         <?php
