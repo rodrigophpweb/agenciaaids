@@ -25,19 +25,18 @@
                             <img src="<?php echo esc_url(get_the_post_thumbnail_url()); ?>" alt="<?php echo esc_attr(get_the_title()); ?>" itemprop="url" loading="lazy">
                         </figure>
                         
-                        <div class="post-info">
+                        <div class="post-info">                            
                             <?php the_title('<h3 itemprop="headline">','</h3>')?>
-                            <p itemprop="description"><?php echo wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 100, '...'); ?></p>
-
                             <?php 
                                 $autor_nome = get_field('autor');
                                 if ($autor_nome) :
                             ?>
                                 <span itemprop="author" itemscope itemtype="https://schema.org/Person" class="author-name">
-                                    <span itemprop="name"><strong>Author:</strong> <?=esc_html($autor_nome)?></span>
+                                    <span itemprop="name"><strong>Por:</strong> <?=esc_html($autor_nome)?></span>
                                 </span>
                             <?php endif;?>
                             <meta itemprop="dateModified" content="<?php echo get_the_modified_date('c'); ?>">
+                            <p itemprop="description"><?php echo wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 100, '...'); ?></p>                            
                         </div>
                     </a>
                 </article>

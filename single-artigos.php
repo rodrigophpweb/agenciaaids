@@ -12,7 +12,16 @@
                 printf('<span class="post-category" itemprop="articleSection">%s</span>', esc_html($category->name)) : ''; 
             ?>
 
-            <h1 class="entry-title" itemprop="headline"><?php the_title(); ?></h1>
+            <?php the_title('<h1 class="entry-title" itemprop="headline">','</h1>');?>
+            <?php 
+                $autor = get_field('autor');
+                if ($autor): 
+            ?>
+                    <div class="post-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                        <span class="author-label">Por:</span>
+                        <span class="author-name" itemprop="name"><?= esc_html($autor); ?></span>
+                    </div>
+            <?php endif; ?>
             
             <?php
                 // Obtém a data e hora da publicação e última atualização
@@ -55,17 +64,7 @@
                 $post_url   = urlencode(get_permalink());
                 $post_title = urlencode(get_the_title());
                 $site_name  = urlencode(get_bloginfo('name'));
-                $autor = get_field('autor');
-            ?>
-
-            <?php if ($autor): ?>
-                <div class="post-author" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                    <span class="author-label">Autor:</span>
-                    <span class="author-name" itemprop="name">
-                        <?= esc_html($autor); ?>
-                    </span>
-                </div>
-            <?php endif; ?>
+            ?>            
 
             <div class="share-buttons">
                 <strong>Compartilhar:</strong>
