@@ -292,7 +292,7 @@ section.paddingContent {
             display: block;
             font-size: 14px;
             color: #555;
-            margin-top: .5rem;
+            margin: .5rem 0 1rem;
 
             strong {
               font-weight: bold;
