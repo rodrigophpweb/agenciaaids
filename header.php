@@ -11,7 +11,6 @@
                 bloginfo('description');
             } else {
                 wp_title('|', true, 'right');
-                bloginfo('name');
             }
         ?>
     </title>
