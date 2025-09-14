@@ -86,7 +86,7 @@ add_action('wp_enqueue_scripts', 'load_custom_css');
 
 
 /**
- * Carrega o script app.min.js em todas as páginas
+ * Carrega o script app.js em todas as páginas
  * @since 1.0.0
  * @author Rodrigo Vieira Eufrasio da Silva
  * @link https://agenciaaids.com.br
@@ -95,8 +95,8 @@ add_action('wp_enqueue_scripts', 'load_custom_css');
  * 
  */
 function load_custom_scripts() {
-    $js_file_path = get_template_directory() . '/assets/js/app.min.js';
-    $js_file_uri = get_template_directory_uri() . '/assets/js/app.min.js';
+    $js_file_path = get_template_directory() . '/assets/js/app.js';
+    $js_file_uri = get_template_directory_uri() . '/assets/js/app.js';
     
     // Verifica se o arquivo existe antes de carregar
     if (file_exists($js_file_path)) {
