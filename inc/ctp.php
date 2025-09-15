@@ -63,6 +63,35 @@ function agencia_aids_register_cpt() {
 add_action('init', 'agencia_aids_register_cpt');
 
 /**
+ * Registra a taxonomia 'assuntos' para o custom post type 'respostas'
+ */
+function agencia_aids_register_assuntos_taxonomy() {
+    register_taxonomy('assuntos', 'respostas', [
+        'labels' => [
+            'name'              => 'Assuntos',
+            'singular_name'     => 'Assunto',
+            'search_items'      => 'Buscar Assuntos',
+            'all_items'         => 'Todos os Assuntos',
+            'parent_item'       => 'Assunto Pai',
+            'parent_item_colon' => 'Assunto Pai:',
+            'edit_item'         => 'Editar Assunto',
+            'update_item'       => 'Atualizar Assunto',
+            'add_new_item'      => 'Adicionar Novo Assunto',
+            'new_item_name'     => 'Novo Nome do Assunto',
+            'menu_name'         => 'Assuntos',
+        ],
+        'hierarchical'      => true,
+        'public'            => true,
+        'show_ui'           => true,
+        'show_admin_column' => true,
+        'query_var'         => true,
+        'show_in_rest'      => true,
+        'rewrite'           => ['slug' => 'assuntos'],
+    ]);
+}
+add_action('init', 'agencia_aids_register_assuntos_taxonomy');
+
+/**
  * Anexa a taxonomia 'category' aos custom post types especificados
  */
 function agencia_aids_attach_categories_to_cpts() {
