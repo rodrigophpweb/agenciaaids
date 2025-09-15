@@ -9,7 +9,7 @@ function despublicar_anuncios_expirados() {
         'post_status'    => 'publish',
         'meta_query'     => array(
             array(
-                'key'     => 'data_expiracao',
+                'key'     => 'field_data_expiracao',
                 'value'   => $hoje,
                 'compare' => '<',
                 'type'    => 'DATE',
