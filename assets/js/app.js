@@ -105,6 +105,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar eventos de paginação para conteúdo já carregado
     initInitialPagination();
     
+    // Inicializar FAQ AJAX
+    initFaqAjax();
+    
 });
 
 function initInitialPagination() {
@@ -294,4 +297,139 @@ function initCategoryFilters() {
         url.searchParams.delete('paged'); // Remove paginação ao filtrar
         window.history.pushState({}, '', url);
     }
+}
+
+/**
+ * FAQ AJAX functionality
+ * Handles loading FAQ answers by category using fetchAPI
+ */
+function initFaqAjax() {
+    const categoryButtons = document.querySelectorAll('.category-link');
+    const faqContent = document.getElementById('faq-content');
+    
+    if (!categoryButtons.length || !faqContent) {
+        return;
+    }
+    
+    // Verificar se as variáveis AJAX estão disponíveis
+    if (typeof faq_ajax === 'undefined') {
+        console.error('FAQ AJAX: variáveis não encontradas');
+        return;
+    }
+    
+    // Add loading state functionality
+    function showLoading() {
+        faqContent.innerHTML = '<div class="faq-loading"><p>Carregando respostas...</p></div>';
+    }
+    
+    function hideLoading() {
+        const loading = faqContent.querySelector('.faq-loading');
+        if (loading) {
+            loading.remove();
+        }
+    }
+    
+    // Update active button state
+    function updateActiveButton(activeButton) {
+        categoryButtons.forEach(btn => btn.classList.remove('active'));
+        activeButton.classList.add('active');
+    }
+    
+    // Load FAQ answers for a specific category
+    async function loadFaqAnswers(termId, button) {
+        try {
+            showLoading();
+            updateActiveButton(button);
+            
+            const formData = new FormData();
+            formData.append('action', 'get_respostas_by_assunto');
+            formData.append('term_id', termId);
+            formData.append('nonce', faq_ajax.nonce);
+            
+            const response = await fetch(faq_ajax.ajax_url, {
+                method: 'POST',
+                body: formData
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                faqContent.innerHTML = data.data;
+                
+                // Animate the new content
+                faqContent.style.opacity = '0';
+                setTimeout(() => {
+                    faqContent.style.opacity = '1';
+                }, 100);
+                
+            } else {
+                throw new Error(data.data || 'Erro ao carregar respostas');
+            }
+            
+        } catch (error) {
+            console.error('Erro ao carregar FAQ:', error);
+            faqContent.innerHTML = `
+                <div class="faq-error">
+                    <p>Erro ao carregar as respostas. Tente novamente.</p>
+                    <button onclick="location.reload()" class="retry-btn">Recarregar página</button>
+                </div>
+            `;
+        } finally {
+            hideLoading();
+        }
+    }
+    
+    // Add click event listeners to category buttons
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const termId = this.dataset.categoryId;
+            
+            if (!termId) {
+                console.error('ID do termo não encontrado');
+                return;
+            }
+            
+            loadFaqAnswers(termId, this);
+        });
+    });
+    
+    // Set first button as active by default
+    if (categoryButtons.length > 0) {
+        categoryButtons[0].classList.add('active');
+    }
+    
+    // Add keyboard navigation support
+    categoryButtons.forEach((button, index) => {
+        button.addEventListener('keydown', function(e) {
+            let nextIndex;
+            
+            switch(e.key) {
+                case 'ArrowRight':
+                case 'ArrowDown':
+                    e.preventDefault();
+                    nextIndex = (index + 1) % categoryButtons.length;
+                    categoryButtons[nextIndex].focus();
+                    break;
+                    
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                    e.preventDefault();
+                    nextIndex = (index - 1 + categoryButtons.length) % categoryButtons.length;
+                    categoryButtons[nextIndex].focus();
+                    break;
+                    
+                case 'Enter':
+                case ' ':
+                    e.preventDefault();
+                    this.click();
+                    break;
+            }
+        });
+    });
 }

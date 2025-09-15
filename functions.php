@@ -69,6 +69,11 @@ require_once get_template_directory() . '/inc/ctp.php';
 require_once get_template_directory() . '/inc/query-mods.php';
 
 // --------------------------------------------------
+// AJAX para FAQ
+// --------------------------------------------------
+require_once get_template_directory() . '/inc/ajax-faq.php';
+
+// --------------------------------------------------
 // Cron para anúncios
 // --------------------------------------------------
 require_once get_template_directory() . '/inc/ads-cron.php';
