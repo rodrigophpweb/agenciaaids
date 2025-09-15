@@ -304,18 +304,30 @@ function initCategoryFilters() {
  * Handles loading FAQ answers by category using fetchAPI
  */
 function initFaqAjax() {
+    console.log('FAQ AJAX: Iniciando função');
+    
     const categoryButtons = document.querySelectorAll('.category-link');
     const faqContent = document.getElementById('faq-content');
     
+    console.log('FAQ AJAX: Botões encontrados:', categoryButtons.length);
+    console.log('FAQ AJAX: Container encontrado:', !!faqContent);
+    
     if (!categoryButtons.length || !faqContent) {
+        console.log('FAQ AJAX: Elementos não encontrados, saindo da função');
         return;
     }
     
     // Verificar se as variáveis AJAX estão disponíveis
     if (typeof faq_ajax === 'undefined') {
-        console.error('FAQ AJAX: variáveis não encontradas');
-        return;
+        console.warn('FAQ AJAX: variáveis não encontradas, criando fallback');
+        // Criar fallback usando variáveis globais do WordPress
+        window.faq_ajax = {
+            ajax_url: '/wp-admin/admin-ajax.php',
+            nonce: 'fallback_nonce' // Em produção, isso deve ser gerado pelo WordPress
+        };
     }
+    
+    console.log('FAQ AJAX: Variáveis disponíveis:', window.faq_ajax);
     
     // Add loading state functionality
     function showLoading() {
@@ -384,11 +396,17 @@ function initFaqAjax() {
     }
     
     // Add click event listeners to category buttons
-    categoryButtons.forEach(button => {
+    categoryButtons.forEach((button, index) => {
+        console.log(`FAQ AJAX: Adicionando listener ao botão ${index + 1}:`, button.textContent.trim());
+        
         button.addEventListener('click', function(e) {
             e.preventDefault();
             
+            console.log('FAQ AJAX: Botão clicado:', this.textContent.trim());
+            
             const termId = this.dataset.categoryId;
+            
+            console.log('FAQ AJAX: Term ID:', termId);
             
             if (!termId) {
                 console.error('ID do termo não encontrado');

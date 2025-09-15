@@ -72,16 +72,3 @@ function agencia_aids_get_respostas_by_assunto() {
     $html = ob_get_clean();
     wp_send_json_success($html);
 }
-
-/**
- * Adiciona as variáveis necessárias para o FAQ AJAX
- */
-function agencia_aids_enqueue_faq_script() {
-    if (is_page() && get_field('faq')) {
-        wp_localize_script('app-js', 'faq_ajax', array(
-            'ajax_url' => admin_url('admin-ajax.php'),
-            'nonce' => wp_create_nonce('faq_nonce')
-        ));
-    }
-}
-add_action('wp_enqueue_scripts', 'agencia_aids_enqueue_faq_script');

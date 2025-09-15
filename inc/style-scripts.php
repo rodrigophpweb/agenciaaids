@@ -108,6 +108,15 @@ function load_custom_scripts() {
             'ajax_url' => admin_url('admin-ajax.php'),
             'nonce' => wp_create_nonce('ajax_nonce')
         ));
+        
+        // Adiciona variáveis para FAQ AJAX se estiver em uma página com FAQ
+        // Verifica se existe a classe .faq_nav na página (mais confiável que ACF)
+        if (is_page()) {
+            wp_localize_script('app-js', 'faq_ajax', array(
+                'ajax_url' => admin_url('admin-ajax.php'),
+                'nonce' => wp_create_nonce('faq_nonce')
+            ));
+        }
     }
 }
 add_action('wp_enqueue_scripts', 'load_custom_scripts');

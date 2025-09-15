@@ -1,4 +1,4 @@
-<article itemscope itemtype="https://schema.org/FAQPage">
+<article itemscope itemtype="https://schema.org/FAQPage" class="paddingContent">
     <header class="faq">
         <?php the_title('<span class="subtitle"></span>', '</span>'); ?>
         <h1><?php the_field('faq_title'); ?></h1>
@@ -23,7 +23,7 @@
         </nav>
     </header>
 
-    <section itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="question" id="faq-content">
+    <section itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="question paddingContent" id="faq-content">
         <?php
             // Por padrão, mostra todas as respostas ou do primeiro assunto
             $assuntos = get_terms([
