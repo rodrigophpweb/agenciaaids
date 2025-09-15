@@ -1,5 +1,5 @@
-<div class="ads" itemscope itemtype="https://schema.org/WPAdBlock">
-    
+<div id="banner-header" class="ads" itemscope itemtype="https://schema.org/WPAdBlock">
+
     <?php
         $ads_query = new WP_Query(array(
             'post_type'         => 'anuncio',
