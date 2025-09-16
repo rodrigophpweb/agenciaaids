@@ -23,7 +23,7 @@
         </nav>
     </header>
 
-    <section itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="question paddingContent" id="faq-content">
+    <section itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="question" id="faq-content">
         <?php
             // Por padrão, mostra todas as respostas ou do primeiro assunto
             $assuntos = get_terms([
