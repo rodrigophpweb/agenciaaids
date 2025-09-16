@@ -19,29 +19,54 @@
 
         .category-link {
             background: var(--white);
-            border: 1px solid var(--charlestonGreen);
-            border-radius: 8px;
-            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--charlestonGreen);
+            border-radius: 12px;
+            padding: 0.875rem 1.75rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-size: 0.95rem;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--charlestonGreen);
             text-decoration: none;
             display: inline-block;
+            position: relative;
+            overflow: hidden;
+            
+            /* Efeito de ondulação sutil */
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 0;
+                height: 0;
+                background: rgba(255, 255, 255, 0.2);
+                border-radius: 50%;
+                transform: translate(-50%, -50%);
+                transition: width 0.6s, height 0.6s;
+            }
         
             &:hover {
-                background: #e0e0e0;
-                border-color: #ccc;
+                background: var(--charlestonGreen);
+                color: white;
+                transform: translateY(-2px);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+                
+                &::before {
+                    width: 300px;
+                    height: 300px;
+                }
             }
 
             &.active {
                 background: var(--charlestonGreen);
                 color: white;
+                transform: translateY(-1px);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             }
 
             &:focus {
-                outline: 2px solid #007cba;
+                outline: 3px solid rgba(0, 124, 186, 0.5);
                 outline-offset: 2px;
             }
         }
@@ -58,7 +83,6 @@
         margin-bottom: 1rem;
         overflow: hidden;
 
-
         summary {
             background: #f9f9f9;
             padding: 1rem 1.5rem;
@@ -66,23 +90,59 @@
             font-weight: 600;
             border-bottom: 1px solid #e1e1e1;
             transition: background-color 0.2s ease;
+            position: relative;
+            list-style: none; /* Remove marcador padrão */
+            
+            /* Remove marcadores padrão do webkit */
+            &::-webkit-details-marker {
+                display: none;
+            }
+            
+            /* Seta moderna do lado direito */
+            &::after {
+                content: '';
+                position: absolute;
+                right: 1.5rem;
+                top: 50%;
+                transform: translateY(-50%) rotate(0deg);
+                width: 0;
+                height: 0;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                border-top: 8px solid var(--charlestonGreen);
+                transition: transform 0.3s ease;
+            }
 
             &:hover {
-                background: darken(#f9f9f9, 5%);
+                background: #f0f0f0;
             }
         }
-    }
 
-    details[open] summary {
-        background: #007cba;
-        color: white;
-        border-bottom-color: #005a87;
+        /* Quando o details está aberto */
+        &[open] {
+            summary {
+                background: var(--charlestonGreen);
+                color: white;
+                border-bottom-color: var(--charlestonGreen);
+                
+                /* Seta aponta para cima quando aberto */
+                &::after {
+                    border-top: none;
+                    border-bottom: 8px solid white;
+                    transform: translateY(-50%) rotate(180deg);
+                }
+            }
+        }
 
         article {
             padding: 1.5rem;
             line-height: 1.6;
-        }    
-    }    
+            background: white;
+            
+            /* Animação suave ao abrir */
+            animation: slideDown 0.3s ease-out;
+        }
+    }
 }
 
 
@@ -130,24 +190,39 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .faq_nav {
-        flex-direction: column;
-        gap: 0.25rem;
+    .faq {
+        .faq_nav {
+            flex-direction: column;
+            gap: 0.5rem;
+            
+            .category-link {
+                width: 100%;
+                text-align: center;
+                padding: 1.25rem;
+                font-size: 1rem;
+                
+                &:hover {
+                    transform: none; /* Remove elevação no mobile */
+                }
+            }
+        }
     }
     
-    .category-link {
-        width: 100%;
-        text-align: center;
-        padding: 1rem;
-    }
-    
-    #faq-content summary {
-        padding: 1rem;
-        font-size: 0.95rem;
-    }
-    
-    #faq-content article {
-        padding: 1rem;
+    #faq-content {
+        details {
+            summary {
+                padding: 1.25rem 1rem;
+                font-size: 1rem;
+                
+                &::after {
+                    right: 1rem;
+                }
+            }
+            
+            article {
+                padding: 1.25rem;
+            }
+        }
     }
 }
 
@@ -167,4 +242,18 @@
     animation: fadeIn 0.3s ease-out;
 }
 
+/* Animação para o conteúdo ao abrir */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 500px;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
 }
