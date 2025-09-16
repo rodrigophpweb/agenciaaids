@@ -148,6 +148,10 @@
                 line-height: 1.5rem;
                 display: block;
                 font-weight: 300;
+
+                strong {
+                    font-weight: 600;
+                }
             }
         }
     }
