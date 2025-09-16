@@ -2,7 +2,7 @@
     <header class="faq">
         <?php the_title('<h1>', '</h1>'); ?>
         <?php 
-            $subtitle = get_field('subtitle');
+            $subtitle = get_field('field_faq_subtitle');
             if ($subtitle) : ?>
                 <span class="subtitle"><?php echo esc_html($subtitle); ?></span>
             <?php endif; ?>
