@@ -62,6 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Inicializar FAQ AJAX
     initFaqAjax();
     
+    // Inicializar comportamento de accordion para FAQ
+    initFaqAccordion();
+    
 });
 
 function initInitialPagination() {
@@ -404,4 +407,62 @@ function initFaqAjax() {
             }
         });
     });
+}
+
+/**
+ * FAQ Accordion functionality
+ * Ensures only one details element is open at a time
+ */
+function initFaqAccordion() {
+    // Função para gerenciar o accordion dos details
+    function setupAccordion() {
+        const allDetails = document.querySelectorAll('#faq-content details');
+        
+        if (allDetails.length === 0) {
+            return;
+        }
+        
+        allDetails.forEach(details => {
+            details.addEventListener('toggle', function() {
+                // Se este details foi aberto
+                if (this.open) {
+                    // Fechar todos os outros details
+                    allDetails.forEach(otherDetails => {
+                        if (otherDetails !== this && otherDetails.open) {
+                            otherDetails.open = false;
+                        }
+                    });
+                }
+            });
+        });
+    }
+    
+    // Configurar accordion inicialmente
+    setupAccordion();
+    
+    // Observar mudanças no conteúdo do FAQ (para quando carrega via AJAX)
+    const faqContent = document.getElementById('faq-content');
+    if (faqContent) {
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+                    // Verificar se foram adicionados novos details
+                    const hasNewDetails = Array.from(mutation.addedNodes).some(node => 
+                        node.nodeType === Node.ELEMENT_NODE && 
+                        (node.tagName === 'DETAILS' || node.querySelector('details'))
+                    );
+                    
+                    if (hasNewDetails) {
+                        // Reconfigurar o accordion para os novos elementos
+                        setTimeout(setupAccordion, 100);
+                    }
+                }
+            });
+        });
+        
+        observer.observe(faqContent, {
+            childList: true,
+            subtree: true
+        });
+    }
 }
