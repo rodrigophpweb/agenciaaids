@@ -27,7 +27,7 @@
         </nav>
     </header>
 
-    <section itemscope itemprop="mainEntity" itemtype="https://schema.org/Question" class="question" id="faq-content">
+    <section class="question" id="faq-content">
         <?php
             // Por padrão, mostra todas as respostas ou do primeiro assunto
             $assuntos = get_terms([
@@ -71,10 +71,12 @@
                 foreach ($posts as $post) {
                     setup_postdata($post);
                     ?>
-                    <details itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                    <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
                         <?php the_title('<summary itemprop="name">', '</summary>')?>
-                        <article itemprop="text">
-                            <?php the_content(); ?>
+                        <article itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                            <div itemprop="text">
+                                <?php the_content(); ?>
+                            </div>
                         </article>
                     </details>
                     <?php

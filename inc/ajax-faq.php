@@ -62,10 +62,12 @@ function agencia_aids_get_respostas_by_assunto() {
         // Debug: verificar conteúdo do post
         error_log('FAQ AJAX - Post ID: ' . $post->ID . ', Título: ' . $post->post_title . ', Conteúdo length: ' . strlen($post->post_content));
         ?>
-        <details itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <summary itemprop="name"><?php echo $post->post_title; ?></summary>
-            <article itemprop="text">
-                <?php echo $post->post_content; ?>
+        <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+            <summary itemprop="name"><?php echo esc_html($post->post_title); ?></summary>
+            <article itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+                <div itemprop="text">
+                    <?php echo wp_kses_post($post->post_content); ?>
+                </div>
             </article>
         </details>
         <?php
