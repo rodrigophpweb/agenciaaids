@@ -19,7 +19,7 @@
 
         .category-link {
             background: var(--white);
-            border: 1px solid var(--buttonBlue);
+            border: 1px solid var(--charlestonGreen);
             border-radius: 8px;
             padding: 0.75rem 1.5rem;
             cursor: pointer;
@@ -52,14 +52,14 @@
     padding-top: 0;
     transition: opacity 0.3s ease;
 
-    #faq-content details {
+    details {
         border: 1px solid #e1e1e1;
         border-radius: 8px;
         margin-bottom: 1rem;
         overflow: hidden;
 
 
-        #faq-content summary {
+        summary {
             background: #f9f9f9;
             padding: 1rem 1.5rem;
             cursor: pointer;
@@ -73,7 +73,7 @@
         }
     }
 
-    #faq-content details[open] summary {
+    details[open] summary {
         background: #007cba;
         color: white;
         border-bottom-color: #005a87;
