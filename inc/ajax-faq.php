@@ -30,6 +30,7 @@ function agencia_aids_get_respostas_by_assunto() {
         return;
     }
 
+    // Query simplificada para debug
     $args = array(
         'post_type' => 'respostas',
         'posts_per_page' => -1,
@@ -41,18 +42,7 @@ function agencia_aids_get_respostas_by_assunto() {
                 'terms'    => $term_id,
             ),
         ),
-        'meta_query' => array(
-            'relation' => 'OR',
-            array(
-                'key' => 'status',
-                'compare' => 'NOT EXISTS'
-            ),
-            array(
-                'key' => 'status',
-                'value' => 'published',
-                'compare' => '='
-            )
-        )
+        // Removido meta_query temporariamente para debug
     );
 
     $posts = get_posts($args);
@@ -69,18 +59,17 @@ function agencia_aids_get_respostas_by_assunto() {
     ob_start();
     
     foreach ($posts as $post) {
-        setup_postdata($post);
+        // Debug: verificar conteúdo do post
+        error_log('FAQ AJAX - Post ID: ' . $post->ID . ', Título: ' . $post->post_title . ', Conteúdo length: ' . strlen($post->post_content));
         ?>
         <details itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
-            <summary itemprop="name"><?php the_title(); ?></summary>
+            <summary itemprop="name"><?php echo $post->post_title; ?></summary>
             <article itemprop="text">
-                <?php the_content(); ?>
+                <?php echo $post->post_content; ?>
             </article>
         </details>
         <?php
     }
-    
-    wp_reset_postdata();
     
     $html = ob_get_clean();
     wp_send_json_success($html);
