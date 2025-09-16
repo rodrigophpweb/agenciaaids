@@ -26,52 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    const categoryLinks = document.querySelectorAll('.category-link');
-
-    categoryLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            event.preventDefault();
-            const categoryId = this.getAttribute('data-category-id');
-            fetchPostsByCategory(categoryId);
-        });
-    });
-
-    function fetchPostsByCategory(categoryId) {
-        fetch(`/wp-json/wp/v2/posts?categories=${categoryId}`)
-            .then(response => response.json())
-            .then(posts => {
-                const questionsSection = document.querySelector('.faq .questions');
-                questionsSection.innerHTML = '';
-
-                posts.forEach(post => {
-                    const questionSection = document.createElement('section');
-                    questionSection.setAttribute('itemscope', '');
-                    questionSection.setAttribute('itemprop', 'mainEntity');
-                    questionSection.setAttribute('itemtype', 'https://schema.org/Question');
-                    questionSection.classList.add('question');
-
-                    const summary = document.createElement('summary');
-                    summary.setAttribute('itemprop', 'name');
-                    summary.textContent = post.title.rendered;
-
-                    const details = document.createElement('details');
-                    details.setAttribute('itemscope', '');
-                    details.setAttribute('itemprop', 'acceptedAnswer');
-                    details.setAttribute('itemtype', 'https://schema.org/Answer');
-
-                    const contentDiv = document.createElement('div');
-                    contentDiv.setAttribute('itemprop', 'text');
-                    contentDiv.innerHTML = post.content.rendered;
-
-                    details.appendChild(contentDiv);
-                    questionSection.appendChild(summary);
-                    questionSection.appendChild(details);
-                    questionsSection.appendChild(questionSection);
-                });
-            })
-            .catch(error => console.error('Error fetching posts:', error));
-    }
-
     function handlePagination(event) {
         event.preventDefault();
         const url = this.href;
