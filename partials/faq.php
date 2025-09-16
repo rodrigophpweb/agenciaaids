@@ -1,7 +1,7 @@
 <article itemscope itemtype="https://schema.org/FAQPage" class="paddingContent" class="paddingContent">
     <header class="faq">
-        <?php the_title('<span class="subtitle"></span>', '</span>'); ?>
-        <h1><?php the_field('faq_title'); ?></h1>
+        <?php the_title('<h1>', '</h1>'); ?>
+        <?php //the_title('<span class="subtitle"></span>', '</span>'); ?>
 
         <nav class="faq_nav">
             <?php
