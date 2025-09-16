@@ -1,1 +1,23 @@
-/* Adicione seus estilos para o FAQ aqui */
+/* Estilos para o FAQ */
+.faq {
+    text-align: center;
+    
+    .subtitle {
+        font-size: 1.125rem;
+        font-weight: 300;
+        color: var(--buttonBlue);
+        margin-bottom: 1.5rem;
+        margin-top: 0.5rem;
+        text-transform: uppercase;
+        display: block;
+        
+        &::after {
+            content: '';
+            display: block;
+            width: 4rem;
+            height: 0.0625rem;
+            background-color: var(--buttonBlue);
+            margin: 1rem auto 0;
+        }
+    }
+}

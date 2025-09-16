@@ -11,6 +11,16 @@
         margin-bottom: 2rem;
     }
 
+    .subtitle {
+        color: var(--buttonBlue);
+        text-transform: uppercase;
+        font-size: 1.5rem;
+        font-weight: 200;
+        margin-bottom: 1.25rem;
+        display: flex;
+        flex-direction: column;
+    }
+
     .faq_nav {
         display: flex;
         flex-wrap: wrap;
