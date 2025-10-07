@@ -12,6 +12,7 @@
         'todos-videos'      => 'videos',
         'palestras'         => 'lectures',
         'contato'           => 'contact',
+        'dicionario'        => 'dictionary',
         'biblioteca'        => 'library',
         'faq'               => 'faq',
         'servico'           => 'services',
