@@ -1,0 +1,131 @@
+.content-dictionary {
+
+    h1{
+
+    }
+
+    .archive-description {
+
+        p {
+
+        }
+    }
+
+    .alphabet-navigation {
+        
+        button {
+
+        }
+
+        .alphabet-previous,
+        .alphabet-next {
+
+        }
+
+        .alphabet-list {
+
+            li {
+                
+                a {
+                    &.is-active {
+
+                    }
+                }
+            }
+        }
+    }
+
+    .faqDictionary {
+        
+        .dictionary-item {
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+
+            .question {
+                background: #f9f9f9;
+                padding: 1rem 1.5rem;
+                cursor: pointer;
+                font-weight: 600;
+                border-bottom: 1px solid #e1e1e1;
+                transition: background-color 0.2s ease;
+                position: relative;
+                list-style: none; /* Remove marcador padrão */
+                
+                /* Remove marcadores padrão do webkit */
+                &::-webkit-details-marker {
+                    display: none;
+                }
+                
+                /* Seta moderna do lado direito */
+                &::after {
+                    content: '';
+                    position: absolute;
+                    right: 1.5rem;
+                    top: 50%;
+                    transform: translateY(-50%) rotate(0deg);
+                    width: 0;
+                    height: 0;
+                    border-left: 6px solid transparent;
+                    border-right: 6px solid transparent;
+                    border-top: 8px solid var(--charlestonGreen);
+                    transition: transform 0.3s ease;
+                }
+
+                &:hover {
+                    background: #f0f0f0;
+                }
+            }
+
+            /* Quando o details está aberto */
+            &[open] {
+                summary {
+                    background: var(--charlestonGreen);
+                    color: white;
+                    border-bottom-color: var(--charlestonGreen);
+                    
+                    /* Seta aponta para cima quando aberto */
+                    &::after {
+                        border-top: none;
+                        border-bottom: 8px solid white;
+                        transform: translateY(-50%) rotate(180deg);
+                    }
+                }
+            }
+
+            .answer {
+                padding: 1.5rem;
+                line-height: 1.6;
+                background: white;
+                
+                /* Animação suave ao abrir */
+                animation: slideDown 0.3s ease-out;
+
+                p {
+                    margin-bottom: 1.5rem;
+                    font-size: 1rem;
+                    line-height: 1.5rem;
+                    display: block;
+                    font-weight: 300;
+
+                    strong {
+                        font-weight: 600;
+                    }
+                }
+
+                ul {
+                    padding-left: 1.5rem;
+                    margin-bottom: 1.5rem;
+
+                    li {
+                        margin-bottom: 0.5rem;
+                        font-size: 1rem;
+                        line-height: 1.5rem;
+                        list-style-type: disc;
+                    }
+                }
+            }
+        }
+    }
+}
