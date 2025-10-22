@@ -2,7 +2,7 @@
 
     // Letra atual (ex.: ?letra=A)
     $letters = range('A', 'Z');
-    $current_letter = isset($_GET['letra']) ? strtoupper(sanitize_text_field($_GET['letra'])) : '';
+    $current_letter = isset($_GET['letra']) ? strtoupper(sanitize_text_field($_GET['letra'])) : 'A';
     if (!in_array($current_letter, $letters, true)) {
     $current_letter = ''; // todas as letras
     }

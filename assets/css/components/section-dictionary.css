@@ -23,12 +23,30 @@
         }
 
         .alphabet-list {
+            display: flex;
+            gap: 0.5rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
 
             li {
-                
                 a {
+                    display: block;
+                    padding: 0.5rem 0.75rem;
+                    text-decoration: none;
+                    border: 1px solid #e1e1e1;
+                    border-radius: 4px;
+                    transition: all 0.2s ease;
+                    
+                    &:hover {
+                        background: #f0f0f0;
+                    }
+                    
                     &.is-active {
-
+                        background: var(--charlestonGreen);
+                        color: white;
+                        border-color: var(--charlestonGreen);
                     }
                 }
             }
