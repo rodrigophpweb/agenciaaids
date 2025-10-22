@@ -52,6 +52,7 @@
     </ul>
 
     <select name="letters" id="letters" class="selectLetters">
+      <option>Selecione uma letra</option>
       <?php foreach ($letters as $letter): ?>
         <option value="<?php echo esc_attr($letter); ?>" <?php selected($current_letter, $letter); ?>>
           <?php echo esc_html($letter); ?>

@@ -79,6 +79,7 @@
             /* Media Query 320 até 1440 */
             @media (min-width: 320px) and (max-width: 1440px) {
                 display: flex;
+                width: 100%;
             }
         }
     }
