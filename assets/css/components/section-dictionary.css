@@ -36,6 +36,11 @@
             margin: 0;
             flex-wrap: wrap;
 
+            /* Media query acima 1440 */
+            @media (min-width: 1441px) {
+                display: none;
+            }
+
             li {
                 a {
                     display: block;
@@ -58,6 +63,7 @@
                     }
                 }
             }
+        
         }
 
         .selectLetters {
@@ -70,8 +76,8 @@
             color: var(--charlestonGreen);
             font-size: 1rem;
 
-            /* Media Query 768 até 1440 */
-            @media (min-width: 768px) and (max-width: 1440px) {
+            /* Media Query 320 até 1440 */
+            @media (min-width: 320px) and (max-width: 1440px) {
                 display: flex;
             }
         }
