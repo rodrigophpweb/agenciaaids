@@ -12,6 +12,7 @@
     }
 
     .textDictionary {
+        box-shadow: none;
 
         p {
             margin: .7rem 0;
