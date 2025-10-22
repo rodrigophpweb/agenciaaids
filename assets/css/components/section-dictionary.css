@@ -36,8 +36,8 @@
             margin: 0;
             flex-wrap: wrap;
 
-            /* Media query acima 1440 */
-            @media (min-width: 1441px) {
+            /* Media query menor 1440 */
+            @media (max-width: 1440px) {
                 display: none;
             }
 
