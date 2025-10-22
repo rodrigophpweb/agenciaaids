@@ -35,12 +35,14 @@
                     display: block;
                     padding: 0.5rem 0.75rem;
                     text-decoration: none;
-                    border: 1px solid #e1e1e1;
+                    border: 1px solid var(--charlestonGreen);
                     border-radius: 4px;
                     transition: all 0.2s ease;
+                    color: var(--charlestonGreen);
                     
                     &:hover {
-                        background: #f0f0f0;
+                        background-color: var(--charlestonGreen);
+                        color: var(--white);
                     }
                     
                     &.is-active {
@@ -51,6 +53,21 @@
                 }
             }
         }
+
+        .selectLetters {
+            display: none;
+            margin-top: 1rem;
+            padding: 0.5rem;
+            border: 1px solid var(--charlestonGreen);
+            border-radius: 4px;
+            background: white;
+            color: var(--charlestonGreen);
+            font-size: 1rem;
+
+            /* Media Query 768 até 1440 */
+            @media (min-width: 768px) and (max-width: 1440px) {
+                display: block;
+            }
     }
 
     .faqDictionary {
@@ -89,10 +106,6 @@
                     border-right: 6px solid transparent;
                     border-top: 8px solid var(--charlestonGreen);
                     transition: transform 0.3s ease;
-                }
-
-                &:hover {
-                    background: #f0f0f0;
                 }
             }
 

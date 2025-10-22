@@ -46,13 +46,7 @@
   ?>
 
   <nav class="alphabet-navigation" role="navigation" aria-label="Navegação por letras do dicionário" data-current-letter="<?php echo esc_attr($current_letter); ?>">
-    <button aria-label="Letras anteriores" class="alphabet-prev" type="button">&lt;</button>
-
     <ul class="alphabet-list" role="list">
-      <li>
-        <a class="<?php echo $current_letter === '' ? 'is-active' : ''; ?>" href="<?php echo esc_url(remove_query_arg('letra')); ?>" aria-label="Todas as letras" aria-current="<?php echo $current_letter === '' ? 'page' : 'false'; ?>">Todas
-        </a>
-      </li>
       <?php foreach ($letters as $letter): ?>
         <li>
           <a href="<?php echo esc_url(add_query_arg('letra', $letter)); ?>" class="<?php echo $current_letter === $letter ? 'is-active' : ''; ?>" aria-label="Letra <?php echo esc_attr($letter); ?>" aria-current="<?php echo $current_letter === $letter ? 'page' : 'false'; ?>">
@@ -61,7 +55,14 @@
         </li>
       <?php endforeach; ?>
     </ul>
-    <button aria-label="Próximas letras" class="alphabet-next" type="button">&gt;</button>
+
+    <select name="letters" id="letters" class="selectLetters">
+      <?php foreach ($letters as $letter): ?>
+        <option value="<?php echo esc_attr($letter); ?>" <?php selected($current_letter, $letter); ?>>
+          <?php echo esc_html($letter); ?>
+        </option>
+      <?php endforeach; ?>
+    </select>
   </nav>
 
   <?php $set_itemid = esc_url(get_post_type_archive_link('dicionario')); ?>
