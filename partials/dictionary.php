@@ -36,9 +36,9 @@
 
 <section class="content-dictionary paddingContent" itemscope itemtype="https://schema.org/DefinedTermSet">  
   <?php the_title('<h1 itemprop="name">', '</h1>')?>
-  <article class="textDictionary" itemprop="description">
+  <header class="textDictionary" itemprop="description">
     <p><?php the_content(); ?></p>
-  </article>
+  </header>
 
   <nav class="alphabet-navigation" role="navigation" aria-label="Navegação por letras do dicionário" data-current-letter="<?php echo esc_attr($current_letter); ?>">
     <ul class="alphabet-list" role="list">
