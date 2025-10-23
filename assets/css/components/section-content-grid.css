@@ -107,7 +107,7 @@ section.paddingContent {
 
         time {
           font-size: 0.85rem;
-          color: #888;
+          color: var(--buttonBlue);
         }
       }
     }
@@ -203,7 +203,7 @@ section.paddingContent {
 
           time {
             font-size: 0.75rem;
-            color: #888;
+            color: var(--buttonBlue);
           }
         }
       }
@@ -301,7 +301,7 @@ section.paddingContent {
 
           time {
             font-size: 0.85rem;
-            color: #888;
+            color: var(--buttonBlue);
           }
         }
       }
@@ -398,7 +398,7 @@ section.paddingContent {
 
           time {
             font-size: 0.75rem;
-            color: #888;
+            color: var(--buttonBlue);
           }
         }
       }
