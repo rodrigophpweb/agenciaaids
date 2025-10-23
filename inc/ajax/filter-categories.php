@@ -1,3 +1,4 @@
+<?php 
 function agenciaaids_filter_posts() {
     // Verificar nonce para segurança
     if (!wp_verify_nonce($_POST['nonce'], 'ajax_nonce')) {
