@@ -59,6 +59,7 @@ header {
             display: flex;
             align-items: center;
             cursor: pointer;
+            color: var(--white);
 
             .contrast {
                 position: relative; /* Adiciona posição relativa ao contêiner do contraste */
