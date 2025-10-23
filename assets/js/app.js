@@ -64,6 +64,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Inicializar comportamento de accordion para FAQ
     initFaqAccordion();
+
+    // Inicializar filtro de dicionário (somente na página do dicionário)
+    if (window.location.pathname === '/dicionario/' || window.location.pathname.includes('/dicionario')) {
+        console.log('Página de dicionário detectada, inicializando filtro');
+        initDictionaryFilter();
+    }
     
 });
 
@@ -254,6 +260,188 @@ function initCategoryFilters() {
         url.searchParams.delete('paged'); // Remove paginação ao filtrar
         window.history.pushState({}, '', url);
     }
+}
+
+/**
+ * Dictionary Filter functionality
+ * Handles filtering dictionary posts by letter using fetch API
+ */
+function initDictionaryFilter() {
+    console.log('Dictionary Filter: Iniciando função');
+    
+    const letterLinks = document.querySelectorAll('.alphabet-list a');
+    const letterSelect = document.getElementById('letters');
+    const dictionaryContent = document.querySelector('.faqDictionary');
+    
+    console.log('Dictionary Filter: Links encontrados:', letterLinks.length);
+    console.log('Dictionary Filter: Select encontrado:', !!letterSelect);
+    console.log('Dictionary Filter: Container encontrado:', !!dictionaryContent);
+    
+    if (!dictionaryContent) {
+        console.log('Dictionary Filter: Container não encontrado, saindo da função');
+        return;
+    }
+    
+    // Verificar se as variáveis AJAX estão disponíveis
+    if (typeof ajax_object === 'undefined') {
+        console.warn('Dictionary Filter: ajax_object não encontrado');
+        return;
+    }
+    
+    let isLoading = false;
+    
+    // Show loading state
+    function showLoading() {
+        dictionaryContent.innerHTML = '<div class="dictionary-loading" style="text-align: center; padding: 40px; font-size: 16px; color: #666;"><p>Carregando termos...</p></div>';
+        dictionaryContent.setAttribute('aria-busy', 'true');
+    }
+    
+    // Hide loading state
+    function hideLoading() {
+        dictionaryContent.setAttribute('aria-busy', 'false');
+    }
+    
+    // Update active letter in navigation
+    function updateActiveLetter(letter) {
+        letterLinks.forEach(link => {
+            link.classList.remove('is-active');
+            link.setAttribute('aria-current', 'false');
+        });
+        
+        letterLinks.forEach(link => {
+            const linkLetter = link.textContent.trim();
+            if (linkLetter === letter) {
+                link.classList.add('is-active');
+                link.setAttribute('aria-current', 'page');
+            }
+        });
+    }
+    
+    // Load dictionary posts by letter
+    async function loadDictionaryByLetter(letter) {
+        if (isLoading) return;
+        
+        isLoading = true;
+        showLoading();
+        
+        try {
+            const formData = new FormData();
+            formData.append('action', 'filter_dictionary');
+            formData.append('nonce', ajax_object.nonce);
+            formData.append('letter', letter);
+            
+            const response = await fetch(ajax_object.ajax_url, {
+                method: 'POST',
+                body: formData
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            
+            if (data.success) {
+                dictionaryContent.innerHTML = data.data.content;
+                updateActiveLetter(letter);
+                
+                // Update select value
+                if (letterSelect) {
+                    letterSelect.value = letter;
+                }
+                
+                // Animate content
+                dictionaryContent.style.opacity = '0';
+                setTimeout(() => {
+                    dictionaryContent.style.opacity = '1';
+                }, 100);
+                
+                // Update URL
+                const url = new URL(window.location);
+                url.searchParams.set('letra', letter);
+                window.history.pushState({}, '', url);
+                
+                console.log(`Dictionary Filter: Carregados ${data.data.total_posts} termos para letra ${letter}`);
+                
+            } else {
+                throw new Error(data.data || 'Erro ao carregar termos');
+            }
+            
+        } catch (error) {
+            console.error('Erro ao carregar dicionário:', error);
+            dictionaryContent.innerHTML = `
+                <div class="dictionary-error" style="text-align: center; padding: 40px;">
+                    <p style="color: #d32f2f; margin-bottom: 1rem;">Erro ao carregar os termos. Tente novamente.</p>
+                    <button onclick="location.reload()" class="retry-btn" style="padding: 0.5rem 1rem; background: var(--charlestonGreen); color: white; border: none; border-radius: 4px; cursor: pointer;">Recarregar página</button>
+                </div>
+            `;
+        } finally {
+            isLoading = false;
+            hideLoading();
+        }
+    }
+    
+    // Add click event listeners to letter links
+    if (letterLinks.length > 0) {
+        letterLinks.forEach((link, index) => {
+            console.log(`Dictionary Filter: Adicionando listener ao link ${index + 1}:`, link.textContent.trim());
+            
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const letter = this.textContent.trim();
+                console.log('Dictionary Filter: Link clicado:', letter);
+                
+                if (letter && letter.length === 1) {
+                    loadDictionaryByLetter(letter);
+                }
+            });
+        });
+    }
+    
+    // Add change event listener to select
+    if (letterSelect) {
+        letterSelect.addEventListener('change', function() {
+            const letter = this.value;
+            console.log('Dictionary Filter: Select alterado:', letter);
+            
+            if (letter && letter !== 'Selecione uma letra') {
+                loadDictionaryByLetter(letter);
+                
+                // Scroll suave para o conteúdo em mobile
+                dictionaryContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    }
+    
+    // Add keyboard navigation support for letter links
+    letterLinks.forEach((link, index) => {
+        link.addEventListener('keydown', function(e) {
+            let nextIndex;
+            
+            switch(e.key) {
+                case 'ArrowRight':
+                case 'ArrowDown':
+                    e.preventDefault();
+                    nextIndex = (index + 1) % letterLinks.length;
+                    letterLinks[nextIndex].focus();
+                    break;
+                    
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                    e.preventDefault();
+                    nextIndex = (index - 1 + letterLinks.length) % letterLinks.length;
+                    letterLinks[nextIndex].focus();
+                    break;
+                    
+                case 'Enter':
+                case ' ':
+                    e.preventDefault();
+                    this.click();
+                    break;
+            }
+        });
+    });
 }
 
 /**
