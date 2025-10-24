@@ -43,11 +43,11 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
           port: 21
-          # 🔽 AJUSTE ESTA LINHA para o caminho REAL do tema no repo
           local-dir: ./
-          # 🔽 Caminho remoto que você informou
           server-dir: /wp-content/themes/agenciaaids/
-          timeout: 190000
+          timeout: 300000
+          log-level: verbose
+          security: loose
           dangerous-clean-slate: false
           exclude: |
             **/.git*
@@ -57,3 +57,4 @@ jobs:
             **/.vscode/**
             **/*.map
             **/README.md
+            **/tasks.txt
