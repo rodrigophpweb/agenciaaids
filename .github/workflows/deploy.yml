@@ -41,13 +41,12 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
+          protocol: ftp
           port: 21
           local-dir: ./
           server-dir: /wp-content/themes/agenciaaids/
-          timeout: 300000
+          timeout: 600000
           log-level: verbose
-          security: loose
           dangerous-clean-slate: false
           exclude: |
             **/.git*
