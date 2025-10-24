@@ -11,8 +11,8 @@
         flex-direction: column;
         &::after {
         content: '';
-        width: 50px;
-        height: 2px;
+        width: 3.125rem;
+        height: .125rem;
         background-color: var(--buttonBlue);
         margin-top: 0.5rem;
         }

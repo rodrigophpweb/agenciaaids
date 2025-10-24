@@ -11,8 +11,8 @@
     flex-direction: column;
     &::after {
       content: '';
-      width: 50px;
-      height: 2px;
+      width: 3.125rem;
+      height: .125rem;
       background-color: var(--buttonBlue);
       margin-top: 0.5rem;
     }
@@ -63,7 +63,7 @@
             }
 
             img {
-                width: 150px;
+                width: 9.375rem;
                 height: auto;
                 border-radius: 50%;
             }
@@ -111,8 +111,8 @@
                 margin-top: 0.5rem;
 
                 img {
-                width: 20px;
-                height: 20px;
+                width: 1.25rem;
+                height: 1.25rem;
                 }
 
                 span {
@@ -155,8 +155,8 @@
                 li {
                     a[itemprop="sameAs"] {
                         img {
-                        width: 24px;
-                        height: 24px;
+                        width: 1.5rem;
+                        height: 1.5rem;
                         }
                     }
                 }
