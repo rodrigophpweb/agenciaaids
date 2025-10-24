@@ -28,12 +28,12 @@ jobs:
           npm install -g terser
           terser assets/js/app.js -o assets/js/app.min.js -c -m
 
-      # - name: Minificar CSS components
-      #   run: |
-      #     npm install -g clean-css-cli
-      #     for file in assets/css/components/*.css; do
-      #       cleancss -o "$file" "$file"
-      #     done
+      - name: Minificar CSS components com Lightning CSS
+        run: |
+          npm install -g lightningcss-cli
+          for file in assets/css/components/*.css; do
+            lightningcss --minify --nesting --targets '>= 0.25%' "$file" -o "$file"
+          done
 
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
