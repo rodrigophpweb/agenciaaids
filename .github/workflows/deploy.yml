@@ -18,6 +18,16 @@ jobs:
           ls -la
           find . -maxdepth 3 -type d -name "agenciaaids" || true
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Minificar app.js
+        run: |
+          npm install -g terser
+          terser assets/js/app.js -o assets/js/app.min.js -c -m
+
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
