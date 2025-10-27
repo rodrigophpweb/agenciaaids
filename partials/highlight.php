@@ -25,13 +25,14 @@
                 </article>
                 <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
                     <?php
-                    if (has_post_thumbnail()) {
-                        the_post_thumbnail('posts_highlight', [
-                            'alt' => get_the_title(),
-                            'itemprop' => 'url',
-                            'loading' => 'lazy'
-                        ]);
-                    }
+                        if (has_post_thumbnail()) {
+                            the_post_thumbnail('posts_highlight', [
+                                'alt' => get_the_title(),
+                                'itemprop' => 'url',
+                                'loading' => 'lazy',
+                                'fetchpriority' => 'high'
+                            ]);
+                        }
                     ?>
                 </figure>
             </a>
