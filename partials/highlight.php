@@ -29,7 +29,6 @@
                             the_post_thumbnail('posts_highlight', [
                                 'alt' => get_the_title(),
                                 'itemprop' => 'url',
-                                'loading' => 'lazy',
                                 'fetchpriority' => 'high'
                             ]);
                         }
