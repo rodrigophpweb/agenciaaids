@@ -49,7 +49,7 @@
             <figure class="post-thumbnail">
                 <?php the_post_thumbnail('large', [
                     'itemprop' => 'image',
-                    //'style' => 'width: 100%; height: 300px; object-fit: cover;'
+                    'fetchpriority' => 'high'
                 ]); ?>
             </figure>
         <?php endif; ?>

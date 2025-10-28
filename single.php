@@ -41,7 +41,7 @@
         
         <?php if (has_post_thumbnail()): ?>
             <figure class="post-thumbnail">
-                <?php the_post_thumbnail('full', ['itemprop' => 'image']); ?>
+                <?php the_post_thumbnail('full', ['itemprop' => 'image', 'fetchpriority' => 'high']); ?>
             </figure>
         <?php endif; ?>
 

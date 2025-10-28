@@ -53,7 +53,7 @@
             <figure class="post-thumbnail">
                 <?php the_post_thumbnail('large', [
                     'itemprop' => 'image',
-                    
+                    'fetchpriority' => 'high'                    
                 ]); ?>
             </figure>
         <?php endif; ?>
