@@ -51,12 +51,11 @@ function agenciaaids_filter_posts() {
             <article class="card">
                 <a href="<?php the_permalink(); ?>" class="card-link" aria-label="<?php echo esc_attr(get_the_title()); ?>">
                     <figure>
-                        <?php if (has_post_thumbnail()) : ?>
+                        <?php if (has_post_thumbnail()) { ?>
                             <?php the_post_thumbnail('thumbnail'); ?>
-                        <?php else : ?>
-                            <h2>test</h2>
+                        <?php } else { ?>
                             <img src="https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?= esc_attr(get_the_title()); ?>">
-                        <?php endif; ?>
+                        <?php } ?>
                     </figure>
 
                     <div class="content">
