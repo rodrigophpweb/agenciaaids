@@ -139,7 +139,10 @@
         grid-template-columns: 1fr;
 
         figure {
-          grid-template-columns: 1fr;
+          flex-direction: column;
+          display: flex;
+          justify-content: center;
+          align-items: center;
 
           figcaption {
             align-items: center;
