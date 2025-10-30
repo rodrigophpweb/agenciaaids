@@ -52,7 +52,8 @@ function agenciaaids_filter_posts() {
                 <a href="<?php the_permalink(); ?>" class="card-link" aria-label="<?php echo esc_attr(get_the_title()); ?>">
                     <figure>
                         <?php if (has_post_thumbnail()) : ?>
-                            <?php the_post_thumbnail('thumbnail'); ?>
+                            <?php //the_post_thumbnail('thumbnail'); ?>
+                            <img src="https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?php echo esc_attr(get_the_title()); ?>">
                         <?php else : ?>
                             <!-- DEBUG: Imagem padrão sendo carregada -->
                             <img src="https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp" alt="<?php echo esc_attr(get_the_title()); ?>">
