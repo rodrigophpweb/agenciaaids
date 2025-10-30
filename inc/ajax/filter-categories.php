@@ -51,25 +51,19 @@ function agenciaaids_filter_posts() {
             <article class="card">
                 <a href="<?php the_permalink(); ?>" class="card-link" aria-label="<?php echo esc_attr(get_the_title()); ?>">
                     <figure>
-                        <?php if (has_post_thumbnail()) : ?>
-                            <?php 
-                            // Otimização: usar tamanho específico e lazy loading
-                            the_post_thumbnail('medium', [
-                                'class' => 'card-image',
-                                'loading' => 'lazy',
-                                'decoding' => 'async',
-                                'alt' => esc_attr(get_the_title())
-                            ]); 
-                            ?>
-                        <?php else : ?>
-                            <img 
-                                src="https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp" 
-                                alt="<?php echo esc_attr(get_the_title()); ?>"
-                                class="card-image card-image-default"
-                                loading="lazy"
-                                decoding="async"
-                            >
-                        <?php endif; ?>
+                        <?php                         
+                            $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+                            $default_image = 'https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp';
+                            $image_url = $thumbnail_url ?: $default_image;
+                            $image_class = $thumbnail_url ? 'card-image' : 'card-image card-image-default';
+                        ?>
+                        <img 
+                            src="<?php echo esc_url($image_url); ?>" 
+                            alt="<?php echo esc_attr(get_the_title()); ?>"
+                            class="<?php echo esc_attr($image_class); ?>"
+                            loading="lazy"
+                            decoding="async"
+                        >
                     </figure>
 
                     <div class="content">
