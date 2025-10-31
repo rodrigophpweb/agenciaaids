@@ -4,11 +4,14 @@ article[id^="post-"] {
     gap: 2rem;
     margin-inline: auto;
     padding-top: 1.25rem;
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px;
 
     .entry-header {
         display: grid;
         gap: 1rem;
         box-shadow: unset;
+        content-visibility: visible;
 
         @media screen and (min-width: 768px) {
             display: flex;
