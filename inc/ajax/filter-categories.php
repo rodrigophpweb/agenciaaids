@@ -57,18 +57,11 @@ function agenciaaids_filter_posts() {
                             $image_url = $thumbnail_url ?: $default_image;
                             $image_class = $thumbnail_url ? 'card-image' : 'card-image card-image-default';
                         ?>
-                        <img 
-                            src="<?php echo esc_url($image_url); ?>" 
-                            alt="<?php echo esc_attr(get_the_title()); ?>"
-                            class="<?php echo esc_attr($image_class); ?>"
-                            loading="lazy"
-                            decoding="async"
-                        >
+                        <img src="<?=esc_url($image_url)?>" alt="<?=esc_attr(get_the_title())?>" class="<?=esc_attr($image_class)?>" loading="lazy" decoding="async">
                     </figure>
 
                     <div class="content">
                         <?php the_title('<h2 class="card-title">', '</h2>'); ?>
-
                         <?php
                             $post_cats = get_the_category();
                             if (!empty($post_cats)) :

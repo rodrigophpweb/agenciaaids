@@ -34,12 +34,16 @@ if ($related_posts && $related_posts->have_posts()) : ?>
                 <?php while ($related_posts->have_posts()) : $related_posts->the_post(); ?>
                     <article <?php post_class('related-card'); ?> itemscope itemtype="https://schema.org/Article">
                         <a href="<?php the_permalink(); ?>" rel="bookmark">
-                            <?php if (has_post_thumbnail()) : ?>
-                                <figure>
-                                    <?php the_post_thumbnail('medium', ['itemprop' => 'image']); ?>
-                                </figure>
-                            <?php endif; ?>
-                            <h3 itemprop="headline"><?php the_title(); ?></h3>
+                            <figure>
+                                <?php                         
+                                    $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'medium');
+                                    $default_image = 'https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp';
+                                    $image_url = $thumbnail_url ?: $default_image;
+                                    $image_class = $thumbnail_url ? 'card-image' : 'card-image card-image-default';
+                                ?>
+                                <img src="<?=esc_url($image_url)?>" alt="<?=esc_attr(get_the_title())?>" class="<?=esc_attr($image_class)?>" loading="lazy" decoding="async">
+                            </figure>
+                            <?php the_title('<h3 itemprop="headline">', '</h3>')?>
                         </a>
                         <time datetime="<?php echo esc_attr(get_the_date('Y-m-d')); ?>" itemprop="datePublished">
                             <?php echo esc_html(get_the_date('d/m/Y')); ?>
