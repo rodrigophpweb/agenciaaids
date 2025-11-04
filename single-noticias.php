@@ -17,7 +17,7 @@
                 }
             ?>
 
-            <h1 class="entry-title" itemprop="headline"><?php the_title(); ?></h1>
+            <?php the_title('<h1 class="entry-title" itemprop="headline">', '</h1>')?>
             
             <?php
                 // Obtém a data e hora da publicação e última atualização

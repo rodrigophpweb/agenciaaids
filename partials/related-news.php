@@ -1,5 +1,8 @@
 <?php
+// Busca posts relacionados na mesma categoria
 $categories = get_the_category();
+$related_posts = null;
+
 if ($categories) {
     $category_id = $categories[0]->term_id;
 
@@ -8,9 +11,23 @@ if ($categories) {
         'post__not_in'        => [get_the_ID()],
         'posts_per_page'      => 3,
         'ignore_sticky_posts' => true,
+        'post_status'         => 'publish'
     ]);
+}
 
-    if ($related_posts->have_posts()) : ?>
+// Se não encontrou posts na categoria, busca os 3 posts mais recentes
+if (!$related_posts || !$related_posts->have_posts()) {
+    $related_posts = new WP_Query([
+        'post__not_in'        => [get_the_ID()],
+        'posts_per_page'      => 3,
+        'ignore_sticky_posts' => true,
+        'post_status'         => 'publish',
+        'orderby'             => 'date',
+        'order'               => 'DESC'
+    ]);
+}
+
+if ($related_posts && $related_posts->have_posts()) : ?>
         <section class="related-posts paddingContent" aria-labelledby="related-posts-title">
             <h2 id="related-posts-title">Artigos Relacionados</h2>
             <div class="related-grid">
@@ -33,5 +50,4 @@ if ($categories) {
         </section>
     <?php endif;
     wp_reset_postdata();
-}
 ?>
