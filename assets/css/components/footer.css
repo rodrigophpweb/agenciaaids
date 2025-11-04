@@ -173,7 +173,8 @@ footer {
             }
 
             address {
-                margin: .625rem 0;                
+                margin: .625rem 0;
+                text-align: right;                
                 
                 a {
                     
