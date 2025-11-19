@@ -57,3 +57,6 @@ jobs:
             **/*.map
             **/README.md
             **/tasks.txt
+            **.DS_Store*
+            **.idea/*
+            **assets/.DS_Store*

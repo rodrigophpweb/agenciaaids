@@ -1,4 +1,4 @@
-header {    
+header {
     box-shadow: 0 .25rem 1.25rem -0.25rem rgba(0,28,51,.11);
 
     .socialMediaAcessibility {
@@ -8,27 +8,24 @@ header {
         display: flex;
         justify-content: space-between;
 
-        @media (max-width: 768px) {
-            justify-content: center; /* Centraliza o conteúdo em telas pequenas */
-            padding-top: 0.625rem; /* Ajusta o padding superior */
-            padding-bottom: 0.625rem; /* Ajusta o padding inferior */
+        @media (max-width: 48rem) {
+            justify-content: center;
+            padding-top: 0.625rem;
+            padding-bottom: 0.625rem;
         }
 
         .mnuSocialMedia {
             display: flex;
 
-            @media (max-width: 768px) {
-                display: none; /* Esconde o menu de redes sociais em telas pequenas */
+            @media (max-width: 48rem) {
+                display: none;
             }
 
             li {
-                /* Estilos para os itens da lista */
-
                 a {
-                    /* Estilos para os links */
                     &:hover,
                     &:focus {
-                        
+
                     }
 
                     img {
@@ -51,41 +48,39 @@ header {
                     }
                 }
             }
-            
+
         }
 
         .acessibility {
-            font-size: 0.875rem; /* 14px em rem */
+            font-size: 0.875rem;
             display: flex;
             align-items: center;
             cursor: pointer;
             color: var(--white);
 
             .contrast {
-                position: relative; /* Adiciona posição relativa ao contêiner do contraste */
+                position: relative;
 
                 .mnuContrast {
                     display: none;
-                    position: absolute; /* Adiciona posição absoluta ao menu */
-                    top: 100%; /* Posiciona o menu abaixo do botão */
+                    position: absolute;
+                    top: 100%;
                     left: 0;
                     background: var(--buttonBlue);
-                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
                     z-index: 1000;
                     padding: 0.5rem;
                     border-radius: 0.5rem;
-                    /* Outros estilos para o menu */
 
                     li {
                         padding: 0.5rem 0;
-                        /* Estilos para os itens da lista */
                     }
                 }
 
                 .mnuContrast.open {
                     display: block;
                     width: max-content;
-                
+
                     li {
                         padding: .625rem;
                         &:hover {
@@ -121,18 +116,16 @@ header {
         padding-bottom: 1.5625rem;
         display: flex;
 
-        @media (max-width: 768px) {            
+        @media (max-width: 48rem) {
             justify-content: space-between;
         }
 
-        
+
         .brand {
             width: 10%;
 
             a {
-                /* Estilos para os links */
                 span {
-                    /* Estilos para o texto */
                 }
             }
         }
@@ -144,25 +137,23 @@ header {
             align-items: center;
             justify-content: center;
 
-            @media (max-width: 768px) {
-                display: none; /* Esconde o bloco de anúncios em telas pequenas */
+            @media (max-width: 48rem) {
+                display: none;
             }
 
             a {
-                /* Estilos para os links */
                 img {
-                    /* Estilos para as imagens */
                 }
             }
         }
 
         .btnMobile {
-            display: none; /* Esconde o botão em telas grandes */
+            display: none;
             width: 100%;
             text-align: center;
             cursor: pointer;
 
-            @media (max-width: 768px) {
+            @media (max-width: 48rem) {
                 padding: 0.625rem 1.25rem;
                 width: 4rem;
                 font-size: 2.5rem;
@@ -180,29 +171,28 @@ header {
         align-items: center;
         padding-top: 1.25rem;
         padding-bottom: 1.25rem;
-        
-        @media (max-width: 768px) {
+
+        @media (max-width: 48rem) {
             display: block;
             max-height: 0;
             overflow: hidden;
             padding: 0;
             transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
             background-color: var(--white);
-            border-top: 1px solid var(--buttonBlue);
+            border-top: 0.0625rem solid var(--buttonBlue);
         }
 
         &.open {
-            @media (max-width: 768px) {
-                max-height: 500px;
+            @media (max-width: 48rem) {
+                max-height: 31.25rem;
                 padding: 1.5rem;
             }
         }
 
         .mnuPrincipal {
             display: flex;
-            /* margin-bottom: 1.5625rem; */
 
-            @media (max-width: 768px) {
+            @media (max-width: 48rem) {
                 flex-direction: column;
                 width: 100%;
                 margin-bottom: 1rem;
@@ -212,7 +202,7 @@ header {
                 margin-left: .625rem;
                 margin-right: .625rem;
 
-                @media (max-width: 768px) {
+                @media (max-width: 48rem) {
                     margin: 0.25rem 0;
                     width: 100%;
                 }
@@ -229,12 +219,12 @@ header {
                 a {
                     text-transform: uppercase;
                     font-weight: 500;
-                    background-color: var(--buttonBlue);                    
+                    background-color: var(--buttonBlue);
                     color: var(--white);
                     padding: .3125rem .9375rem;
                     border-radius: 1.5625rem;
 
-                    @media (max-width: 768px) {
+                    @media (max-width: 48rem) {
                         display: block;
                         text-align: center;
                         padding: 0.75rem;
@@ -244,7 +234,7 @@ header {
                     }
 
                     &:hover,
-                    &:focus,                    
+                    &:focus,
                     &:active {
                         background-color: var(--charlestonGreen);
                         color: var(--white);
@@ -257,13 +247,13 @@ header {
         form {
             display: flex;
             align-items: center;
-            gap: 0.5rem; /* Espaçamento entre o campo e o botão */
+            gap: 0.5rem;
             border: solid 0.0625rem var(--buttonBlue);
-            border-radius: 0.25rem; /* Bordas arredondadas */
-            padding: 0.25rem; /* Espaçamento interno */
-            transition: border-color 0.3s ease; /* Transição suave para a cor da borda */
+            border-radius: 0.25rem;
+            padding: 0.25rem;
+            transition: border-color 0.3s ease;
 
-            @media (max-width: 768px) {
+            @media (max-width: 48rem) {
                 width: 100%;
                 border: solid 0.0625rem var(--buttonBlue);
                 border-radius: 0.5rem;
@@ -272,38 +262,38 @@ header {
             }
 
             &:focus-within {
-                border-color: var(--charlestonGreen); /* Altera a cor da borda */
-                
+                border-color: var(--charlestonGreen);
+
                 .search-submit svg {
-                    stroke: var(--charlestonGreen); /* Altera a cor do stroke do SVG para vermelho */
+                    stroke: var(--charlestonGreen);
                 }
             }
 
             &:hover .search-field,
             &:focus-within .search-field {
-                width: 25rem; /* Largura expandida ao passar o mouse ou focar */
-                padding: 0.5rem 1rem; /* Ajusta o padding ao expandir */
-                background-color: var(--background-light); /* Fundo claro ao expandir */
-                color: var(--text-dark); /* Cor do texto */
+                width: 25rem;
+                padding: 0.5rem 1rem;
+                background-color: var(--background-light);
+                color: var(--text-dark);
 
-                @media (max-width: 768px) {
+                @media (max-width: 48rem) {
                     width: 100%;
                 }
             }
 
             .search-field {
                 cursor: pointer;
-                width: 2rem; /* Largura inicial pequena */
-                padding: 0.5rem; /* Espaçamento interno */
+                width: 2rem;
+                padding: 0.5rem;
                 border: none;
-                border-radius: 0.25rem; /* Bordas arredondadas */
+                border-radius: 0.25rem;
                 font-size: 1rem;
-                transition: width 0.3s ease, padding 0.3s ease; /* Transição suave para largura e padding */
-                outline: none; /* Remove o contorno padrão */
-                background-color: transparent; /* Fundo transparente inicialmente */
-                color: var(--text-dark); /* Cor do texto */
+                transition: width 0.3s ease, padding 0.3s ease;
+                outline: none;
+                background-color: transparent;
+                color: var(--text-dark);
 
-                @media (max-width: 768px) {
+                @media (max-width: 48rem) {
                     width: 100%;
                     background-color: var(--white);
                     padding: 0.75rem;
@@ -312,17 +302,17 @@ header {
                 }
 
                 &::placeholder {
-                    color: var(--text-secondary); /* Cor do placeholder */
-                    opacity: 0; /* Placeholder invisível inicialmente */
-                    transition: opacity 0.3s ease; /* Transição suave para o placeholder */
+                    color: var(--text-secondary);
+                    opacity: 0;
+                    transition: opacity 0.3s ease;
 
-                    @media (max-width: 768px) {
+                    @media (max-width: 48rem) {
                         opacity: 1;
                     }
                 }
 
                 &:focus::placeholder {
-                    opacity: 1; /* Torna o placeholder visível ao focar */
+                    opacity: 1;
                 }
             }
 
@@ -334,10 +324,10 @@ header {
                 align-items: center;
                 justify-content: center;
                 padding: 0.5rem;
-                border-radius: 0.25rem; /* Bordas arredondadas */
-                transition: background-color 0.3s ease, stroke 0.3s ease; /* Transição suave para o stroke */
+                border-radius: 0.25rem;
+                transition: background-color 0.3s ease, stroke 0.3s ease;
 
-                @media (max-width: 768px) {
+                @media (max-width: 48rem) {
                     background-color: var(--buttonBlue);
                     padding: 0.75rem;
                     border-radius: 0.5rem;
@@ -349,20 +339,20 @@ header {
                 }
 
                 &:hover {
-                    background-color: #f0f0f0; /* Fundo claro no hover */
+                    background-color: #f0f0f0;
 
-                    @media (max-width: 768px) {
+                    @media (max-width: 48rem) {
                         background-color: var(--charlestonGreen);
                     }
                 }
 
                 svg {
-                    stroke: var(--buttonBlue); /* Cor inicial do ícone */
-                    width: 20px;
-                    height: 20px;
-                    transition: stroke 0.3s ease; /* Transição suave para o stroke */
+                    stroke: var(--buttonBlue);
+                    width: 1.25rem;
+                    height: 1.25rem;
+                    transition: stroke 0.3s ease;
 
-                    @media (max-width: 768px) {
+                    @media (max-width: 48rem) {
                         stroke: var(--white);
                     }
                 }
