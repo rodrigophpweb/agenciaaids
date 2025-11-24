@@ -74,7 +74,7 @@
         </div>        
     </article>
 <?php 
-    get_template_part('partials/related-news');
+    //get_template_part('partials/related-news');
     get_template_part('partials/partners');
     get_footer();
 ?>

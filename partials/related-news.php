@@ -90,7 +90,7 @@ wp_reset_postdata();
         #related-posts-title {
             font-size: clamp(1.75rem, 4vw, 2.5rem);
             font-weight: 700;
-            color: var(--text-primary, #1a1a1a);
+            color: var(--buttonBlue);
             margin-bottom: 2rem;
             text-align: center;
             line-height: 1.3;
