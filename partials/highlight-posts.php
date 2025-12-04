@@ -25,13 +25,13 @@
     if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
         <article class="postSticky" itemscope itemtype="http://schema.org/Article">
             <figure>
-                <a href="<?php the_permalink(); ?>" title="Saiba mais sobre: <?php the_title(); ?>">
-                    <?php the_post_thumbnail('posts_highlight', array('alt' => get_the_title(), 'itemprop' => 'image')); ?>
+                <a href="<?php echo esc_url(get_permalink()); ?>" title="Saiba mais sobre: <?php the_title_attribute(); ?>">
+                    <?php the_post_thumbnail('posts_highlight', array('alt' => esc_attr(get_the_title()), 'itemprop' => 'image')); ?>
                 </a>
             </figure>
-            <h3 itemprop="headline"><a href="<?php the_permalink(); ?>" title="Saiba mais sobre: <?php the_title(); ?>"><?php the_title(); ?></a></h3>
-            <p itemprop="description"><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>
-            <time datetime="<?php echo get_the_modified_date('c'); ?>" itemprop="dateModified"><?php echo get_the_modified_date(); ?></time>
+            <h3 itemprop="headline"><a href="<?php echo esc_url(get_permalink()); ?>" title="Saiba mais sobre: <?php the_title_attribute(); ?>"><?php echo esc_html(get_the_title()); ?></a></h3>
+            <p itemprop="description"><?php echo esc_html(wp_trim_words(get_the_excerpt(), 20)); ?></p>
+            <time datetime="<?php echo esc_attr(get_the_modified_date('c')); ?>" itemprop="dateModified"><?php echo esc_html(get_the_modified_date()); ?></time>
         </article>
     <?php endwhile; endif; wp_reset_postdata(); ?>
 
@@ -48,12 +48,12 @@
         if ($query->have_posts()) : while ($query->have_posts()) : $query->the_post(); ?>
             <article class="aide_notices_article" itemscope itemtype="http://schema.org/Article">
                 <figure>
-                    <a href="<?php the_permalink(); ?>" title="Saiba mais sobre: <?php the_title(); ?>"><?php the_post_thumbnail('thumbnail', array('alt' => get_the_title(), 'itemprop' => 'image')); ?></a>
+                    <a href="<?php echo esc_url(get_permalink()); ?>" title="Saiba mais sobre: <?php the_title_attribute(); ?>"><?php the_post_thumbnail('thumbnail', array('alt' => esc_attr(get_the_title()), 'itemprop' => 'image')); ?></a>
                 </figure>
                 <header>
-                    <h3 itemprop="headline"><a href="<?php the_permalink(); ?>" title="Saiba mais sobre: <?php the_title(); ?>"><?php the_title(); ?></a></h3>
-                    <p itemprop="description"><?php echo wp_trim_words(get_the_excerpt(), 20); ?></p>
-                    <time datetime="<?php echo get_the_modified_date('c'); ?>" itemprop="dateModified"><?php echo get_the_modified_date(); ?></time>
+                    <h3 itemprop="headline"><a href="<?php echo esc_url(get_permalink()); ?>" title="Saiba mais sobre: <?php the_title_attribute(); ?>"><?php echo esc_html(get_the_title()); ?></a></h3>
+                    <p itemprop="description"><?php echo esc_html(wp_trim_words(get_the_excerpt(), 20)); ?></p>
+                    <time datetime="<?php echo esc_attr(get_the_modified_date('c')); ?>" itemprop="dateModified"><?php echo esc_html(get_the_modified_date()); ?></time>
                 </header>
             </article>
         <?php endwhile; endif; wp_reset_postdata(); ?>

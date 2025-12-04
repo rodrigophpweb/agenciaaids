@@ -18,9 +18,9 @@
                 </figure>
                 <header>
                     <h3 itemprop="headline">Artigos</h3>
-                    <?php the_title('<h4 itemprop="name">', '<h4>')?>
-                    <p itemprop="description"><?php the_excerpt()?></p>
-                    <a href="<?php the_permalink()?>" itemprop="url" title="Saiba mais sobre - <?php the_title_attribute()?>">Saiba mais</a>
+                    <?php the_title('<h4 itemprop="name">', '</h4>', true); ?>
+                    <p itemprop="description"><?php echo esc_html(get_the_excerpt()); ?></p>
+                    <a href="<?php echo esc_url(get_permalink()); ?>" itemprop="url" title="Saiba mais sobre - <?php the_title_attribute(); ?>">Saiba mais</a>
                 </header>
             </article>
     <?php

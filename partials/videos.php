@@ -1,7 +1,7 @@
 <section class="paddingContent headerCategory">
     <header>
         <!-- Name category -->
-        <?php the_title('<h1>','</h1>');?>
+        <?php the_title('<h1>','</h1>', true);?>
         <span class="theContent"><?php the_content();?></span>
     </header>
 </section>
@@ -24,7 +24,7 @@
     <?php if ($q->have_posts()) : ?>
         <?php while ($q->have_posts()) : $q->the_post(); ?>
             <article class="card">
-                <a href="<?php the_permalink(); ?>" class="card-link" aria-label="<?php echo esc_attr(get_the_title()); ?>">
+                <a href="<?php echo esc_url(get_permalink()); ?>" class="card-link" aria-label="<?php echo esc_attr(get_the_title()); ?>">
                     <figure>
                         <?php
                             $video_url = get_field('embed', get_the_ID());
@@ -47,7 +47,7 @@
                     </figure>
 
                     <div class="content">
-                        <?php the_title('<h2 class="card-title">', '</h2>'); ?>
+                        <?php the_title('<h2 class="card-title">', '</h2>', true); ?>
 
                         <?php
                             $post_cats = get_the_category();
@@ -55,7 +55,7 @@
                         ?>
                             <mark class="category"><?php echo esc_html($post_cats[0]->name); ?></mark>
                         <?php endif; ?>
-                        <p><?php echo wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 30, '...'); ?></p>
+                        <p><?php echo esc_html(wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 30, '...')); ?></p>
                         <time class="card-date" datetime="<?php echo esc_attr(get_the_date('c')); ?>"><?php echo esc_html(get_the_date()); ?></time>
                     </div>
                 </a>
