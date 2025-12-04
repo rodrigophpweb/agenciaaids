@@ -1,8 +1,8 @@
 <section class="aboutUs paddingContent" itemscope itemtype="https://schema.org/Organization">
     <span itemprop="name">Nosso time</span>
-    <?php the_title('<h1 itemprop="name">', '</h1>'); ?>
+    <?php the_title('<h1 itemprop="name">', '</h1>', true); ?>
     <div class="the_content">
-        <p><?php the_content();?></p>
+        <?php the_content(); ?>
     </div>
     <div class="peoples">
         <?php if (have_rows('collaborators_repeater')): ?>
@@ -62,8 +62,8 @@
                                     foreach ($socials as $key => $icon) :
                                         if (!empty($$key)) : ?>
                                             <li>
-                                                <a href="<?= esc_url($$key); ?>" title="<?= ucfirst($key); ?> de <?= esc_attr($nome); ?>" target="_blank" rel="noopener noreferrer" itemprop="sameAs">
-                                                    <img src="<?= get_template_directory_uri(); ?>/assets/images/<?= $icon; ?>" alt="Ícone do <?= ucfirst($key); ?>" width="32" height="32" loading="lazy">
+                                                <a href="<?= esc_url($$key); ?>" title="<?= esc_attr(ucfirst($key)); ?> de <?= esc_attr($nome); ?>" target="_blank" rel="noopener noreferrer" itemprop="sameAs">
+                                                    <img src="<?= esc_url(get_template_directory_uri()); ?>/assets/images/<?= esc_attr($icon); ?>" alt="Ícone do <?= esc_attr(ucfirst($key)); ?>" width="32" height="32" loading="lazy">
                                                 </a>
                                             </li>
                                         <?php endif;

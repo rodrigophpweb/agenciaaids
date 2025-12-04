@@ -30,7 +30,7 @@ if (is_page(array_keys($templates))) {
     // Template padrão para outras páginas
     ?>
     <main>
-        <h1><?php the_title(); ?></h1>
+        <h1><?php the_title('', '', true); ?></h1>
         <div>
             <?php the_content(); ?>
         </div>

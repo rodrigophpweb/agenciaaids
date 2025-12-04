@@ -54,7 +54,7 @@ if ($related_posts && $related_posts->have_posts()) : ?>
                     <meta itemprop="datePublished" content="<?php echo esc_attr(get_the_date('c')); ?>">
                     <meta itemprop="dateModified" content="<?php echo esc_attr(get_the_modified_date('c')); ?>">
                     
-                    <a href="<?php the_permalink(); ?>" rel="bookmark">
+                    <a href="<?php echo esc_url(get_permalink()); ?>" rel="bookmark">
                         <figure itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
                             <?php                         
                                 $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'medium');
@@ -66,7 +66,7 @@ if ($related_posts && $related_posts->have_posts()) : ?>
                             <meta itemprop="width" content="800">
                             <meta itemprop="height" content="600">
                         </figure>
-                        <?php the_title('<h3 itemprop="headline">', '</h3>')?>
+                        <?php the_title('<h3 itemprop="headline">', '</h3>', true); ?>
                     </a>
                     <time datetime="<?php echo esc_attr(get_the_date('c')); ?>" itemprop="datePublished">
                         <?php echo esc_html(get_the_date('d/m/Y')); ?>

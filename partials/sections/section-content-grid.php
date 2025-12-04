@@ -107,12 +107,12 @@ if (!($query instanceof WP_Query)) {
 
                                     <div class="post-info">
                                         <h3 itemprop="<?= esc_attr($args['itemprop_title']) ?>"><?= esc_html(get_the_title()) ?></h3>                                        
-                                        <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?php echo wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 90, '...'); ?></p>
-                                        <time datetime="<?= get_the_date('c') ?>" itemprop="<?= esc_attr($args['itemprop_date']) ?>">
-                                            <?= get_the_date('d \d\e F \d\e Y') ?>
+                                        <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?php echo esc_html(wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 90, '...')); ?></p>
+                                        <time datetime="<?= esc_attr(get_the_date('c')) ?>" itemprop="<?= esc_attr($args['itemprop_date']) ?>">
+                                            <?= esc_html(get_the_date('d \d\e F \d\e Y')) ?>
                                         </time>
-                                        <meta itemprop="dateModified" content="<?= get_the_modified_date('c') ?>" />
-                                        <meta itemprop="author" content="<?= get_the_author() ?>" />
+                                        <meta itemprop="dateModified" content="<?= esc_attr(get_the_modified_date('c')) ?>" />
+                                        <meta itemprop="author" content="<?= esc_attr(get_the_author()) ?>" />
                                     </div>
                                 </a>
                             </article>
@@ -127,12 +127,12 @@ if (!($query instanceof WP_Query)) {
 
                                     <div class="post-info">
                                         <h3 itemprop="<?= esc_attr($args['itemprop_title']) ?>"><?= esc_html(get_the_title()) ?></h3>
-                                        <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?php echo wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 15, '...'); ?></p>
-                                        <time datetime="<?= get_the_date('c') ?>" itemprop="<?= esc_attr($args['itemprop_date']) ?>">
-                                            <?= get_the_date('d \d\e F \d\e Y') ?>
+                                        <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?php echo esc_html(wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 15, '...')); ?></p>
+                                        <time datetime="<?= esc_attr(get_the_date('c')) ?>" itemprop="<?= esc_attr($args['itemprop_date']) ?>">
+                                            <?= esc_html(get_the_date('d \d\e F \d\e Y')) ?>
                                         </time>
-                                        <meta itemprop="dateModified" content="<?= get_the_modified_date('c') ?>" />
-                                        <meta itemprop="author" content="<?= get_the_author() ?>" />
+                                        <meta itemprop="dateModified" content="<?= esc_attr(get_the_modified_date('c')) ?>" />
+                                        <meta itemprop="author" content="<?= esc_attr(get_the_author()) ?>" />
                                     </div>
                                 </a>
                             </article>

@@ -1,6 +1,6 @@
 <article itemscope itemtype="https://schema.org/FAQPage" class="paddingContent" class="paddingContent">
     <header class="faq">
-        <?php the_title('<h1>', '</h1>'); ?>
+        <?php the_title('<h1>', '</h1>', true); ?>
         <?php 
             $subtitle = get_field('field_faq_subtitle');
             if ($subtitle) : ?>
@@ -18,8 +18,8 @@
                 
                 if ($assuntos && !is_wp_error($assuntos)) :
                     foreach ($assuntos as $assunto) : ?>
-                        <button class="category-link" data-category-id="<?= $assunto->term_id ?>" data-category-slug="<?= $assunto->slug ?>">
-                            <?= $assunto->name ?>
+                        <button class="category-link" data-category-id="<?php echo esc_attr($assunto->term_id); ?>" data-category-slug="<?php echo esc_attr($assunto->slug); ?>">
+                            <?php echo esc_html($assunto->name); ?>
                         </button>
                     <?php endforeach;
                 endif;
@@ -72,7 +72,7 @@
                     setup_postdata($post);
                     ?>
                     <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <?php the_title('<summary itemprop="name">', '</summary>')?>
+                        <?php the_title('<summary itemprop="name">', '</summary>', true); ?>
                         <article itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
                             <div itemprop="text">
                                 <?php the_content(); ?>
@@ -83,7 +83,7 @@
                 }
                 wp_reset_postdata();
             } else {
-                echo '<p>Nenhuma resposta encontrada para este assunto.</p>';
+                echo '<p>' . esc_html__('Nenhuma resposta encontrada para este assunto.', 'agenciaaids') . '</p>';
             }
         ?>
     </section>
