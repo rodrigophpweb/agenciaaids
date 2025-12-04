@@ -12,7 +12,7 @@
                 printf('<span class="post-category" itemprop="articleSection">%s</span>', esc_html($category->name)) : ''; 
             ?>
 
-            <?php the_title('<h1 class="entry-title" itemprop="headline">','</h1>');?>
+            <?php the_title('<h1 class="entry-title" itemprop="headline">','</h1>', true); ?>
             <?php 
                 $autor = get_field('autor');
                 if ($autor): 
@@ -77,6 +77,6 @@
             </div>      
     </article>
 <?php 
-    get_template_part('', 'related-news');
+    //get_template_part('partials/related-news');
     get_template_part('partials/partners');
     get_footer();

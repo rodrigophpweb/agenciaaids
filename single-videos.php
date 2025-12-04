@@ -17,7 +17,7 @@
                 }
             ?>
 
-            <h1 class="entry-title" itemprop="headline"><?php the_title(); ?></h1>
+            <h1 class="entry-title" itemprop="headline"><?php the_title('', '', true); ?></h1>
             
             <?php
                 // Obtém a data e hora da publicação e última atualização
@@ -111,7 +111,7 @@
                     // Verificar se ainda há conteúdo após processamento
                     if (!empty(trim($embed))): ?>
                         <div class="video-embed">
-                            <?= $embed; ?>
+                            <?php echo $embed; // Já sanitizado por wp_kses acima ?>
                         </div>
                     <?php endif;
                 endif; ?>
