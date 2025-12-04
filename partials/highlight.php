@@ -12,12 +12,12 @@
         while ($query->have_posts()) : $query->the_post();
 ?>
         <section class="highlight <?= esc_attr($args['class'] ?? ''); ?> paddingContent" itemscope itemtype="http://schema.org/Article">
-            <a href="<?= esc_url(get_permalink()); ?>" title="<?php the_title(); ?>" itemprop="url">
+            <a href="<?= esc_url(get_permalink()); ?>" title="<?php the_title_attribute(); ?>" itemprop="url">
                 <article>
                     <span class="category" itemprop="articleSection">Destaque</span>
-                    <?php the_title('<h1 itemprop="headline">', '</h1>'); ?>
+                    <?php the_title('<h1 itemprop="headline">', '</h1>', true); ?>
                     <div itemprop="description">
-                        <p><?=wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 30, '...'); ?></p>
+                        <p><?= esc_html(wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 30, '...')); ?></p>
                     </div>
                     <time datetime="<?= esc_attr(get_the_date('c')); ?>" itemprop="datePublished">
                         <?= esc_html(get_the_date('d \d\e F \d\e Y')); ?>
@@ -27,7 +27,7 @@
                     <?php
                         if (has_post_thumbnail()) {
                             the_post_thumbnail('posts_highlight', [
-                                'alt' => get_the_title(),
+                                'alt' => esc_attr(get_the_title()),
                                 'itemprop' => 'url',
                                 'fetchpriority' => 'high'
                             ]);

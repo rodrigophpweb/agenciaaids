@@ -1,7 +1,7 @@
 <div class="ads" itemscope itemtype="https://schema.org/WPAdBlock">
     
-        <a href="https://www.sescsp.org.br/projetos/oju-roda-sesc-de-cinemas-negros/?ads=agenciaaids" target="_blank" itemprop="url">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ads/sesc-sao-paulo-oju-roda-sesc-de-cinemas-negros.gif" alt="Banner - OJU - Roda Sesc de Cinemas Negros" >
+        <a href="<?php echo esc_url('https://www.sescsp.org.br/projetos/oju-roda-sesc-de-cinemas-negros/?ads=agenciaaids'); ?>" target="_blank" rel="noopener noreferrer" itemprop="url">
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/images/ads/sesc-sao-paulo-oju-roda-sesc-de-cinemas-negros.gif" alt="Banner - OJU - Roda Sesc de Cinemas Negros" >
         </a>
     
     <?php
@@ -14,7 +14,7 @@
             while ($ads_query->have_posts()) : $ads_query->the_post();
                 if ($ad_image = get_the_post_thumbnail_url(get_the_ID(), 'full')) :
     ?>
-                    <a href="<?php the_permalink(); ?>" itemprop="url">
+                    <a href="<?php echo esc_url(get_permalink()); ?>" itemprop="url">
                         <img src="<?= esc_url($ad_image); ?>" alt="<?php the_title_attribute(); ?>" itemprop="image">
                     </a>
     <?php

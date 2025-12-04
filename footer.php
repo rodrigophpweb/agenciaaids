@@ -56,7 +56,7 @@
     </section>
 
     <div class="copyrigth">
-        <small>&copy;<time datetime="<?=date('Y')?>"><?=date('Y')?></time> - Todos os direitos reservados - <span itemprop="name">Agência de notícias da Aids</span></small>
+        <small>&copy;<time datetime="<?=esc_attr(current_time('Y'))?>"><?=esc_html(current_time('Y'))?></time> - Todos os direitos reservados - <span itemprop="name">Agência de notícias da Aids</span></small>
     </div>
 </footer>
 
