@@ -24,14 +24,11 @@
             <?php endif; ?>
             
             <?php
-                // Obtém a data e hora da publicação e última atualização
-                $published = get_the_date('Y-m-d\TH:i:sP'); // Formato ISO 8601
-                $published_human = get_the_date('d/m/Y \à\s H\hi'); // Formato legível
-
+                $published = get_the_date('Y-m-d\TH:i:sP');
+                $published_human = get_the_date('d/m/Y \à\s H\hi'); 
                 $updated = get_the_modified_date('Y-m-d\TH:i:sP');
                 $updated_human = get_the_modified_date('d/m/Y \à\s H\hi');
 
-                // Calcula tempo estimado de leitura (assumindo média de 200 palavras por minuto)
                 $word_count = str_word_count(strip_tags(get_post_field('post_content', get_the_ID())));
                 $reading_time = ceil($word_count / 200);
             ?>

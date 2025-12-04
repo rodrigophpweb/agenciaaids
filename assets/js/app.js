@@ -67,7 +67,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Inicializar filtro de dicionário (somente na página do dicionário)
     if (window.location.pathname === '/dicionario/' || window.location.pathname.includes('/dicionario')) {
-        console.log('Página de dicionário detectada, inicializando filtro');
         initDictionaryFilter();
     }
     
@@ -117,7 +116,6 @@ function initInitialPagination() {
                     window.history.pushState({}, '', this.href);
                 })
                 .catch(error => {
-                    console.error('Erro ao carregar página:', error);
                     cardsGrid.innerHTML = '<p>Erro ao carregar conteúdo. Tente novamente.</p>';
                 });
         });
@@ -178,14 +176,12 @@ function initCategoryFilters() {
                     attachFilterPaginationEvents();
                 }
             } else {
-                console.error('Erro ao filtrar posts:', data);
                 if (cardsGrid) {
                     cardsGrid.innerHTML = '<p>Erro ao carregar conteúdo. Tente novamente.</p>';
                 }
             }
         })
         .catch(error => {
-            console.error('Erro na requisição:', error);
             if (cardsGrid) {
                 cardsGrid.innerHTML = '<p>Erro ao carregar conteúdo. Tente novamente.</p>';
             }
@@ -267,24 +263,16 @@ function initCategoryFilters() {
  * Handles filtering dictionary posts by letter using fetch API
  */
 function initDictionaryFilter() {
-    console.log('Dictionary Filter: Iniciando função');
-    
     const letterLinks = document.querySelectorAll('.alphabet-list a');
     const letterSelect = document.getElementById('letters');
     const dictionaryContent = document.querySelector('.faqDictionary');
     
-    console.log('Dictionary Filter: Links encontrados:', letterLinks.length);
-    console.log('Dictionary Filter: Select encontrado:', !!letterSelect);
-    console.log('Dictionary Filter: Container encontrado:', !!dictionaryContent);
-    
     if (!dictionaryContent) {
-        console.log('Dictionary Filter: Container não encontrado, saindo da função');
         return;
     }
     
     // Verificar se as variáveis AJAX estão disponíveis
     if (typeof ajax_object === 'undefined') {
-        console.warn('Dictionary Filter: ajax_object não encontrado');
         return;
     }
     
@@ -361,14 +349,11 @@ function initDictionaryFilter() {
                 url.searchParams.set('letra', letter);
                 window.history.pushState({}, '', url);
                 
-                console.log(`Dictionary Filter: Carregados ${data.data.total_posts} termos para letra ${letter}`);
-                
             } else {
                 throw new Error(data.data || 'Erro ao carregar termos');
             }
             
         } catch (error) {
-            console.error('Erro ao carregar dicionário:', error);
             dictionaryContent.innerHTML = `
                 <div class="dictionary-error" style="text-align: center; padding: 40px;">
                     <p style="color: #d32f2f; margin-bottom: 1rem;">Erro ao carregar os termos. Tente novamente.</p>
@@ -384,13 +369,10 @@ function initDictionaryFilter() {
     // Add click event listeners to letter links
     if (letterLinks.length > 0) {
         letterLinks.forEach((link, index) => {
-            console.log(`Dictionary Filter: Adicionando listener ao link ${index + 1}:`, link.textContent.trim());
-            
             link.addEventListener('click', function(e) {
                 e.preventDefault();
                 
                 const letter = this.textContent.trim();
-                console.log('Dictionary Filter: Link clicado:', letter);
                 
                 if (letter && letter.length === 1) {
                     loadDictionaryByLetter(letter);
@@ -403,7 +385,6 @@ function initDictionaryFilter() {
     if (letterSelect) {
         letterSelect.addEventListener('change', function() {
             const letter = this.value;
-            console.log('Dictionary Filter: Select alterado:', letter);
             
             if (letter && letter !== 'Selecione uma letra') {
                 loadDictionaryByLetter(letter);
@@ -449,30 +430,21 @@ function initDictionaryFilter() {
  * Handles loading FAQ answers by category using fetchAPI
  */
 function initFaqAjax() {
-    console.log('FAQ AJAX: Iniciando função');
-    
     const categoryButtons = document.querySelectorAll('.category-link');
     const faqContent = document.getElementById('faq-content');
     
-    console.log('FAQ AJAX: Botões encontrados:', categoryButtons.length);
-    console.log('FAQ AJAX: Container encontrado:', !!faqContent);
-    
     if (!categoryButtons.length || !faqContent) {
-        console.log('FAQ AJAX: Elementos não encontrados, saindo da função');
         return;
     }
     
     // Verificar se as variáveis AJAX estão disponíveis
     if (typeof faq_ajax === 'undefined') {
-        console.warn('FAQ AJAX: variáveis não encontradas, criando fallback');
         // Criar fallback usando variáveis globais do WordPress
         window.faq_ajax = {
             ajax_url: '/wp-admin/admin-ajax.php',
             nonce: 'fallback_nonce' // Em produção, isso deve ser gerado pelo WordPress
         };
     }
-    
-    console.log('FAQ AJAX: Variáveis disponíveis:', window.faq_ajax);
     
     // Add loading state functionality
     function showLoading() {
@@ -528,7 +500,6 @@ function initFaqAjax() {
             }
             
         } catch (error) {
-            console.error('Erro ao carregar FAQ:', error);
             faqContent.innerHTML = `
                 <div class="faq-error">
                     <p>Erro ao carregar as respostas. Tente novamente.</p>
@@ -542,19 +513,12 @@ function initFaqAjax() {
     
     // Add click event listeners to category buttons
     categoryButtons.forEach((button, index) => {
-        console.log(`FAQ AJAX: Adicionando listener ao botão ${index + 1}:`, button.textContent.trim());
-        
         button.addEventListener('click', function(e) {
             e.preventDefault();
             
-            console.log('FAQ AJAX: Botão clicado:', this.textContent.trim());
-            
             const termId = this.dataset.categoryId;
             
-            console.log('FAQ AJAX: Term ID:', termId);
-            
             if (!termId) {
-                console.error('ID do termo não encontrado');
                 return;
             }
             
