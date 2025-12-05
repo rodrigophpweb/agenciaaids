@@ -28,8 +28,8 @@
     font-size: 1rem; /* Tamanho de fonte menor para breadcrumbs */
     color: #333; /* Cor padrão do texto */
     align-items: center; /* Centraliza verticalmente os itens */
-    padding-bottom: 1.875rem; /* 30px convertido para rem */
-    border-bottom: 0.0625rem solid #e0e0e0; /* 1px convertido para rem e cinza claro */
+    padding-bottom: 1.875rem; /* 1.875rem convertido para rem */
+    border-bottom: 0.0625rem solid #e0e0e0; /* 0.0625rem convertido para rem e cinza claro */
 }
 
 .breadcrumb-item {

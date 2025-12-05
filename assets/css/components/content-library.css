@@ -24,22 +24,22 @@
 
       figure {
         display: grid;
-        grid-template-columns: 150px 1fr;
+        grid-template-columns: 9.375rem 1fr;
         gap: 1rem;
         align-items: start;
         background-color: #fff;
         padding: 1rem;
         border-radius: 0.75rem;
-        border: 1px solid var(--charlestonGreen);
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        border: 0.0625rem solid var(--charlestonGreen);
+        box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.05);
         transition: transform 0.3s ease;
 
         &:hover {
-          transform: translateY(-4px);
+          transform: translateY(-0.25rem);
         }
 
         img {
-          width: 150px;
+          width: 9.375rem;
           height: auto;
           border-radius: 0.5rem;
           background-color: var(--charlestonGreen);
@@ -124,7 +124,7 @@
   }
 
   /* Tablet */
-  @media (max-width: 992px) {
+  @media (max-width: 62rem) {
     .content-library {
       .books {
         grid-template-columns: repeat(2, 1fr);
@@ -133,7 +133,7 @@
   }
 
   /* Mobile */
-  @media (max-width: 600px) {
+  @media (max-width: 37.5rem) {
     .content-library {
       .books {
         grid-template-columns: 1fr;

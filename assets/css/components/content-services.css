@@ -33,7 +33,7 @@
 
         figure {
             border-radius: 0.5rem;
-            border: 1px solid var(--charlestonGreen);
+            border: 0.0625rem solid var(--charlestonGreen);
             overflow: hidden;
             display: flex;
             flex-direction: column;
@@ -92,13 +92,13 @@
         justify-content: center;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 48rem) {
         .listServives {
             grid-template-columns: repeat(2, 1fr);
         }
     }
 
-    @media (max-width: 480px) {
+    @media (max-width: 30rem) {
         .listServives {
             grid-template-columns: 1fr;
         }

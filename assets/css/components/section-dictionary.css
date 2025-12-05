@@ -37,7 +37,7 @@
             flex-wrap: wrap;
 
             /* Media query menor 1440 */
-            @media (max-width: 1440px) {
+            @media (max-width: 90rem) {
                 display: none;
             }
 
@@ -46,8 +46,8 @@
                     display: block;
                     padding: 0.5rem 0.75rem;
                     text-decoration: none;
-                    border: 1px solid var(--charlestonGreen);
-                    border-radius: 4px;
+                    border: 0.0625rem solid var(--charlestonGreen);
+                    border-radius: 0.25rem;
                     transition: all 0.2s ease;
                     color: var(--charlestonGreen);
                     
@@ -70,14 +70,14 @@
             display: none;
             margin-top: 1rem;
             padding: 0.5rem;
-            border: 1px solid var(--charlestonGreen);
-            border-radius: 4px;
+            border: 0.0625rem solid var(--charlestonGreen);
+            border-radius: 0.25rem;
             background: white;
             color: var(--charlestonGreen);
             font-size: 1rem;
 
             /* Media Query 320 até 1440 */
-            @media (min-width: 320px) and (max-width: 1440px) {
+            @media (min-width: 20rem) and (max-width: 90rem) {
                 display: flex;
                 width: 100%;
             }
@@ -87,8 +87,8 @@
     .faqDictionary {
         
         .dictionary-item {
-            border: 1px solid #e1e1e1;
-            border-radius: 8px;
+            border: 0.0625rem solid #e1e1e1;
+            border-radius: 0.5rem;
             margin-bottom: 1rem;
             overflow: hidden;
 
@@ -97,7 +97,7 @@
                 padding: 1rem 1.5rem;
                 cursor: pointer;
                 font-weight: 600;
-                border-bottom: 1px solid #e1e1e1;
+                border-bottom: 0.0625rem solid #e1e1e1;
                 transition: background-color 0.2s ease;
                 position: relative;
                 list-style: none; /* Remove marcador padrão */
@@ -116,9 +116,9 @@
                     transform: translateY(-50%) rotate(0deg);
                     width: 0;
                     height: 0;
-                    border-left: 6px solid transparent;
-                    border-right: 6px solid transparent;
-                    border-top: 8px solid var(--charlestonGreen);
+                    border-left: 0.375rem solid transparent;
+                    border-right: 0.375rem solid transparent;
+                    border-top: 0.5rem solid var(--charlestonGreen);
                     transition: transform 0.3s ease;
                 }
             }
@@ -133,7 +133,7 @@
                     /* Seta aponta para cima quando aberto */
                     &::after {
                         border-top: none;
-                        border-bottom: 8px solid white;
+                        border-bottom: 0.5rem solid white;
                         transform: translateY(-50%) rotate(180deg);
                     }
                 }

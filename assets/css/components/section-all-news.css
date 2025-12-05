@@ -53,26 +53,26 @@
             gap: 1rem;
             margin-top: 1rem;
 
-            @media screen and (max-width: 600px) {
+            @media screen and (max-width: 37.5rem) {
                 width: 100%;
                 flex-direction: column;
             }
             
             select {
                 padding: 0.5rem 1rem;
-                border: 1px solid var(--darkBlueGray);
-                border-radius: 5px;
+                border: 0.0625rem solid var(--darkBlueGray);
+                border-radius: 0.3125rem;
                 font-size: 1rem;
                 color: var(--charlestonGreen);
                 background: var(--white);
-                box-shadow: 0 2px 4px rgba(32, 168, 245, 0.1);
+                box-shadow: 0 0.125rem 0.25rem rgba(32, 168, 245, 0.1);
                 transition: border-color 0.3s, box-shadow 0.3s;
-                min-width: 160px;
+                min-width: 10rem;
                 text-align: left;
 
                 &:focus {
                     border-color: var(--buttonBlue);
-                    box-shadow: 0 0 8px rgba(32, 168, 245, 0.3);
+                    box-shadow: 0 0 0.5rem rgba(32, 168, 245, 0.3);
                     outline: none;
                 }
 
@@ -81,7 +81,7 @@
                 }
             }
             
-            @media (max-width: 600px) {
+            @media (max-width: 37.5rem) {
                 select {
                     min-width: 100%;
                     font-size: 0.9rem;
@@ -100,8 +100,8 @@
   
     article.card {
         background: var(--white);
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        border-radius: 0.625rem;
+        box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.08);
         overflow: hidden;
         transition: all 0.3s ease;
         display: flex;
@@ -109,8 +109,8 @@
         height: 100%; /* Garante altura uniforme */
 
         &:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+            transform: translateY(-0.125rem);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12);
         }
 
         a.card-link {
@@ -159,7 +159,7 @@
                 mark.category {
                     background: var(--maize);
                     color: var(--charlestonGreen);
-                    border-radius: 4px;
+                    border-radius: 0.25rem;
                     padding: 0.1em 0.5em;
                     font-size: 0.95em;
                     display: inline-block;
@@ -197,11 +197,11 @@
         }
     }
     
-    @media (max-width: 1100px) {
+    @media (max-width: 68.75rem) {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    @media (max-width: 800px) {
+    @media (max-width: 50rem) {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
 
@@ -224,7 +224,7 @@
         }
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: 31.25rem) {
         grid-template-columns: 1fr;
         gap: 1.2rem;
 
@@ -264,15 +264,15 @@
         font-size: 0.95rem;
         color: var(--charlestonGreen);
         background: var(--white);
-        border: 1px solid var(--darkBlueGray);
+        border: 0.0625rem solid var(--darkBlueGray);
         transition: all 0.3s ease;
 
         &:hover {
         background: var(--buttonBlue);
         color: var(--white);
         border-color: var(--buttonBlue);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 8px rgba(32, 168, 245, 0.25);
+        transform: translateY(-0.125rem);
+        box-shadow: 0 0.25rem 0.5rem rgba(32, 168, 245, 0.25);
         }
 
         &.current {
@@ -293,7 +293,7 @@
             &:hover {
                 background: var(--maize);
                 color: var(--charlestonGreen);
-                box-shadow: 0 4px 8px rgba(224, 193, 85, 0.35);
+                box-shadow: 0 0.25rem 0.5rem rgba(224, 193, 85, 0.35);
             }
         }
 
@@ -306,7 +306,7 @@
         }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 37.5rem) {
         .page-numbers {
         padding: 0.5rem 0.8rem;
         font-size: 0.85rem;
@@ -328,9 +328,9 @@
 .loading:after {
     content: '';
     display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--buttonBlue);
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 0.125rem solid var(--buttonBlue);
     border-radius: 50%;
     border-top-color: transparent;
     animation: spin 1s linear infinite;

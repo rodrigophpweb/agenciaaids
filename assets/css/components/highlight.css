@@ -2,7 +2,7 @@
     display: flex;
 
     @media screen {
-        @media (max-width: 768px) {
+        @media (max-width: 48rem) {
             flex-direction: column-reverse;
         }
     }
@@ -13,7 +13,7 @@
         display: flex;
 
         @media screen {
-            @media (max-width: 768px) {
+            @media (max-width: 48rem) {
                 flex-direction: column-reverse;
             }
         }
@@ -26,7 +26,7 @@
             justify-content: space-around;
 
             @media screen {
-                @media (max-width: 768px) {
+                @media (max-width: 48rem) {
                     width: 100%;
                     padding-right: 0;
                     margin-top: 1.5rem;
@@ -95,7 +95,7 @@
             }
 
             @media screen {
-                @media (max-width: 768px) {
+                @media (max-width: 48rem) {
                     width: 100%;
                     height: auto;
                 }

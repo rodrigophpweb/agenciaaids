@@ -48,17 +48,17 @@
         display: flex;
         gap: 1rem;
         width: 49%;
-        border: solid 1px var(--charlestonGreen);
+        border: solid 0.0625rem var(--charlestonGreen);
         border-radius: 0.8rem;
         padding: 2rem;
 
-        @media (max-width: 768px) {
+        @media (max-width: 48rem) {
             width: 100%;
             flex-direction: column;
         }
 
         figure[itemprop="image"] {
-            @media (max-width: 768px) {
+            @media (max-width: 48rem) {
                 margin: 0 auto;
             }
 
@@ -85,7 +85,7 @@
                 width: fit-content;
                 margin-bottom: 1rem;
 
-                @media (max-width: 768px) {
+                @media (max-width: 48rem) {
                     width: 100%;
                     text-align: center;
                 }

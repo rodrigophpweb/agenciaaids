@@ -10,7 +10,7 @@ search {
             margin-bottom: 3rem;
             box-shadow: none;
             
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: 48rem) {
                 text-align: center;
                 
             }
@@ -35,7 +35,7 @@ search {
             gap: 1.5rem;
             padding-bottom: 1rem;
             margin-bottom: 1rem;
-            border-bottom: solid 1px var(--buttonBlue);
+            border-bottom: solid 0.0625rem var(--buttonBlue);
 
             a {
 
@@ -43,7 +43,7 @@ search {
                 flex-direction: row; 
                 gap: 2rem;
 
-                @media (max-width: 700px) {
+                @media (max-width: 43.75rem) {
                     flex-direction: column;
                     gap: 1rem;
                 }
@@ -51,16 +51,16 @@ search {
                 figure {
                     margin: 0;
 
-                    @media screen and (max-width: 768px) {
+                    @media screen and (max-width: 48rem) {
                         display: flex;
                         justify-content: center;
                     }
 
                     img {
-                        width: 150px;
-                        height: 150px;
+                        width: 9.375rem;
+                        height: 9.375rem;
                         object-fit: cover;
-                        border-radius: 8px;
+                        border-radius: 0.5rem;
                     }
                 }
 
@@ -84,7 +84,7 @@ search {
                     mark.category {
                         background: var(--maize);
                         color: var(--charlestonGreen);
-                        border-radius: 4px;
+                        border-radius: 0.25rem;
                         padding: 0.1em 0.5em;
                         font-size: 0.95em;
                     }
@@ -96,7 +96,7 @@ search {
     aside {
         background: #f7f7f7;
         padding: 1.5rem;
-        border-radius: 8px;
+        border-radius: 0.5rem;
         margin: 2rem 0;
         display: none;
 
@@ -109,7 +109,7 @@ search {
         }
     }
     
-    @media (max-width: 700px) {
+    @media (max-width: 43.75rem) {
         header {
             h1 {
                 font-size: 1.2rem;
@@ -127,7 +127,7 @@ search {
                 figure {
                     img {
                         width: 100%;
-                        max-width: 320px;
+                        max-width: 20rem;
                         height: auto;
                     }
                 }
@@ -162,15 +162,15 @@ search {
     font-size: 0.95rem;
     color: var(--charlestonGreen);
     background: var(--white);
-    border: 1px solid var(--darkBlueGray);
+    border: 0.0625rem solid var(--darkBlueGray);
     transition: all 0.3s ease;
 
     &:hover {
       background: var(--buttonBlue);
       color: var(--white);
       border-color: var(--buttonBlue);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(32, 168, 245, 0.25);
+      transform: translateY(-0.125rem);
+      box-shadow: 0 0.25rem 0.5rem rgba(32, 168, 245, 0.25);
     }
 
     &.current {
@@ -191,7 +191,7 @@ search {
       &:hover {
         background: var(--maize);
         color: var(--charlestonGreen);
-        box-shadow: 0 4px 8px rgba(224, 193, 85, 0.35);
+        box-shadow: 0 0.25rem 0.5rem rgba(224, 193, 85, 0.35);
       }
     }
 
@@ -204,7 +204,7 @@ search {
     }
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 37.5rem) {
     .page-numbers {
       padding: 0.5rem 0.8rem;
       font-size: 0.85rem;

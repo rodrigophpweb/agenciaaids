@@ -2,7 +2,7 @@ section.support {
     h2 {
         text-align: center;
         font-size: 2rem ;
-        margin-bottom: 30px;
+        margin-bottom: 1.875rem;
         text-transform: uppercase;
         color: var(--charlestonGreen);
     }
@@ -12,7 +12,7 @@ section.support {
         justify-content: space-between;
 
         @media screen {
-            @media (max-width: 768px) {
+            @media (max-width: 48rem) {
                 flex-direction: row;
                 align-items: center;
                 flex-wrap: wrap;
@@ -23,17 +23,17 @@ section.support {
             align-items: center;
 
             @media screen {
-                @media (max-width: 768px) {
+                @media (max-width: 48rem) {
                     margin: 0.625rem 0;
                 }
             }
             
             img {
-                max-width: 125px;   /* controla a largura máxima de cada logo */
+                max-width: 7.8125rem;   /* controla a largura máxima de cada logo */
                 height: auto;       /* mantém a proporção */
                 object-fit: contain; /* garante que a imagem não deforme */
                 display: inline-block;
-                margin: 0 10px;     /* espaçamento entre os logos */
+                margin: 0 0.625rem;     /* espaçamento entre os logos */
                 vertical-align: middle;
             }
         }

@@ -8,7 +8,7 @@
     margin-top: 6.25rem;
 
     @media screen {
-        @media (max-width: 768px) {
+        @media (max-width: 48rem) {
             height: auto;
             margin-top: 0;
         }
@@ -20,7 +20,7 @@
         bottom: 0;
 
         @media screen {
-            @media (max-width: 768px) {
+            @media (max-width: 48rem) {
                 flex-direction: column-reverse;
                 align-items: center;
                 justify-content: center;
@@ -30,7 +30,7 @@
 
         img {
             @media screen {
-                    @media (max-width: 768px) {
+                    @media (max-width: 48rem) {
                         height: 10.9375rem;
                     }
                 }
@@ -42,10 +42,10 @@
             width: 65%;
             color: var(--white);
             margin-left: 1.5625rem;
-            margin-top: 30px;
+            margin-top: 1.875rem;
 
             @media screen {
-                @media (max-width: 768px) {
+                @media (max-width: 48rem) {
                     width: 100%;
                     margin-left: 0;
                 }
@@ -57,7 +57,7 @@
                 margin-top: 1.875rem;
                 margin-bottom: .9375rem;
                 @media screen {
-                    @media (max-width: 768px) {
+                    @media (max-width: 48rem) {
                         font-size: 1.5rem;
                         text-align: center;
                     }

@@ -19,8 +19,8 @@
         flex-direction: column;
         &::after {
         content: '';
-        width: 50px;
-        height: 2px;
+        width: 3.125rem;
+        height: 0.125rem;
         background-color: var(--buttonBlue);
         margin-top: 0.5rem;
         }
@@ -34,10 +34,10 @@
 
         .speaker-card {
             background-color: var(--white);
-            border: 1px solid var(--charlestonGreen);
+            border: 0.0625rem solid var(--charlestonGreen);
             border-radius: 0.75rem;
             padding: 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.05);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -46,8 +46,8 @@
             justify-content: space-evenly;
 
             &:hover {
-                transform: translateY(-5px);
-                box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+                transform: translateY(-0.3125rem);
+                box-shadow: 0 0.375rem 1.125rem rgba(0, 0, 0, 0.1);
             }
 
             figure {
@@ -56,9 +56,9 @@
                 img {
                     border-radius: 50%;
                     object-fit: cover;
-                    width: 150px;
-                    height: 150px;
-                    border: 4px solid var(--buttonBlue);
+                    width: 9.375rem;
+                    height: 9.375rem;
+                    border: 0.25rem solid var(--buttonBlue);
                 }
             }
 
@@ -104,13 +104,13 @@
         }
     }
 
-    @media (max-width: 1024px) {
+    @media (max-width: 64rem) {
         .speakers {
             grid-template-columns: repeat(2, minmax(22.5rem, 1fr));
         }
     }
 
-    @media (max-width: 640px) {
+    @media (max-width: 40rem) {
         .speakers {
             grid-template-columns: 1fr;
         }
