@@ -54,6 +54,7 @@ jobs:
             **/node_modules/**
             **/tests/**
             **/.vscode/**
+            **/docs/**
             **/*.map
             **/README.md
             **/tasks.txt

@@ -85,6 +85,7 @@ require_once get_template_directory() . '/inc/performance-cleanup.php';
 require_once get_template_directory() . '/inc/disable-emojis.php';
 require_once get_template_directory() . '/inc/disable-speculation-rules.php';
 require_once get_template_directory() . '/inc/cleanup-html-output.php';
+require_once get_template_directory() . '/inc/html-minify.php';
 
 // --------------------------------------------------
 // Outras personalizações
