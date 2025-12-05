@@ -1,12 +1,10 @@
 <?php
-// Prevent direct access
-if (!defined('ABSPATH')) {
-    exit;
-}
+    if (!defined('ABSPATH')) {
+        exit;
+    }
 ?>
 <section class="paddingContent headerCategory">
     <header>
-        <!-- Name category -->
         <?php the_title('<h1>', '</h1>', true); ?>
         <span class="theContent"><?php the_content(); ?></span>
 
@@ -17,7 +15,7 @@ if (!defined('ABSPATH')) {
                     $current_year = (int) date('Y');
                     $years = range($current_year, 2025);
                     foreach ($years as $year) {
-                        $year = (int) $year; // Ensure integer
+                        $year = (int) $year;
                         echo '<option value="' . esc_attr($year) . '">' . esc_html($year) . '</option>';
                     }
                 ?>
