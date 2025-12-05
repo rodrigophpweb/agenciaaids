@@ -21,11 +21,11 @@ function agenciaaids_filter_posts() {
 
     // Construir argumentos da query
     $args = [
-        'post_type'      => $post_type,
-        'post_status'    => 'publish',
-        'posts_per_page' => 20,
-        'paged'          => $paged,
-        'ignore_sticky_posts' => true,
+        'posts_per_page'        => 20,
+        'post_status'           => 'publish',
+        'post_type'             => $post_type,
+        'paged'                 => $paged,
+        'ignore_sticky_posts'   => true,
     ];
 
     // Filtros por data

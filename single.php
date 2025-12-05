@@ -52,4 +52,3 @@
 <?php 
     get_template_part('', 'related-news');
     get_footer();
-?>

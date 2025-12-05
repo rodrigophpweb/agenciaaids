@@ -11,9 +11,14 @@
                 <a href="<?php echo esc_url(get_permalink()); ?>" title="<?php the_title_attribute(); ?>">
                     <figure>
                         <?php if (has_post_thumbnail()) : ?>
-                            <?php the_post_thumbnail('thumbnail'); ?>
+                            <?php the_post_thumbnail('thumbnail', [
+                                'loading' => 'lazy',
+                                'alt' => esc_attr(get_the_title())
+                            ]); ?>
                         <?php else : ?>
-                            <img src="<?php echo esc_url('https://agenciaaids.com.br/wp-content/themes/agenciaaids/assets/images/backdrop-ag-aids-compress-web.webp'); ?>" alt="<?= esc_attr(get_the_title()); ?>">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/backdrop-ag-aids-compress-web.webp'); ?>" 
+                                 alt="<?php echo esc_attr(get_the_title()); ?>" 
+                                 loading="lazy">
                         <?php endif; ?>
                     </figure>
 

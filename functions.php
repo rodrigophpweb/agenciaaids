@@ -123,15 +123,13 @@ function custom_class( $classes ) {
         'todas-noticias' => 'page-todas-noticias',
         'todos-artigos'  => 'page-todos-artigos',
         'todos-videos'   => 'page-todos-videos',
-        // Adicione novas páginas aqui seguindo o padrão:
-        // 'slug-da-pagina' => 'classe-css'
     ];
     
     // Verifica se a página atual está na lista de páginas especiais
     foreach ( $special_pages as $page_slug => $css_class ) {
         if ( is_page( $page_slug ) ) {
             $classes[] = $css_class;
-            break; // Para na primeira correspondência
+            break;
         }
     }
     
