@@ -151,6 +151,7 @@ function initCategoryFilters() {
         showLoading();
         
         const currentCategory = document.getElementById('current_category')?.value || '';
+        const currentPostType = document.getElementById('current_post_type')?.value || 'post,noticias';
         
         const formData = new FormData();
         formData.append('action', 'filter_posts');
@@ -159,6 +160,7 @@ function initCategoryFilters() {
         formData.append('month', monthFilter.value);
         formData.append('category', categoryFilter.value);
         formData.append('current_category', currentCategory);
+        formData.append('post_type', currentPostType);
         formData.append('paged', page);
         
         fetch(ajax_object.ajax_url, {

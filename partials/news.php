@@ -62,6 +62,8 @@
                 ?>
             </select>
         
+            <!-- Campo oculto para identificar o tipo de post -->
+            <input type="hidden" id="current_post_type" value="post,noticias">
             <input type="hidden" id="current_category" value="">
         </div>
     </header>

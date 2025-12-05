@@ -64,7 +64,8 @@ if (!defined('ABSPATH')) {
                 ?>
             </select>
             
-            <!-- Campo oculto para página de todas as notícias (sem categoria específica) -->
+            <!-- Campo oculto para identificar o tipo de post -->
+            <input type="hidden" id="current_post_type" value="artigos">
             <input type="hidden" id="current_category" value="">
         </div>
     </header>
