@@ -31,47 +31,35 @@
     const speedValue = document.getElementById('tts-speed-value');
     const progressBar = document.getElementById('tts-progress');
     const statusText = document.getElementById('tts-status');
-    const voiceSelect = document.getElementById('tts-voice');
 
     /**
-     * Carrega as vozes disponíveis
+     * Carrega as vozes disponíveis e seleciona Luciana como padrão
      */
     function loadVoices() {
         voices = synth.getVoices();
         
-        // Filtrar vozes em português
-        const ptVoices = voices.filter(voice => 
-            voice.lang.startsWith('pt') || 
-            voice.lang.startsWith('pt-BR')
+        // Procurar pela voz Luciana (Google pt-BR)
+        const lucianaVoice = voices.find(voice => 
+            voice.name.toLowerCase().includes('luciana') || 
+            (voice.name.toLowerCase().includes('google') && voice.lang === 'pt-BR')
         );
 
-        // Popular o select de vozes
-        if (voiceSelect) {
-            voiceSelect.innerHTML = '';
-            
-            if (ptVoices.length > 0) {
-                ptVoices.forEach((voice, index) => {
-                    const option = document.createElement('option');
-                    option.value = index;
-                    option.textContent = `${voice.name} (${voice.lang})`;
-                    option.dataset.voiceName = voice.name;
-                    option.dataset.voiceLang = voice.lang;
-                    voiceSelect.appendChild(option);
-                });
-            } else {
-                // Se não houver vozes em português, usar todas
-                voices.forEach((voice, index) => {
-                    const option = document.createElement('option');
-                    option.value = index;
-                    option.textContent = `${voice.name} (${voice.lang})`;
-                    option.dataset.voiceName = voice.name;
-                    option.dataset.voiceLang = voice.lang;
-                    voiceSelect.appendChild(option);
-                });
-            }
+        // Se não encontrar Luciana, procurar qualquer voz pt-BR
+        const ptBRVoice = voices.find(voice => voice.lang === 'pt-BR' || voice.lang.startsWith('pt-BR'));
+
+        // Definir voz padrão (preferência: Luciana > pt-BR > primeira disponível)
+        const defaultVoice = lucianaVoice || ptBRVoice || voices[0];
+        
+        // Log para debug (pode remover depois)
+        if (lucianaVoice) {
+            console.log('✅ Voz Luciana encontrada:', lucianaVoice.name);
+        } else if (ptBRVoice) {
+            console.log('⚠️ Luciana não encontrada. Usando:', ptBRVoice.name);
+        } else {
+            console.log('⚠️ Nenhuma voz pt-BR encontrada. Usando primeira voz disponível');
         }
 
-        return ptVoices.length > 0 ? ptVoices : voices;
+        return defaultVoice;
     }
 
     /**
@@ -111,18 +99,12 @@
     function createUtterance(text) {
         utterance = new SpeechSynthesisUtterance(text);
         
-        // Selecionar voz
-        const selectedVoiceIndex = voiceSelect ? parseInt(voiceSelect.value) : 0;
-        const availableVoices = voices.length > 0 ? voices : synth.getVoices();
+        // Selecionar voz Luciana ou padrão pt-BR
+        const defaultVoice = loadVoices();
         
-        if (availableVoices[selectedVoiceIndex]) {
-            utterance.voice = availableVoices[selectedVoiceIndex];
-        } else {
-            // Tentar encontrar uma voz em português
-            const ptVoice = availableVoices.find(voice => voice.lang.startsWith('pt'));
-            if (ptVoice) {
-                utterance.voice = ptVoice;
-            }
+        if (defaultVoice) {
+            utterance.voice = defaultVoice;
+            console.log('🎙️ Usando voz:', defaultVoice.name);
         }
 
         // Configurações
@@ -285,16 +267,6 @@
 
         if (speedControl) {
             speedControl.addEventListener('input', updateSpeed);
-        }
-
-        if (voiceSelect) {
-            voiceSelect.addEventListener('change', function() {
-                // Se estiver tocando, parar e avisar para tocar novamente
-                if (synth.speaking) {
-                    stop();
-                    statusText.textContent = 'Voz alterada. Clique em Play para ouvir com a nova voz.';
-                }
-            });
         }
 
         // Teclas de atalho
