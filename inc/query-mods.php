@@ -15,7 +15,7 @@
  */
 function ocultar_anuncios_expirados($query) {
     if (!is_admin() && $query->is_main_query() && (is_post_type_archive('anuncio') || is_tax() || is_search())) {
-        $hoje = date('Y-m-d');
+        $hoje = current_time('Y-m-d');
         $meta_query = array(
             'relation' => 'OR',
             array(

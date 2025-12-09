@@ -45,6 +45,11 @@
                 • <span itemprop="timeRequired" content="PT<?= esc_attr($reading_time); ?>M"><?= esc_html($reading_time); ?> min de leitura</span>
             </div>
         </header>
+
+        <?php 
+            // Player de Text-to-Speech
+            get_template_part('partials/tts-player'); 
+        ?>
         
         <?php if (has_post_thumbnail()): ?>
             <figure class="post-thumbnail">

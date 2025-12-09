@@ -8,24 +8,22 @@ add_action('wp_ajax_get_respostas_by_assunto', 'agencia_aids_get_respostas_by_as
 // Handler para usuários não logados
 add_action('wp_ajax_nopriv_get_respostas_by_assunto', 'agencia_aids_get_respostas_by_assunto');
 
-function agencia_aids_get_respostas_by_assunto() {
-    // Debug: verificar se a requisição está chegando
-    error_log('FAQ AJAX - Função chamada, POST data: ' . print_r($_POST, true));
-    
+function agencia_aids_get_respostas_by_assunto() {    
     // Verificação de nonce mais permissiva para debug
     if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'faq_nonce')) {
-        error_log('FAQ AJAX - Erro de nonce');
-        // Temporariamente continuar mesmo com erro de nonce para debug
-        // wp_die('Erro de segurança');
+        wp_send_json_error('Erro de segurança');
+        wp_die();
+    }
+
+    if (!current_user_can('read')) {
+        wp_send_json_error('Permissão negada');
+        wp_die();
     }
 
     $term_id = intval($_POST['term_id']);
     
-    // Debug log
-    error_log('FAQ AJAX - Term ID recebido: ' . $term_id);
     
     if (!$term_id) {
-        error_log('FAQ AJAX - Term ID inválido');
         wp_send_json_error('ID do termo inválido');
         return;
     }
@@ -47,10 +45,6 @@ function agencia_aids_get_respostas_by_assunto() {
 
     $posts = get_posts($args);
     
-    // Debug logs
-    error_log('FAQ AJAX - Query args: ' . print_r($args, true));
-    error_log('FAQ AJAX - Posts encontrados: ' . count($posts));
-    
     if (empty($posts)) {
         wp_send_json_success('<p>Nenhuma resposta encontrada para este assunto.</p>');
         return;
@@ -59,8 +53,6 @@ function agencia_aids_get_respostas_by_assunto() {
     ob_start();
     
     foreach ($posts as $post) {
-        // Debug: verificar conteúdo do post
-        error_log('FAQ AJAX - Post ID: ' . $post->ID . ', Título: ' . $post->post_title . ', Conteúdo length: ' . strlen($post->post_content));
         ?>
         <details itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
             <summary itemprop="name"><?php echo esc_html($post->post_title); ?></summary>

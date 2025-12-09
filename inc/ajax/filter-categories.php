@@ -5,7 +5,7 @@ function agenciaaids_filter_posts() {
         wp_die('Erro de segurança');
     }
 
-    $year = sanitize_text_field($_POST['year']);
+    $year = isset($_POST['year']) ? sanitize_text_field($_POST['year']) : '';
     $month = sanitize_text_field($_POST['month']);
     $category = intval($_POST['category']);
     $current_category = intval($_POST['current_category']);

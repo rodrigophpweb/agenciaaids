@@ -10,6 +10,11 @@ require_once get_template_directory() . '/inc/setup-theme.php';
 require_once get_template_directory() . '/inc/style-scripts.php';
 
 // --------------------------------------------------
+// TTS Player - Text-to-Speech
+// --------------------------------------------------
+require_once get_template_directory() . '/inc/tts-player.php';
+
+// --------------------------------------------------
 // Helpers e funções utilitárias
 // --------------------------------------------------
 require_once get_template_directory() . '/inc/helpers.php';
