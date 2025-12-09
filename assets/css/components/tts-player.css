@@ -1,7 +1,7 @@
 /**
- * TTS Player - Text-to-Speech Player Styles (Versão Compacta)
+ * TTS Player - Text-to-Speech Player Styles (Versão Compacta com CSS Nesting)
  * @package AgenciaAids
- * @since 1.0.0
+ * @since 1.1.0
  * @author Rodrigo Vieira Eufrasio da Silva
  */
 
@@ -12,18 +12,22 @@
     margin: 20px 0;
     box-shadow: 0 2px 12px rgba(102, 126, 234, 0.25);
     transition: all 0.3s ease;
-}
 
-.tts-player:hover {
-    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.35);
-}
+    &:hover {
+        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.35);
+    }
 
-.tts-player.playing {
-    background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
-}
+    &.playing {
+        background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
 
-.tts-player.paused {
-    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        .tts-player-icon {
+            animation: tts-pulse 2s ease-in-out infinite;
+        }
+    }
+
+    &.paused {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
 }
 
 .tts-player-header {
@@ -76,27 +80,32 @@
     backdrop-filter: blur(10px);
     min-width: 32px;
     height: 32px;
-}
 
-.tts-btn:hover:not(:disabled) {
-    background: rgba(255, 255, 255, 0.3);
-    border-color: rgba(255, 255, 255, 0.5);
-    transform: translateY(-1px);
-}
+    &:hover:not(:disabled) {
+        background: rgba(255, 255, 255, 0.3);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-1px);
+    }
 
-.tts-btn:active:not(:disabled) {
-    transform: translateY(0);
-}
+    &:active:not(:disabled) {
+        transform: translateY(0);
+    }
 
-.tts-btn:disabled {
-    opacity: 0.4;
-    cursor: not-allowed;
-}
+    &:disabled {
+        opacity: 0.4;
+        cursor: not-allowed;
+    }
 
-.tts-btn svg {
-    width: 16px;
-    height: 16px;
-    fill: currentColor;
+    &:focus-visible {
+        outline: 2px solid rgba(255, 255, 255, 0.8);
+        outline-offset: 2px;
+    }
+
+    svg {
+        width: 16px;
+        height: 16px;
+        fill: currentColor;
+    }
 }
 
 #tts-pause {
@@ -120,37 +129,42 @@
     -webkit-appearance: none;
     appearance: none;
     cursor: pointer;
-}
 
-#tts-speed::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: white;
-    cursor: pointer;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease;
-}
+    &:focus-visible {
+        outline: 2px solid rgba(255, 255, 255, 0.8);
+        outline-offset: 2px;
+    }
 
-#tts-speed::-webkit-slider-thumb:hover {
-    transform: scale(1.15);
-}
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease;
 
-#tts-speed::-moz-range-thumb {
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    background: white;
-    cursor: pointer;
-    border: none;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-    transition: transform 0.2s ease;
-}
+        &:hover {
+            transform: scale(1.15);
+        }
+    }
 
-#tts-speed::-moz-range-thumb:hover {
-    transform: scale(1.15);
+    &::-moz-range-thumb {
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: white;
+        cursor: pointer;
+        border: none;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.15);
+        }
+    }
 }
 
 .tts-speed-value {
@@ -198,11 +212,11 @@
         min-width: 28px;
         height: 28px;
         padding: 5px;
-    }
 
-    .tts-btn svg {
-        width: 14px;
-        height: 14px;
+        svg {
+            width: 14px;
+            height: 14px;
+        }
     }
 
     .tts-speed-control {
@@ -245,11 +259,11 @@
         min-width: 26px;
         height: 26px;
         padding: 4px;
-    }
 
-    .tts-btn svg {
-        width: 12px;
-        height: 12px;
+        svg {
+            width: 12px;
+            height: 12px;
+        }
     }
 
     .tts-speed-control {
@@ -276,18 +290,7 @@
     }
 }
 
-/* Foco visível para acessibilidade */
-.tts-btn:focus-visible,
-#tts-speed:focus-visible {
-    outline: 2px solid rgba(255, 255, 255, 0.8);
-    outline-offset: 2px;
-}
-
 /* Animação de pulsação quando tocando */
-.tts-player.playing .tts-player-icon {
-    animation: tts-pulse 2s ease-in-out infinite;
-}
-
 @keyframes tts-pulse {
     0%, 100% {
         opacity: 1;

@@ -63,10 +63,17 @@
     }
 
     /**
-     * Extrai o texto do conteúdo da postagem
+     * Extrai o texto do conteúdo da postagem (article completo)
      */
     function extractContent() {
-        const contentElement = document.querySelector('.entry-content');
+        // Tentar pegar o article inteiro primeiro
+        let contentElement = document.querySelector('article');
+        
+        // Fallback para .entry-content se não encontrar article
+        if (!contentElement) {
+            contentElement = document.querySelector('.entry-content');
+        }
+        
         if (!contentElement) {
             statusText.textContent = 'Conteúdo não encontrado';
             return '';
@@ -76,7 +83,11 @@
         const clone = contentElement.cloneNode(true);
 
         // Remove elementos que não devem ser lidos
-        const elementsToRemove = clone.querySelectorAll('script, style, iframe, img, figure, .wp-caption');
+        const elementsToRemove = clone.querySelectorAll(
+            'script, style, iframe, img, figure, svg, ' +
+            '.wp-caption, .share-buttons, .post-thumbnail, ' +
+            '#tts-player, nav, .adsMobile'
+        );
         elementsToRemove.forEach(el => el.remove());
 
         // Pega apenas o texto
@@ -85,9 +96,9 @@
         // Limpa espaços múltiplos e quebras de linha
         text = text.replace(/\s+/g, ' ').trim();
         
-        // Limita a 5000 caracteres para não sobrecarregar
-        if (text.length > 5000) {
-            text = text.substring(0, 5000) + '...';
+        // Limita a 8000 caracteres (aumentado para artigos maiores)
+        if (text.length > 8000) {
+            text = text.substring(0, 8000) + '...';
         }
 
         return text;
