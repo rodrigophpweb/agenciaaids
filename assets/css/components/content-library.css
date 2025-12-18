@@ -5,19 +5,23 @@
     gap: 2rem;
 
     h1 {
-      font-weight: 900;
-      font-size: 2.25rem;
-      line-height: 2.875rem;
       color: var(--charlestonGreen);
+      background-color: var(--maize);
+      border-radius: .7rem;
+      width: fit-content;
+      margin-bottom: 1rem;
+      padding: 1rem;
+      font-size: 1.8rem;
     }
 
     header {
       box-shadow: none;
-      
+
       p {
-        font-size: 1rem;
+        text-align: justify;
+        margin: .7rem 0;
         font-weight: 300;
-        color: var(--charlestonGreen)
+        line-height: 1.7rem;
       }
     }
 
