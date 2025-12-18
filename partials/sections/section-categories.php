@@ -28,16 +28,15 @@
             <article class="card">
                 <a href="<?php echo esc_url(get_permalink()); ?>" class="card-link" aria-label="<?php echo esc_attr(get_the_title()); ?>">
                     <figure>
-                        <?php if (!has_post_thumbnail()) : ?>
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/backdrop-ag-aids-compress-web.webp'); ?>" 
-                                 alt="<?php echo esc_attr(get_the_title()); ?>" 
-                                 loading="lazy">
-                            
-                        <?php else : ?>
+                        <?php if (has_post_thumbnail()) : ?>
                             <?php the_post_thumbnail('thumbnail', [
                                 'loading' => 'lazy',
                                 'alt' => esc_attr(get_the_title())
                             ]); ?>
+                        <?php else : ?>
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/backdrop-ag-aids-compress-web.webp'); ?>" 
+                                 alt="<?php echo esc_attr(get_the_title()); ?>" 
+                                 loading="lazy">
                         <?php endif; ?>
                     </figure>
 
