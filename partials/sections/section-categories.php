@@ -30,14 +30,15 @@
                     <figure>
                         <?php 
                             $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
+                            $default_img = esc_url(get_template_directory_uri() . '/assets/images/backdrop-ag-aids-compress-web.webp');
                             if (has_post_thumbnail() && $thumbnail_url) : 
                         ?>
-                            <?php the_post_thumbnail('thumbnail', [
-                                'loading' => 'lazy',
-                                'alt' => esc_attr(get_the_title())
-                            ]); ?>
+                            <img src="<?php echo esc_url($thumbnail_url); ?>" 
+                                 alt="<?php echo esc_attr(get_the_title()); ?>" 
+                                 loading="lazy"
+                                 onerror="this.onerror=null; this.src='<?php echo $default_img; ?>';">
                         <?php else : ?>
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/backdrop-ag-aids-compress-web.webp'); ?>" 
+                            <img src="<?php echo $default_img; ?>" 
                                  alt="<?php echo esc_attr(get_the_title()); ?>" 
                                  loading="lazy">
                         <?php endif; ?>
