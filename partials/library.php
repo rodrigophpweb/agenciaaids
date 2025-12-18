@@ -1,39 +1,43 @@
 <section class="content-library paddingContent" itemscope itemtype="http://schema.org/Library">
-    <h1>Todos os livros</h1>
-    <p><?php the_excerpt(); ?></p>
+    <?php the_title('<h1 itemprop="name">', '</h1>', true); ?>
+
+    <header>
+        <?php the_content();?>
+    </header>
+    
     <article class="books" id="books-container">
         <?php
-        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-        $args = [
-            'post_type'         => 'bibliotecas',
-            'posts_per_page'    => 9,
-            'paged'             => $paged
-        ];
-        $books = new WP_Query($args);
-        if ($books->have_posts()) :
-            while ($books->have_posts()) :
-                $books->the_post();
-                ?>
+            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+            $args = [
+                'post_type'         => 'bibliotecas',
+                'posts_per_page'    => 9,
+                'paged'             => $paged
+            ];
+            $books = new WP_Query($args);
+            if ($books->have_posts()) :
+                while ($books->have_posts()) :
+                    $books->the_post();
+                    ?>
 
-                <figure itemscope itemtype="http://schema.org/Book">
-                    <?php if (has_post_thumbnail()) : ?>
-                        <?php the_post_thumbnail('thumbnail', ['itemprop' => 'image']); ?>
-                    <?php else : ?>
-                        <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/backdrop-ag-aids-compress-web.webp') ?>" alt="<?= esc_attr(get_the_title()) ?>" itemprop="image" loading="lazy">
-                    <?php endif; ?>
-                    <figcaption>
-                        <h2 itemprop="name"><?php the_title(); ?></h2>
-                        <span class="author" itemprop="author"><?= get_field('autor') ?></span>
-                        <span class="editor" itemprop="publisher"><?= get_field('editora') ?></span>
-                        <span class="excerpt" itemprop="description"><?php the_excerpt() ?></span>
-                        <a href="<?= esc_html(get_field('link')) ?>" target="_blank" rel="noopener noreferrer" itemprop="url">Visite o site da editora</a>
-                    </figcaption>
-                </figure>
+                    <figure itemscope itemtype="http://schema.org/Book">
+                        <?php if (has_post_thumbnail()) : ?>
+                            <?php the_post_thumbnail('thumbnail', ['itemprop' => 'image']); ?>
+                        <?php else : ?>
+                            <img src="<?= esc_url(get_template_directory_uri() . '/assets/images/backdrop-ag-aids-compress-web.webp') ?>" alt="<?= esc_attr(get_the_title()) ?>" itemprop="image" loading="lazy">
+                        <?php endif; ?>
+                        <figcaption>
+                            <h2 itemprop="name"><?php the_title(); ?></h2>
+                            <span class="author" itemprop="author"><?= get_field('autor') ?></span>
+                            <span class="editor" itemprop="publisher"><?= get_field('editora') ?></span>
+                            <span class="excerpt" itemprop="description"><?php the_excerpt() ?></span>
+                            <a href="<?= esc_html(get_field('link')) ?>" target="_blank" rel="noopener noreferrer" itemprop="url">Visite o site da editora</a>
+                        </figcaption>
+                    </figure>
 
-                <?php
-            endwhile;
-            wp_reset_postdata();
-        endif;
+                    <?php
+                endwhile;
+                wp_reset_postdata();
+            endif;
         ?>
     </article>
     <nav class="pagination" itemscope itemtype="http://schema.org/SiteNavigationElement">

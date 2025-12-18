@@ -11,10 +11,14 @@
       color: var(--charlestonGreen);
     }
 
-    p {
-      font-size: 1rem;
-      font-weight: 300;
-      color: var(--charlestonGreen)
+    header {
+      box-shadow: none;
+      
+      p {
+        font-size: 1rem;
+        font-weight: 300;
+        color: var(--charlestonGreen)
+      }
     }
 
     .books {
