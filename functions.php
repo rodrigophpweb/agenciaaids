@@ -35,6 +35,11 @@ require_once get_template_directory() . '/inc/register-menus.php';
 require_once get_template_directory() . '/inc/image-sizes.php';
 
 // --------------------------------------------------
+// Editor Theme
+// --------------------------------------------------
+require_once get_template_directory() . '/inc/editor-theme.php';
+
+// --------------------------------------------------
 // ACF - Campos personalizados e Opções do Tema
 // --------------------------------------------------
 if (function_exists('acf_add_options_page')) {
