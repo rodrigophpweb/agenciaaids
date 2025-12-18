@@ -28,7 +28,10 @@
             <article class="card">
                 <a href="<?php echo esc_url(get_permalink()); ?>" class="card-link" aria-label="<?php echo esc_attr(get_the_title()); ?>">
                     <figure>
-                        <?php if (has_post_thumbnail()) : ?>
+                        <?php 
+                            $thumbnail_url = get_the_post_thumbnail_url(get_the_ID(), 'thumbnail');
+                            if (has_post_thumbnail() && $thumbnail_url) : 
+                        ?>
                             <?php the_post_thumbnail('thumbnail', [
                                 'loading' => 'lazy',
                                 'alt' => esc_attr(get_the_title())
