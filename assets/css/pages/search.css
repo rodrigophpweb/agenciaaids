@@ -4,5 +4,5 @@
 @import '../components/adsMobile.css';
 @import '../components/section-search.css';
 @import '../components/partners.css';
-/* Seu código CSS existente */
+@import "../components/popup-cookies.css";
 @import '../components/footer.css';

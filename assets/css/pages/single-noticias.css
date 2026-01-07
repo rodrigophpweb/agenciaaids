@@ -5,5 +5,5 @@
 @import '../components/singleArticles.css';
 @import '../components/related-news.css';
 @import '../components/partners.css';
-/* Seu código CSS existente */
+@import "../components/popup-cookies.css";
 @import '../components/footer.css';
