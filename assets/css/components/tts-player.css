@@ -7,14 +7,14 @@
 
 .tts-player {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    border-radius: 8px;
-    padding: 12px 16px;
-    margin: 20px 0;
-    box-shadow: 0 2px 12px rgba(102, 126, 234, 0.25);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    margin: 1.25rem 0;
+    box-shadow: 0 0.125rem 0.75rem rgba(102, 126, 234, 0.25);
     transition: all 0.3s ease;
 
     &:hover {
-        box-shadow: 0 4px 16px rgba(102, 126, 234, 0.35);
+        box-shadow: 0 0.25rem 1rem rgba(102, 126, 234, 0.35);
     }
 
     &.playing {
@@ -33,20 +33,20 @@
 .tts-player-header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 0.625rem;
+    margin-bottom: 0.625rem;
 }
 
 .tts-player-icon {
-    width: 20px;
-    height: 20px;
+    width: 1.25rem;
+    height: 1.25rem;
     fill: white;
     flex-shrink: 0;
 }
 
 .tts-player-title {
     color: white;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-weight: 600;
     margin: 0;
     flex-grow: 1;
@@ -54,37 +54,37 @@
 
 .tts-player-status {
     color: rgba(255, 255, 255, 0.85);
-    font-size: 11px;
+    font-size: 0.6875rem;
     margin: 0;
     font-weight: 500;
 }
 
 .tts-player-controls {
     display: flex;
-    gap: 8px;
-    margin-bottom: 10px;
+    gap: 0.5rem;
+    margin-bottom: 0.625rem;
     align-items: center;
 }
 
 .tts-btn {
     background: rgba(255, 255, 255, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 0.0625rem solid rgba(255, 255, 255, 0.3);
     color: white;
-    padding: 6px;
-    border-radius: 6px;
+    padding: 0.375rem;
+    border-radius: 0.375rem;
     cursor: pointer;
     transition: all 0.2s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    backdrop-filter: blur(10px);
-    min-width: 32px;
-    height: 32px;
+    backdrop-filter: blur(0.625rem);
+    min-width: 2rem;
+    height: 2rem;
 
     &:hover:not(:disabled) {
         background: rgba(255, 255, 255, 0.3);
         border-color: rgba(255, 255, 255, 0.5);
-        transform: translateY(-1px);
+        transform: translateY(-0.0625rem);
     }
 
     &:active:not(:disabled) {
@@ -97,13 +97,13 @@
     }
 
     &:focus-visible {
-        outline: 2px solid rgba(255, 255, 255, 0.8);
-        outline-offset: 2px;
+        outline: 0.125rem solid rgba(255, 255, 255, 0.8);
+        outline-offset: 0.125rem;
     }
 
     svg {
-        width: 16px;
-        height: 16px;
+        width: 1rem;
+        height: 1rem;
         fill: currentColor;
     }
 }
@@ -115,15 +115,15 @@
 .tts-speed-control {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
     flex: 1;
-    margin-left: 8px;
+    margin-left: 0.5rem;
 }
 
 #tts-speed {
     flex: 1;
-    height: 4px;
-    border-radius: 2px;
+    height: 0.25rem;
+    border-radius: 0.125rem;
     outline: none;
     background: rgba(255, 255, 255, 0.3);
     -webkit-appearance: none;
@@ -131,19 +131,19 @@
     cursor: pointer;
 
     &:focus-visible {
-        outline: 2px solid rgba(255, 255, 255, 0.8);
-        outline-offset: 2px;
+        outline: 0.125rem solid rgba(255, 255, 255, 0.8);
+        outline-offset: 0.125rem;
     }
 
     &::-webkit-slider-thumb {
         -webkit-appearance: none;
         appearance: none;
-        width: 14px;
-        height: 14px;
+        width: 0.875rem;
+        height: 0.875rem;
         border-radius: 50%;
         background: white;
         cursor: pointer;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.2);
         transition: transform 0.2s ease;
 
         &:hover {
@@ -152,13 +152,13 @@
     }
 
     &::-moz-range-thumb {
-        width: 14px;
-        height: 14px;
+        width: 0.875rem;
+        height: 0.875rem;
         border-radius: 50%;
         background: white;
         cursor: pointer;
         border: none;
-        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 0.0625rem 0.25rem rgba(0, 0, 0, 0.2);
         transition: transform 0.2s ease;
 
         &:hover {
@@ -170,20 +170,20 @@
 .tts-speed-value {
     color: white;
     font-weight: 600;
-    font-size: 12px;
-    min-width: 32px;
+    font-size: 0.75rem;
+    min-width: 2rem;
     text-align: center;
     background: rgba(255, 255, 255, 0.2);
-    padding: 3px 6px;
-    border-radius: 4px;
+    padding: 0.1875rem 0.375rem;
+    border-radius: 0.25rem;
 }
 
 .tts-progress-container {
     background: rgba(255, 255, 255, 0.2);
-    height: 4px;
-    border-radius: 2px;
+    height: 0.25rem;
+    border-radius: 0.125rem;
     overflow: hidden;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(0.625rem);
 }
 
 .tts-progress-bar {
@@ -191,83 +191,83 @@
     background: white;
     width: 0%;
     transition: width 0.3s ease;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0.5rem rgba(255, 255, 255, 0.5);
 }
 
 /* Responsividade */
-@media (max-width: 768px) {
+@media (max-width: 48rem) {
     .tts-player {
-        padding: 10px 12px;
+        padding: 0.625rem 0.75rem;
     }
 
     .tts-player-title {
-        font-size: 13px;
+        font-size: 0.8125rem;
     }
 
     .tts-player-status {
-        font-size: 10px;
+        font-size: 0.625rem;
     }
 
     .tts-btn {
-        min-width: 28px;
-        height: 28px;
-        padding: 5px;
+        min-width: 1.75rem;
+        height: 1.75rem;
+        padding: 0.3125rem;
 
         svg {
-            width: 14px;
-            height: 14px;
+            width: 0.875rem;
+            height: 0.875rem;
         }
     }
 
     .tts-speed-control {
-        gap: 6px;
+        gap: 0.375rem;
     }
 
     .tts-speed-value {
-        font-size: 11px;
-        min-width: 28px;
-        padding: 2px 5px;
+        font-size: 0.6875rem;
+        min-width: 1.75rem;
+        padding: 0.125rem 0.3125rem;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 30rem) {
     .tts-player {
-        padding: 8px 10px;
-        border-radius: 6px;
+        padding: 0.5rem 0.625rem;
+        border-radius: 0.375rem;
     }
 
     .tts-player-header {
-        gap: 8px;
-        margin-bottom: 8px;
+        gap: 0.5rem;
+        margin-bottom: 0.5rem;
     }
 
     .tts-player-icon {
-        width: 18px;
-        height: 18px;
+        width: 1.125rem;
+        height: 1.125rem;
     }
 
     .tts-player-title {
-        font-size: 12px;
+        font-size: 0.75rem;
     }
 
     .tts-player-controls {
-        gap: 6px;
-        margin-bottom: 8px;
+        gap: 0.375rem;
+        margin-bottom: 0.5rem;
     }
 
     .tts-btn {
-        min-width: 26px;
-        height: 26px;
-        padding: 4px;
+        min-width: 1.625rem;
+        height: 1.625rem;
+        padding: 0.25rem;
 
         svg {
-            width: 12px;
-            height: 12px;
+            width: 0.75rem;
+            height: 0.75rem;
         }
     }
 
     .tts-speed-control {
-        margin-left: 4px;
+        margin-left: 0.25rem;
     }
 }
 

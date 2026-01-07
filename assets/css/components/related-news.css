@@ -16,30 +16,30 @@
         
         /* Acessibilidade - foco visível */
         &:focus-visible {
-            outline: 3px solid var(--color-focus, #0066cc);
-            outline-offset: 4px;
-            border-radius: 4px;
+            outline: 0.1875rem solid var(--color-focus, #0066cc);
+            outline-offset: 0.25rem;
+            border-radius: 0.25rem;
         }
     }
     
     /* Grid de artigos relacionados */
     .related-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
         gap: 2rem;
         width: 100%;
-        max-width: 1200px;
+        max-width: 75rem;
         margin: 0 auto;
         padding: 0 1rem;
         
         /* Responsividade para tablets */
-        @media (min-width: 768px) and (max-width: 1024px) {
+        @media (min-width: 48rem) and (max-width: 64rem) {
             grid-template-columns: repeat(2, 1fr);
             gap: 1.5rem;
         }
         
         /* Responsividade para mobile */
-        @media (max-width: 767px) {
+        @media (max-width: 47.9375rem) {
             grid-template-columns: 1fr;
             gap: 1.5rem;
         }
@@ -49,9 +49,9 @@
             display: flex;
             flex-direction: column;
             background-color: var(--card-background, #ffffff);
-            border-radius: 12px;
+            border-radius: 0.75rem;
             overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.08);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
             
@@ -62,15 +62,15 @@
             
             /* Hover - elevação do card */
             &:hover {
-                transform: translateY(-4px);
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+                transform: translateY(-0.25rem);
+                box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.12);
             }
             
             /* Focus within - quando qualquer elemento interno recebe foco */
             &:focus-within {
-                outline: 3px solid var(--color-focus, #0066cc);
-                outline-offset: 2px;
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+                outline: 0.1875rem solid var(--color-focus, #0066cc);
+                outline-offset: 0.125rem;
+                box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15);
             }
             
             /* Link principal do card */
@@ -87,9 +87,9 @@
                 
                 /* Indicador de foco via teclado */
                 &:focus-visible {
-                    outline: 2px solid var(--color-focus, #0066cc);
-                    outline-offset: -2px;
-                    border-radius: 12px 12px 0 0;
+                    outline: 0.125rem solid var(--color-focus, #0066cc);
+                    outline-offset: -0.125rem;
+                    border-radius: 0.75rem 0.75rem 0 0;
                 }
                 
                 /* Hover no link */
@@ -214,9 +214,9 @@
                 
                 /* Acessibilidade - foco visível */
                 &:focus-visible {
-                    outline: 2px solid var(--color-focus, #0066cc);
-                    outline-offset: 2px;
-                    border-radius: 4px;
+                    outline: 0.125rem solid var(--color-focus, #0066cc);
+                    outline-offset: 0.125rem;
+                    border-radius: 0.25rem;
                 }
             }
         }
@@ -232,10 +232,10 @@
         
         .related-grid .related-card {
             background-color: var(--card-background-dark, #2a2a2a);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3);
             
             &:hover {
-                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+                box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.5);
             }
             
             a h3 {
@@ -251,14 +251,14 @@
     /* Alto contraste para acessibilidade */
     @media (prefers-contrast: high) {
         .related-grid .related-card {
-            border: 2px solid var(--border-high-contrast, #000);
+            border: 0.125rem solid var(--border-high-contrast, #000);
             
             a:focus-visible {
-                outline-width: 3px;
+                outline-width: 0.1875rem;
             }
             
             &:focus-within {
-                outline-width: 4px;
+                outline-width: 0.25rem;
             }
         }
     }
@@ -279,7 +279,7 @@
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(1.875rem);
     }
     to {
         opacity: 1;
@@ -289,17 +289,17 @@
 
 /* Acessibilidade - foco visível global */
 *:focus-visible {
-    outline: 2px solid var(--color-focus, #0066cc);
-    outline-offset: 2px;
+    outline: 0.125rem solid var(--color-focus, #0066cc);
+    outline-offset: 0.125rem;
 }
 
 /* Melhorias para leitores de tela */
 .sr-only {
     position: absolute;
-    width: 1px;
-    height: 1px;
+    width: 0.0625rem;
+    height: 0.0625rem;
     padding: 0;
-    margin: -1px;
+    margin: -0.0625rem;
     overflow: hidden;
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
