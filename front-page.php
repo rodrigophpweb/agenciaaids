@@ -18,7 +18,6 @@
     get_template_part('partials/sections/section-ads');
     echo '</div>';
     get_template_part('partials/highlight', null, $highlight_args);
-    get_template_part('partials/doubt');
     
     // Seções principais com schema.org correto
     render_section('section-content-grid', [
@@ -37,25 +36,9 @@
         'itemprop_date'     => 'datePublished',
     ]);
 
-    get_template_part('partials/partners');
-
-    // render_section('section-content-grid', [
-    //     'section_id'        => 'articles',
-    //     'class'             => 'section-articles',
-    //     'title'             => 'Artigos',
-    //     'subtitle'          => 'Novos',
-    //     'post_type'         => 'artigos',
-    //     'highlight'         => 1,
-    //     'columns'           => 0,
-    //     'excerpt_length'    => 20,
-    //     'itemtype'          => 'https://schema.org/Article',
-    //     'itemprop_title'    => 'headline',
-    //     'itemprop_image'    => 'image',
-    //     'itemprop_excerpt'  => 'description',
-    //     'itemprop_date'     => 'datePublished',
-    // ]);
-
+    get_template_part('partials/doubt');
     get_template_part('partials/sections/section-highlight');
+    get_template_part('partials/partners');
 
     render_section('section-content-grid', [
         'section_id'        => 'tv-agencia-aids',
