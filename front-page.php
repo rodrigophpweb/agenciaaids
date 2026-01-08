@@ -19,8 +19,7 @@
     echo '</div>';
     get_template_part('partials/highlight', null, $highlight_args);
     get_template_part('partials/doubt');
-    get_template_part('partials/partners');
-
+    
     // Seções principais com schema.org correto
     render_section('section-content-grid', [
         'section_id'        => 'recent-news',
@@ -37,6 +36,8 @@
         'itemprop_excerpt'  => 'description',
         'itemprop_date'     => 'datePublished',
     ]);
+
+    get_template_part('partials/partners');
 
     // render_section('section-content-grid', [
     //     'section_id'        => 'articles',
