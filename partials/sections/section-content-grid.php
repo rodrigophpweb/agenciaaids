@@ -127,7 +127,7 @@ if (!($query instanceof WP_Query)) {
 
                                     <div class="post-info">
                                         <h3 itemprop="<?= esc_attr($args['itemprop_title']) ?>"><?= esc_html(get_the_title()) ?></h3>
-                                        <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?php echo esc_html(wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 15, '...')); ?></p>
+                                        <p itemprop="<?= esc_attr($args['itemprop_excerpt']) ?>"><?php echo esc_html(wp_trim_words(trim(str_replace(['&nbsp;', ' '], ' ', get_the_content())), 12, '...')); ?></p>
                                         <time datetime="<?= esc_attr(get_the_date('c')) ?>" itemprop="<?= esc_attr($args['itemprop_date']) ?>">
                                             <?= esc_html(get_the_date('d \d\e F \d\e Y')) ?>
                                         </time>

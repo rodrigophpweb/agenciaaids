@@ -159,7 +159,7 @@ section.paddingContent {
             }
 
             img {
-              object-fit: contain;
+              object-fit: cover;
               width: 100%;
               max-height: 9.375rem;
               display: block;
