@@ -337,7 +337,8 @@ section.paddingContent {
           color: inherit;
           gap: 2rem;
           width: 100%;
-          height: -webkit-fill-available;
+          align-items: stretch;
+          justify-content: center;
 
           figure {
             width: 100%;
