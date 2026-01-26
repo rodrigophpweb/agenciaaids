@@ -159,9 +159,9 @@ section.paddingContent {
             }
 
             img {
+              object-fit: contain;
               width: 100%;
-              height: auto;
-              object-fit: inherit;
+              max-height: 9.375rem;
               display: block;
 
               @media (max-width: 48rem) {
