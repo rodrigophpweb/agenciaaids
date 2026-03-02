@@ -69,12 +69,12 @@
                 $fonte = get_field('fonte');
                 if ($fonte):
             ?>
-                <footer class="entry-footer">
+                <div class="entry-footer">
                     <p class="post-source">
-                        <strong>Fonte:</strong>
+                        <strong>Fonte: </strong>
                         <span itemprop="sourceOrganization"><?= esc_html($fonte); ?></span>
                     </p>
-                </footer>
+                </div>
             <?php endif; ?>
 
             <div class="share-buttons">
