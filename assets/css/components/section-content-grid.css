@@ -238,6 +238,7 @@ section.paddingContent {
         text-decoration: none;
         color: inherit;
         display: flex;
+        align-items: flex-start;
         
         @media screen {
           @media (max-width: 48rem) {
@@ -246,10 +247,17 @@ section.paddingContent {
         }
 
         figure {
+          flex: 0 0 45%;
           width: 100%;
           aspect-ratio: 16 / 9;
           overflow: hidden;
           padding: 1rem;
+
+          @media screen {
+            @media (max-width: 48rem) {
+              flex-basis: auto;
+            }
+          }
 
           img {
             border-radius: 0.5rem;
@@ -261,6 +269,8 @@ section.paddingContent {
         }
 
         .post-info {
+          flex: 1;
+          min-width: 0;
           padding: 1rem;
           display: flex;
           flex-direction: column;
